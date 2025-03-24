@@ -1,0 +1,1437 @@
+{
+  "name": "registro",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ejpyeHMPyRuPjwM3iib6kc",
+    "node": "169:22",
+    "version": "2198932657539230741",
+    "component-id": "dc394b80c44feaa7b6daadf828f841d86cea0426"
+  },
+  "default": "Registro",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "buttom Bar"
+      },
+      {
+        "type": "text",
+        "id": "lblRegistro"
+      },
+      {
+        "type": "text",
+        "id": "lblValidacionINE"
+      },
+      {
+        "type": "vector",
+        "id": "btnReturn"
+      },
+      {
+        "type": "group",
+        "id": "Status Bar"
+      },
+      {
+        "type": "group",
+        "id": "txtCURP"
+      },
+      {
+        "type": "group",
+        "id": "txtCorreo"
+      },
+      {
+        "type": "group",
+        "id": "txtContrasena"
+      },
+      {
+        "type": "group",
+        "id": "btnRegistrar"
+      },
+      {
+        "type": "group",
+        "id": "btnReadINE"
+      },
+      {
+        "type": "group",
+        "id": "chkValid"
+      },
+      {
+        "type": "vector",
+        "id": "Polygon 1"
+      },
+      {
+        "type": "vector",
+        "id": "Ellipse 1"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 1"
+      },
+      {
+        "type": "group",
+        "id": "Right Side"
+      },
+      {
+        "type": "group",
+        "id": "Left Side"
+      },
+      {
+        "type": "group",
+        "id": "Battery"
+      },
+      {
+        "type": "group",
+        "id": "Recording Indicator"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle"
+      },
+      {
+        "type": "vector",
+        "id": "Combined Shape"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle1"
+      },
+      {
+        "type": "vector",
+        "id": "Indicator"
+      },
+      {
+        "type": "group",
+        "id": "Time"
+      },
+      {
+        "type": "vector",
+        "id": "9:41"
+      },
+      {
+        "type": "vector",
+        "id": "recCurp"
+      },
+      {
+        "type": "text",
+        "id": "CURP"
+      },
+      {
+        "type": "vector",
+        "id": "recCorreo"
+      },
+      {
+        "type": "text",
+        "id": "CURP1"
+      },
+      {
+        "type": "vector",
+        "id": "recContrasena"
+      },
+      {
+        "type": "text",
+        "id": "CURP2"
+      },
+      {
+        "type": "vector",
+        "id": "recRegistrar"
+      },
+      {
+        "type": "text",
+        "id": "Registrar"
+      },
+      {
+        "type": "vector",
+        "id": "recReadINE"
+      },
+      {
+        "type": "text",
+        "id": "INE"
+      },
+      {
+        "type": "group",
+        "id": "Checkbox and Label"
+      },
+      {
+        "type": "group",
+        "id": "Description Row"
+      },
+      {
+        "type": "group",
+        "id": "Checkbox"
+      },
+      {
+        "type": "text",
+        "id": "Label"
+      },
+      {
+        "type": "group",
+        "id": "Check"
+      },
+      {
+        "type": "vector",
+        "id": "Icon"
+      },
+      {
+        "type": "group",
+        "id": "Space"
+      },
+      {
+        "type": "text",
+        "id": "Description"
+      }
+    ],
+    "modes": {
+      "Registro": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "buttom Bar",
+              "lblRegistro",
+              "lblValidacionINE",
+              "btnReturn",
+              "Status Bar",
+              "txtCURP",
+              "txtCorreo",
+              "txtContrasena",
+              "btnRegistrar",
+              "btnReadINE",
+              "chkValid"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "buttom Bar",
+            "presence": false,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 873.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Polygon 1",
+              "Ellipse 1",
+              "Rectangle 1"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 183.48837209302326,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "lblRegistro",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -378.5
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "Registro",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 40.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "lblValidacionINE",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -82.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 132.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "Validacion INE",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 24.0,
+            "line-height": 1.2999999523162842,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "btnReturn",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -171.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -395.864013671875
+              }
+            },
+            "tap-handler": "$btnReturnClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 24.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 0.0
+              }
+            },
+            "vector-content": "btn_return.svg"
+          },
+          {
+            "id": "Status Bar",
+            "presence": false,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Right Side",
+              "Left Side"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "txtCURP",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 45.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 167.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recCurp",
+              "CURP"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "txtCorreo",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 45.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 265.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recCorreo",
+              "CURP1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "txtContrasena",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 48.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 364.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recContrasena",
+              "CURP2"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "btnRegistrar",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 56.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 664.0
+              }
+            },
+            "tap-handler": "$btnRegistrarClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recRegistrar",
+              "Registrar"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "btnReadINE",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 64.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 472.0
+              }
+            },
+            "tap-handler": "$btnReadINEClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recReadINE",
+              "INE"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "chkValid",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 102.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 132.5
+              }
+            },
+            "tap-handler": "$chkValidCheck",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 134.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 24.0
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Checkbox and Label",
+              "Description Row"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Polygon 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 298.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Ellipse 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 193.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Rectangle 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 88.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Right Side",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 330.66650390625
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 17.3310546875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 66.66152954101562
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.336262702941895
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Battery",
+              "Recording Indicator"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Left Side",
+            "border-radius": 32.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 21.000030517578125
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 12.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 21.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Time"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Battery",
+            "margin": {
+              "left": 42.33349609375,
+              "top": 0.0029296875
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle",
+              "Combined Shape",
+              "Rectangle1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Recording Indicator",
+            "presence": false,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 4.33349609375
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": -9.3310546875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Indicator"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle",
+            "border-radius": 2.6666667461395264,
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": -2.3280372619628906
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 22.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.333333015441895
+              }
+            }
+          },
+          {
+            "id": "Combined Shape",
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": 7.152557373046875e-7
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 3.6669921875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 1.328037977218628
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 4.0
+              }
+            }
+          },
+          {
+            "id": "Rectangle1",
+            "border-radius": 1.3333333730697632,
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": -4.328037261962891
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 2.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 18.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 7.333333492279053
+              }
+            }
+          },
+          {
+            "id": "Indicator",
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              }
+            }
+          },
+          {
+            "id": "Time",
+            "border-radius": 32.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 21.0
+              }
+            },
+            "stroke-alignment": "center",
+            "is-structured": false,
+            "children": [
+              "9:41"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "9:41",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 12.45361328125
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 5.16796875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 28.42616844177246
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.0888671875
+              }
+            }
+          },
+          {
+            "id": "recCurp",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "vector-content": "rec_curp.svg"
+          },
+          {
+            "id": "CURP",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -114.04651069641113
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -0.1307077407836914
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 59.906978607177734
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 25.738584518432617
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "CURP",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recCorreo",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "vector-content": "rec_correo.svg"
+          },
+          {
+            "id": "CURP1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -50.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -11.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 187.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 22.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "Correo electronico",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recContrasena",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "vector-content": "rec_contrasena.svg"
+          },
+          {
+            "id": "CURP2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -83.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -0.3537883758544922
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 117.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 43.292423248291016
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "Contraseña",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recRegistrar",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rec_registrar.svg"
+          },
+          {
+            "id": "Registrar",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -0.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Registrar",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recReadINE",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rec_read_ine.svg"
+          },
+          {
+            "id": "INE",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 136.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 8.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "INE",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "Checkbox and Label",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "children": [
+              "Checkbox",
+              "Label"
+            ],
+            "item-spacing": 12.0,
+            "clip-content": false
+          },
+          {
+            "id": "Description Row",
+            "presence": false,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "children": [
+              "Space",
+              "Description"
+            ],
+            "item-spacing": 12.0,
+            "clip-content": false
+          },
+          {
+            "id": "Checkbox",
+            "border-radius": 4.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "Check"
+            ],
+            "item-spacing": 10.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.17254901960784313
+            }
+          },
+          {
+            "id": "Label",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "VALIDADO",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.4,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "Check",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Icon"
+            ]
+          },
+          {
+            "id": "Icon",
+            "margin": {
+              "left": 2.666656494140625,
+              "top": 4.0,
+              "right": 2.666677474975586,
+              "bottom": 4.6666669845581055
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -0.79998779296875
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": -0.800048828125
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "icon.svg"
+          },
+          {
+            "id": "Space",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              }
+            },
+            "is-structured": false
+          },
+          {
+            "id": "Description",
+            "presence": false,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.4588235294117647
+            },
+            "text-content": "Description",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 16.0,
+            "line-height": 1.4,
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "btnReturnClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "btnRegistrarClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "btnReadINEClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "chkValidCheck": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Registro",
+      "size": {
+        "width": 412.0,
+        "height": 917.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

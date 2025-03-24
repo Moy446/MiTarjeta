@@ -1,0 +1,1203 @@
+{
+  "name": "login",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ejpyeHMPyRuPjwM3iib6kc",
+    "node": "162:12",
+    "version": "2198932657539230741",
+    "component-id": "9bfc8b842d6abdf604e45e905f484475b8f07dab"
+  },
+  "default": "Login",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "btnIngresar"
+      },
+      {
+        "type": "image",
+        "id": "MiTarjeta Logo"
+      },
+      {
+        "type": "group",
+        "id": "Status Bar"
+      },
+      {
+        "type": "text",
+        "id": "¿Olvidaste tu contraseña?"
+      },
+      {
+        "type": "group",
+        "id": "btnQR"
+      },
+      {
+        "type": "text",
+        "id": "Recordar usuario"
+      },
+      {
+        "type": "group",
+        "id": "buttom Bar"
+      },
+      {
+        "type": "group",
+        "id": "Contrasena"
+      },
+      {
+        "type": "group",
+        "id": "Curp"
+      },
+      {
+        "type": "group",
+        "id": "Checkbox"
+      },
+      {
+        "type": "group",
+        "id": "btnRegister"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 2"
+      },
+      {
+        "type": "text",
+        "id": "Ingresar"
+      },
+      {
+        "type": "group",
+        "id": "Right Side"
+      },
+      {
+        "type": "group",
+        "id": "Left Side"
+      },
+      {
+        "type": "group",
+        "id": "Battery"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle"
+      },
+      {
+        "type": "vector",
+        "id": "Combined Shape"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle1"
+      },
+      {
+        "type": "group",
+        "id": "Time"
+      },
+      {
+        "type": "vector",
+        "id": "9:41"
+      },
+      {
+        "type": "vector",
+        "id": "btnQR-color"
+      },
+      {
+        "type": "group",
+        "id": "qrcode-solid 1"
+      },
+      {
+        "type": "vector",
+        "id": "Vector"
+      },
+      {
+        "type": "vector",
+        "id": "triangle"
+      },
+      {
+        "type": "vector",
+        "id": "circle"
+      },
+      {
+        "type": "vector",
+        "id": "square"
+      },
+      {
+        "type": "vector",
+        "id": "recContrasena"
+      },
+      {
+        "type": "text",
+        "id": "lblContrasena"
+      },
+      {
+        "type": "vector",
+        "id": "recCurp"
+      },
+      {
+        "type": "text",
+        "id": "lblCurp"
+      },
+      {
+        "type": "group",
+        "id": "Check"
+      },
+      {
+        "type": "vector",
+        "id": "Icon"
+      },
+      {
+        "type": "vector",
+        "id": "recRegistar"
+      },
+      {
+        "type": "text",
+        "id": "Registrar"
+      }
+    ],
+    "modes": {
+      "Login": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "btnIngresar",
+              "MiTarjeta Logo",
+              "Status Bar",
+              "¿Olvidaste tu contraseña?",
+              "btnQR",
+              "Recordar usuario",
+              "buttom Bar",
+              "Contrasena",
+              "Curp",
+              "Checkbox",
+              "btnRegister"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "btnIngresar",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 56.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 613.0
+              }
+            },
+            "tap-handler": "$btnIngresarClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 2",
+              "Ingresar"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "MiTarjeta Logo",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 10.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -198.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 432.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 432.0
+              }
+            },
+            "image-content": "mi_tarjeta_logo.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Status Bar",
+            "presence": false,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -436.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Right Side",
+              "Left Side"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "¿Olvidaste tu contraseña?",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 374.5
+              }
+            },
+            "tap-handler": "$txtForgotPassClick",
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "¿Olvidaste tu contraseña?",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "btnQR",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 176.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 732.0
+              }
+            },
+            "tap-handler": "$btnReadQRClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 60.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 60.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "btnQR-color",
+              "qrcode-solid 1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Recordar usuario",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 132.5
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "Recordar usuario",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "buttom Bar",
+            "presence": false,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 436.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "triangle",
+              "circle",
+              "square"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 183.48837209302326,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "Contrasena",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 45.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 491.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recContrasena",
+              "lblContrasena"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Curp",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 45.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 377.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recCurp",
+              "lblCurp"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Checkbox",
+            "border-radius": 4.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -102.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 133.5
+              }
+            },
+            "tap-handler": "$chkUserCheck",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "Check"
+            ],
+            "item-spacing": 10.0,
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.17254901960784313
+            }
+          },
+          {
+            "id": "btnRegister",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.5
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 672.0
+              }
+            },
+            "tap-handler": "$btnRegisterClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 60.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recRegistar",
+              "Registrar"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 2",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rectangle_2.svg"
+          },
+          {
+            "id": "Ingresar",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Ingresar",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "Right Side",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 330.66650390625
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 17.3310546875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 66.66152954101562
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.336262702941895
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Battery"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Left Side",
+            "border-radius": 32.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 21.000022888183594
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 12.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 21.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Time"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Battery",
+            "margin": {
+              "left": 42.33349609375,
+              "top": 0.0029296875
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle",
+              "Combined Shape",
+              "Rectangle1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle",
+            "border-radius": 2.6666667461395264,
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": -2.3280372619628906
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 22.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.333333015441895
+              }
+            }
+          },
+          {
+            "id": "Combined Shape",
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": 7.152557373046875e-7
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 3.6669921875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 1.328037977218628
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 4.0
+              }
+            }
+          },
+          {
+            "id": "Rectangle1",
+            "border-radius": 1.3333333730697632,
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": -4.328037261962891
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 2.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 18.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 7.333333492279053
+              }
+            }
+          },
+          {
+            "id": "Time",
+            "border-radius": 32.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 21.0
+              }
+            },
+            "stroke-alignment": "center",
+            "is-structured": false,
+            "children": [
+              "9:41"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "9:41",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 12.45361328125
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 5.16796875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 28.42616844177246
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.0888671875
+              }
+            }
+          },
+          {
+            "id": "btnQR-color",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 60.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 60.0
+              }
+            },
+            "vector-content": "btn_qr_color.svg"
+          },
+          {
+            "id": "qrcode-solid 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Vector"
+            ]
+          },
+          {
+            "id": "Vector",
+            "margin": {
+              "top": 2.5,
+              "bottom": 2.5
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "vector.svg"
+          },
+          {
+            "id": "triangle",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 298.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "circle",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 193.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "square",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 88.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "recContrasena",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "vector-content": "rec_contrasena.svg"
+          },
+          {
+            "id": "lblContrasena",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -85.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 5.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 121.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 30.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "Contraseña",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.2102272033691406,
+            "typeface": "Inter"
+          },
+          {
+            "id": "recCurp",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "vector-content": "rec_curp.svg"
+          },
+          {
+            "id": "lblCurp",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -124.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -3.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "Curp",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "Check",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 16.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Icon"
+            ]
+          },
+          {
+            "id": "Icon",
+            "margin": {
+              "left": 2.6666641235351562,
+              "top": 4.0,
+              "right": 2.6666698455810547,
+              "bottom": 4.6666669845581055
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -0.8000030517578125
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": -0.79998779296875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "icon.svg"
+          },
+          {
+            "id": "recRegistar",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rec_registar.svg"
+          },
+          {
+            "id": "Registrar",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 3.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 4.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Registrar\n",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "btnIngresarClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "txtForgotPassClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "btnReadQRClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "chkUserCheck": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "btnRegisterClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Login",
+      "size": {
+        "width": 412.0,
+        "height": 917.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

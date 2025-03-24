@@ -1,0 +1,993 @@
+{
+  "name": "vinculacion",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ejpyeHMPyRuPjwM3iib6kc",
+    "node": "169:25",
+    "version": "2198932657539230741",
+    "component-id": "09d8ad79228f09374fb2beca1bcc89e130b3d42c"
+  },
+  "default": "Vinculacion",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "buttom Bar"
+      },
+      {
+        "type": "vector",
+        "id": "btnReturn"
+      },
+      {
+        "type": "group",
+        "id": "txtUID"
+      },
+      {
+        "type": "text",
+        "id": "Vinculacion"
+      },
+      {
+        "type": "group",
+        "id": "btnRFID"
+      },
+      {
+        "type": "group",
+        "id": "btnQR"
+      },
+      {
+        "type": "group",
+        "id": "btnVincular"
+      },
+      {
+        "type": "group",
+        "id": "Menu"
+      },
+      {
+        "type": "image",
+        "id": "MI_TARJETA-removebg-preview 2"
+      },
+      {
+        "type": "vector",
+        "id": "Polygon 1"
+      },
+      {
+        "type": "vector",
+        "id": "Ellipse 1"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 1"
+      },
+      {
+        "type": "vector",
+        "id": "recUID"
+      },
+      {
+        "type": "text",
+        "id": "UID de tarjeta mi pasaje"
+      },
+      {
+        "type": "vector",
+        "id": "recRFID"
+      },
+      {
+        "type": "text",
+        "id": "RFID"
+      },
+      {
+        "type": "vector",
+        "id": "recQR"
+      },
+      {
+        "type": "text",
+        "id": "QR"
+      },
+      {
+        "type": "vector",
+        "id": "recVincular"
+      },
+      {
+        "type": "text",
+        "id": "Vincular"
+      }
+    ],
+    "modes": {
+      "Vinculacion": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "buttom Bar",
+              "btnReturn",
+              "txtUID",
+              "Vinculacion",
+              "btnRFID",
+              "btnQR",
+              "btnVincular",
+              "Menu",
+              "MI_TARJETA-removebg-preview 2"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "buttom Bar",
+            "presence": false,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 873.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Polygon 1",
+              "Ellipse 1",
+              "Rectangle 1"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 183.48837209302326,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "btnReturn",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -171.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -395.864013671875
+              }
+            },
+            "tap-handler": "$btnReturnClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 24.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 0.0
+              }
+            },
+            "vector-content": "btn_return.svg"
+          },
+          {
+            "id": "txtUID",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 44.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 137.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recUID",
+              "UID de tarjeta mi pasaje"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Vinculacion",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -0.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -367.5
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "Vinculacion",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-align-vertical": "center",
+            "text-size": 40.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "btnRFID",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 44.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 249.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 150.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recRFID",
+              "RFID"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "btnQR",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 216.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 249.0
+              }
+            },
+            "tap-handler": "$btnQRClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 150.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recQR",
+              "QR"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "btnVincular",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 44.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 358.0
+              }
+            },
+            "tap-handler": "$btnVincularClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recVincular",
+              "Vincular"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Menu",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 382.5
+              }
+            },
+            "tap-handler": "$MenuSelected",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 64.0
+              }
+            },
+            "is-structured": false,
+            "children": "$MenuChildren",
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 183.48837209302326,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "MI_TARJETA-removebg-preview 2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 141.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 400.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 400.0
+              }
+            },
+            "image-content": "mi_tarjeta_removebg_preview_2.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Polygon 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 298.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Ellipse 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 193.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Rectangle 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 88.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "recUID",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 72.0
+              }
+            },
+            "vector-content": "rec_uid.svg"
+          },
+          {
+            "id": "UID de tarjeta mi pasaje",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -18.255813598632812
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.48285865783691406
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 237.48837280273438
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.57143020629883
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "UID de tarjeta mi pasaje",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recRFID",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "tap-handler": "$recRFIDClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 150.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              }
+            },
+            "vector-content": "rec_rfid.svg"
+          },
+          {
+            "id": "RFID",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 17.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0000514984130859375
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 79.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 33.42856979370117
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "RFID",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recQR",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 150.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              }
+            },
+            "vector-content": "rec_qr.svg"
+          },
+          {
+            "id": "QR",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 1.863356590270996
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0000514984130859375
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 28.881986618041992
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 33.42856979370117
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "QR",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recVincular",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 322.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rec_vincular.svg"
+          },
+          {
+            "id": "Vincular",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -1.8837203979492188
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 80.23255920410156
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Vincular",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "btnReturnClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "btnQRClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "btnVincularClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "MenuChildren": {
+      "data-type": "list-item",
+      "required": false,
+      "description": ""
+    },
+    "MenuSelected": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "recRFIDClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Vinculacion",
+      "size": {
+        "width": 412.0,
+        "height": 917.0
+      },
+      "parameters": {
+        "MenuChildren": [
+          {
+            "type": "group",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 29.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 7.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 354.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 50.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              {
+                "type": "group",
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  }
+                },
+                "is-structured": false,
+                "children": [
+                  {
+                    "type": "vector",
+                    "margin": {
+                      "left": 1.392578125,
+                      "top": 2.03564453125,
+                      "right": 1.3925819396972656,
+                      "bottom": 2.0356063842773438
+                    },
+                    "size-constraints": {
+                      "width-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      },
+                      "height-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      }
+                    },
+                    "vector-content": "vector.svg"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": 304.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": 0.0
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  }
+                },
+                "is-structured": false,
+                "children": [
+                  {
+                    "type": "vector",
+                    "margin": {
+                      "top": 0.0045166015625
+                    },
+                    "size-constraints": {
+                      "width-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      },
+                      "height-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      }
+                    },
+                    "vector-content": "vector1.svg"
+                  }
+                ]
+              },
+              {
+                "type": "vector",
+                "margin": {
+                  "left": 101.0,
+                  "right": 203.0
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  }
+                },
+                "vector-content": "home.svg"
+              },
+              {
+                "type": "vector",
+                "margin": {
+                  "left": 202.0,
+                  "right": 102.0
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  }
+                },
+                "vector-content": "citas.svg"
+              }
+            ],
+            "clip-content": false
+          }
+        ]
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
