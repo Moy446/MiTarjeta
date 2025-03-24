@@ -1,0 +1,2523 @@
+{
+  "name": "recarga_deposito",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ejpyeHMPyRuPjwM3iib6kc",
+    "node": "169:21",
+    "version": "2198932657539230741",
+    "component-id": "149a6d348aff2e98eca7c2a5f92f29973e4ed7d9"
+  },
+  "default": "Recarga - deposito",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "Menu"
+      },
+      {
+        "type": "group",
+        "id": "buttom Bar"
+      },
+      {
+        "type": "group",
+        "id": "Status Bar"
+      },
+      {
+        "type": "vector",
+        "id": "btnReturn"
+      },
+      {
+        "type": "text",
+        "id": "Pago"
+      },
+      {
+        "type": "text",
+        "id": "llena los siguientes recuadros"
+      },
+      {
+        "type": "group",
+        "id": "btnPagar"
+      },
+      {
+        "type": "group",
+        "id": "txtUID"
+      },
+      {
+        "type": "group",
+        "id": "Payment"
+      },
+      {
+        "type": "group",
+        "id": "Payload"
+      },
+      {
+        "type": "group",
+        "id": "Monto"
+      },
+      {
+        "type": "vector",
+        "id": "Polygon 1"
+      },
+      {
+        "type": "vector",
+        "id": "Ellipse 1"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 1"
+      },
+      {
+        "type": "group",
+        "id": "Right Side"
+      },
+      {
+        "type": "group",
+        "id": "Left Side"
+      },
+      {
+        "type": "group",
+        "id": "Battery"
+      },
+      {
+        "type": "group",
+        "id": "Recording Indicator"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle"
+      },
+      {
+        "type": "vector",
+        "id": "Combined Shape"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle1"
+      },
+      {
+        "type": "vector",
+        "id": "Indicator"
+      },
+      {
+        "type": "group",
+        "id": "Time"
+      },
+      {
+        "type": "vector",
+        "id": "9:41"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 2"
+      },
+      {
+        "type": "text",
+        "id": "Pagar"
+      },
+      {
+        "type": "vector",
+        "id": "recUID"
+      },
+      {
+        "type": "text",
+        "id": "UID de tarjeta mi pasaje"
+      },
+      {
+        "type": "group",
+        "id": "txtNumCard"
+      },
+      {
+        "type": "group",
+        "id": "txtTitular"
+      },
+      {
+        "type": "group",
+        "id": "txtCVV"
+      },
+      {
+        "type": "group",
+        "id": "btnAddCard"
+      },
+      {
+        "type": "group",
+        "id": "txtExpiracion"
+      },
+      {
+        "type": "image",
+        "id": "imagen_2025-03-10_213416655"
+      },
+      {
+        "type": "image",
+        "id": "imagen_2025-03-10_213459450"
+      },
+      {
+        "type": "vector",
+        "id": "recNumCard"
+      },
+      {
+        "type": "text",
+        "id": "Numeros de la tarjeta"
+      },
+      {
+        "type": "vector",
+        "id": "recTitular"
+      },
+      {
+        "type": "text",
+        "id": "Titular de la tarjeta"
+      },
+      {
+        "type": "vector",
+        "id": "recCVV"
+      },
+      {
+        "type": "text",
+        "id": "CVV"
+      },
+      {
+        "type": "vector",
+        "id": "recAddCard"
+      },
+      {
+        "type": "text",
+        "id": "Agregar Tarjeta"
+      },
+      {
+        "type": "vector",
+        "id": "recExpiracion"
+      },
+      {
+        "type": "text",
+        "id": "Fecha de expiracion"
+      },
+      {
+        "type": "group",
+        "id": "subtotal"
+      },
+      {
+        "type": "group",
+        "id": "Total"
+      },
+      {
+        "type": "group",
+        "id": "impuestos"
+      },
+      {
+        "type": "text",
+        "id": "lblSubtotal"
+      },
+      {
+        "type": "text",
+        "id": "$ 100"
+      },
+      {
+        "type": "text",
+        "id": "lblTotal"
+      },
+      {
+        "type": "text",
+        "id": "$ 98"
+      },
+      {
+        "type": "text",
+        "id": "lblImpuestos"
+      },
+      {
+        "type": "text",
+        "id": "$ 2"
+      }
+    ],
+    "modes": {
+      "Recarga - deposito": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Menu",
+              "buttom Bar",
+              "Status Bar",
+              "btnReturn",
+              "Pago",
+              "llena los siguientes recuadros",
+              "btnPagar",
+              "txtUID",
+              "Payment",
+              "Payload",
+              "Monto"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "Menu",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 382.5
+              }
+            },
+            "tap-handler": "$MenuClick ",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 64.0
+              }
+            },
+            "is-structured": false,
+            "children": "$MenuChildren",
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 183.48837209302326,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "buttom Bar",
+            "presence": false,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 873.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Polygon 1",
+              "Ellipse 1",
+              "Rectangle 1"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 183.48837209302326,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "Status Bar",
+            "presence": false,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 44.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Right Side",
+              "Left Side"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "btnReturn",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -171.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -395.8639602661133
+              }
+            },
+            "tap-handler": "$btnReturnClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 24.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 0.0
+              }
+            },
+            "vector-content": "btn_return.svg"
+          },
+          {
+            "id": "Pago",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -388.5
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "Pago",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 40.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "llena los siguientes recuadros",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -335.5
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "llena los siguientes recuadros",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "btnPagar",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": 0.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 56.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 748.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle 2",
+              "Pagar"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "txtUID",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 56.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 163.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 312.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recUID",
+              "UID de tarjeta mi pasaje"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Payment",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 69.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 216.0
+              }
+            },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 151.81208053691276,
+              "saturation": 0.6535087719298246,
+              "value": 0.8941176470588236
+            },
+            "is-structured": false,
+            "children": [
+              "txtNumCard",
+              "txtTitular",
+              "txtCVV",
+              "btnAddCard",
+              "txtExpiracion",
+              "imagen_2025-03-10_213416655",
+              "imagen_2025-03-10_213459450"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 163.95348837209303,
+              "saturation": 0.4971098265895954,
+              "value": 0.6784313725490196
+            }
+          },
+          {
+            "id": "Payload",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 226.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              }
+            },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 151.81208053691276,
+              "saturation": 0.6535087719298246,
+              "value": 0.8941176470588236
+            },
+            "is-structured": false,
+            "children": [
+              "subtotal",
+              "Total",
+              "impuestos"
+            ]
+          },
+          {
+            "id": "Monto",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -136.5
+              }
+            },
+            "tap-handler": "$MontoClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 412.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 198.0
+              }
+            },
+            "stroke-width": 1.0,
+            "stroke-color": {
+              "alpha": 1.0,
+              "hue": 151.81208053691276,
+              "saturation": 0.6535087719298246,
+              "value": 0.8941176470588236
+            },
+            "is-structured": false,
+            "children": "$MontoChildren"
+          },
+          {
+            "id": "Polygon 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 298.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Ellipse 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 193.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Rectangle 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 88.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 27.0
+              }
+            }
+          },
+          {
+            "id": "Right Side",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 330.66650390625
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 17.3310546875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 66.66152954101562
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.336262702941895
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Battery",
+              "Recording Indicator"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Left Side",
+            "border-radius": 32.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 21.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 12.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 21.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Time"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Battery",
+            "margin": {
+              "left": 42.33349609375,
+              "top": 0.0029296875
+            },
+            "is-structured": false,
+            "children": [
+              "Rectangle",
+              "Combined Shape",
+              "Rectangle1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Recording Indicator",
+            "presence": false,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 4.33349609375
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": -9.3310546875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "Indicator"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle",
+            "border-radius": 2.6666667461395264,
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": -2.3280372619628906
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 22.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.333333015441895
+              }
+            }
+          },
+          {
+            "id": "Combined Shape",
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": 7.152557373046875e-7
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 3.6669921875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 1.328037977218628
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 4.0
+              }
+            }
+          },
+          {
+            "id": "Rectangle1",
+            "border-radius": 1.3333333730697632,
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": -4.328037261962891
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 2.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 18.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 7.333333492279053
+              }
+            }
+          },
+          {
+            "id": "Indicator",
+            "alignment": {
+              "horizontal": {
+                "attachment": "end",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 6.0
+              }
+            }
+          },
+          {
+            "id": "Time",
+            "border-radius": 32.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 54.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 21.0
+              }
+            },
+            "stroke-alignment": "center",
+            "is-structured": false,
+            "children": [
+              "9:41"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "9:41",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 12.45361328125
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 5.16796875
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 28.42616844177246
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 11.0888671875
+              }
+            }
+          },
+          {
+            "id": "Rectangle 2",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 301.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rectangle_2.svg"
+          },
+          {
+            "id": "Pagar",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 1.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "Pagar",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recUID",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 312.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rec_uid.svg"
+          },
+          {
+            "id": "UID de tarjeta mi pasaje",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -22.285682678222656
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 230.1129608154297
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "UID de tarjeta mi pasaje",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "txtNumCard",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 61.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 22.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 192.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 33.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recNumCard",
+              "Numeros de la tarjeta"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "txtTitular",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 61.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 72.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 290.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 33.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recTitular",
+              "Titular de la tarjeta"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "txtCVV",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 251.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 122.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 95.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 34.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recCVV",
+              "CVV"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "btnAddCard",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 146.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 169.058837890625
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 120.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 25.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recAddCard",
+              "Agregar Tarjeta"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "txtExpiracion",
+            "border-radius": 60.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 61.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 122.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 181.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 34.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "recExpiracion",
+              "Fecha de expiracion"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "imagen_2025-03-10_213416655",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 260.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 25.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 26.0
+              }
+            },
+            "image-content": "imagen_2025_03_10_213416655.png",
+            "scale": "cover"
+          },
+          {
+            "id": "imagen_2025-03-10_213459450",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 309.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 25.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 26.0
+              }
+            },
+            "image-content": "imagen_2025_03_10_213459450.png",
+            "scale": "cover"
+          },
+          {
+            "id": "recNumCard",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 192.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 33.0
+              }
+            },
+            "vector-content": "rec_num_card.svg"
+          },
+          {
+            "id": "Numeros de la tarjeta",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 9.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 4.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 159.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 25.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Numeros de la tarjeta",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 15.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recTitular",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 290.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 33.0
+              }
+            },
+            "vector-content": "rec_titular.svg"
+          },
+          {
+            "id": "Titular de la tarjeta",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 13.59375
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 4.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 240.15625
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 25.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Titular de la tarjeta",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 15.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recCVV",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 95.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 34.0
+              }
+            },
+            "vector-content": "rec_cvv.svg"
+          },
+          {
+            "id": "CVV",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 9.4326171875
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 4.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 37.60416793823242
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 30.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "CVV",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 15.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recAddCard",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 120.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 25.0
+              }
+            },
+            "vector-content": "rec_add_card.svg"
+          },
+          {
+            "id": "Agregar Tarjeta",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 12.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 2.941162109375
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 96.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 22.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Agregar Tarjeta",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 13.0,
+            "line-height": 1.299999970656175,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "recExpiracion",
+            "border-radius": 60.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -8.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 181.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 34.0
+              }
+            },
+            "vector-content": "rec_expiracion.svg"
+          },
+          {
+            "id": "Fecha de expiracion",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 9.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 4.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 172.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 24.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Fecha de expiracion",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 15.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "subtotal",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 36.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 9.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 315.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "lblSubtotal",
+              "$ 100"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Total",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 36.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 73.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 315.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "lblTotal",
+              "$ 98"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "impuestos",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 36.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 41.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 315.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "lblImpuestos",
+              "$ 2"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "lblSubtotal",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Subtotal",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "line-height": 1.4,
+            "typeface": "Inter"
+          },
+          {
+            "id": "$ 100",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 263.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 52.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "\\$ 100",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "right",
+            "line-height": 1.4,
+            "typeface": "Inter"
+          },
+          {
+            "id": "lblTotal",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Total",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "line-height": 1.4,
+            "typeface": "Inter"
+          },
+          {
+            "id": "$ 98",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 263.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 52.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "\\$ 98",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "right",
+            "line-height": 1.4,
+            "typeface": "Inter"
+          },
+          {
+            "id": "lblImpuestos",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Impuestos",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "line-height": 1.4,
+            "typeface": "Inter"
+          },
+          {
+            "id": "$ 2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 263.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 52.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 20.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "\\$ 2",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "right",
+            "line-height": 1.4,
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "MenuChildren": {
+      "data-type": "list-item",
+      "required": false,
+      "description": ""
+    },
+    "MenuClick ": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "btnReturnClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "MontoChildren": {
+      "data-type": "list-item",
+      "required": false,
+      "description": ""
+    },
+    "MontoClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Recarga - deposito",
+      "size": {
+        "width": 412.0,
+        "height": 917.0
+      },
+      "parameters": {
+        "MenuChildren": [
+          {
+            "type": "group",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 29.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 7.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 354.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 50.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              {
+                "type": "group",
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  }
+                },
+                "is-structured": false,
+                "children": [
+                  {
+                    "type": "vector",
+                    "margin": {
+                      "left": 1.392578125,
+                      "top": 2.03564453125,
+                      "right": 1.3925819396972656,
+                      "bottom": 2.0356063842773438
+                    },
+                    "size-constraints": {
+                      "width-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      },
+                      "height-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      }
+                    },
+                    "vector-content": "vector.svg"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": 304.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": 0.0
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 50.0
+                  }
+                },
+                "is-structured": false,
+                "children": [
+                  {
+                    "type": "vector",
+                    "margin": {
+                      "top": 0.0045166015625
+                    },
+                    "size-constraints": {
+                      "width-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      },
+                      "height-constraints": {
+                        "sizing-mode": "proportional",
+                        "value": 1.0
+                      }
+                    },
+                    "vector-content": "vector1.svg"
+                  }
+                ]
+              },
+              {
+                "type": "vector",
+                "margin": {
+                  "left": 101.0,
+                  "right": 203.0
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  }
+                },
+                "vector-content": "home.svg"
+              },
+              {
+                "type": "vector",
+                "margin": {
+                  "left": 202.0,
+                  "right": 102.0
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "proportional",
+                    "value": 1.0
+                  }
+                },
+                "vector-content": "citas.svg"
+              }
+            ],
+            "clip-content": false
+          }
+        ],
+        "MontoChildren": [
+          {
+            "type": "text",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 78.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 8.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Seleccionar el monto deseado",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "type": "group",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 81.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 54.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              {
+                "type": "vector",
+                "drop-shadow": {
+                  "color": {
+                    "alpha": 0.24705882352941178,
+                    "hue": 0.0,
+                    "saturation": 0.0,
+                    "value": 0.0
+                  },
+                  "blur": 4.0,
+                  "offset-x": -4.0,
+                  "offset-y": 4.0,
+                  "spread": 3.0,
+                  "blend-mode": "normal"
+                },
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": -11.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": -3.0
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 100.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 40.0
+                  }
+                },
+                "vector-content": "rectangle_3.svg"
+              },
+              {
+                "type": "text",
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": 32.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": 5.71429443359375
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 37.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 29.714284896850586
+                  }
+                },
+                "text-content": "$50",
+                "overflow": "visible",
+                "max-lines": -1,
+                "text-align": "left",
+                "text-size": 20.0,
+                "line-height": 1.3,
+                "typeface": "Niramit"
+              }
+            ],
+            "clip-content": false
+          },
+          {
+            "type": "group",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 239.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 54.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              {
+                "type": "vector",
+                "drop-shadow": {
+                  "color": {
+                    "alpha": 0.24705882352941178,
+                    "hue": 0.0,
+                    "saturation": 0.0,
+                    "value": 0.0
+                  },
+                  "blur": 4.0,
+                  "offset-x": -4.0,
+                  "offset-y": 4.0,
+                  "spread": 3.0,
+                  "blend-mode": "normal"
+                },
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": -11.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": -3.0
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 100.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 40.0
+                  }
+                },
+                "vector-content": "rectangle_4.svg"
+              },
+              {
+                "type": "text",
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": 32.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": 5.71429443359375
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 44.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 29.714284896850586
+                  }
+                },
+                "text-content": "$100",
+                "overflow": "visible",
+                "max-lines": -1,
+                "text-align": "left",
+                "text-size": 20.0,
+                "line-height": 1.3,
+                "typeface": "Niramit"
+              }
+            ],
+            "clip-content": false
+          },
+          {
+            "type": "group",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 81.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 111.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              {
+                "type": "vector",
+                "drop-shadow": {
+                  "color": {
+                    "alpha": 0.24705882352941178,
+                    "hue": 0.0,
+                    "saturation": 0.0,
+                    "value": 0.0
+                  },
+                  "blur": 4.0,
+                  "offset-x": -4.0,
+                  "offset-y": 4.0,
+                  "spread": 3.0,
+                  "blend-mode": "normal"
+                },
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": -11.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": -3.0
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 100.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 40.0
+                  }
+                },
+                "vector-content": "rectangle_5.svg"
+              },
+              {
+                "type": "text",
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": 32.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": 5.71429443359375
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 44.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 29.714284896850586
+                  }
+                },
+                "text-content": "$150",
+                "overflow": "visible",
+                "max-lines": -1,
+                "text-align": "left",
+                "text-size": 20.0,
+                "line-height": 1.3,
+                "typeface": "Niramit"
+              }
+            ],
+            "clip-content": false
+          },
+          {
+            "type": "group",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 239.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 111.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 100.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 40.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              {
+                "type": "vector",
+                "drop-shadow": {
+                  "color": {
+                    "alpha": 0.24705882352941178,
+                    "hue": 0.0,
+                    "saturation": 0.0,
+                    "value": 0.0
+                  },
+                  "blur": 4.0,
+                  "offset-x": -4.0,
+                  "offset-y": 4.0,
+                  "spread": 3.0,
+                  "blend-mode": "normal"
+                },
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": -11.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": -3.0
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 100.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 40.0
+                  }
+                },
+                "vector-content": "rectangle_6.svg"
+              },
+              {
+                "type": "text",
+                "alignment": {
+                  "horizontal": {
+                    "attachment": "start",
+                    "offset": 32.0
+                  },
+                  "vertical": {
+                    "attachment": "start",
+                    "offset": 5.71429443359375
+                  }
+                },
+                "size-constraints": {
+                  "width-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 49.0
+                  },
+                  "height-constraints": {
+                    "sizing-mode": "fixed",
+                    "value": 29.714284896850586
+                  }
+                },
+                "text-content": "$200",
+                "overflow": "visible",
+                "max-lines": -1,
+                "text-align": "left",
+                "text-size": 20.0,
+                "line-height": 1.3,
+                "typeface": "Niramit"
+              }
+            ],
+            "clip-content": false
+          },
+          {
+            "type": "text",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 158.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 170.0
+              }
+            },
+            "font-weight": 300.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "Agregar tarjeta +",
+            "italic": true,
+            "overflow": "visible",
+            "text-align": "left",
+            "line-height": 1.2999999182564872,
+            "typeface": "Niramit"
+          }
+        ]
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
