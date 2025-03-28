@@ -1,0 +1,263 @@
+{
+  "name": "form_field",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ejpyeHMPyRuPjwM3iib6kc",
+    "node": "238:20",
+    "version": "2200415821415940258",
+    "component-id": "dee792ff705774749a87fdfea9d8015eb29ced06"
+  },
+  "default": "Property 1=Unselect",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "rec"
+      },
+      {
+        "type": "text",
+        "id": "label"
+      },
+      {
+        "type": "group",
+        "id": "cursor"
+      },
+      {
+        "type": "vector",
+        "id": "cursor1"
+      }
+    ],
+    "modes": {
+      "Property 1=Unselect": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "rec",
+              "label"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "rec",
+            "border-radius": 60.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rec.svg"
+          },
+          {
+            "id": "label",
+            "margin": {
+              "left": 11.0,
+              "right": 13.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.5
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 18.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.36470588235294116
+            },
+            "text-content": "$Label",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 16.0,
+            "line-height": 1.2102272510528564,
+            "typeface": "Inter"
+          }
+        ]
+      },
+      "Property 1=active": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "rec",
+              "label",
+              "cursor"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "rec",
+            "border-radius": 20.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rec1.svg"
+          },
+          {
+            "id": "label",
+            "opacity": 0.0,
+            "margin": {
+              "left": 11.0,
+              "right": 13.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "end",
+                "offset": -30.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 18.0
+              }
+            },
+            "font-weight": 500.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.2
+            },
+            "text-content": "$Label",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 10.0,
+            "line-height": 1.2102272033691406,
+            "typeface": "Inter"
+          },
+          {
+            "id": "cursor",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 18.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 13.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 0.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 18.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "cursor1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "cursor1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": -1.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "cursor.svg"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "Label": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Property 1=Unselect",
+      "size": {
+        "width": 217.0,
+        "height": 43.0
+      },
+      "parameters": {
+        "Label": "Default Label"
+      }
+    },
+    {
+      "design": "Property 1=active",
+      "size": {
+        "width": 217.0,
+        "height": 43.0
+      },
+      "parameters": {
+        "Label": "Default Label"
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

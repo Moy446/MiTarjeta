@@ -1,0 +1,263 @@
+{
+  "name": "tarjetas1",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ejpyeHMPyRuPjwM3iib6kc",
+    "node": "238:90",
+    "version": "2200415821415940258",
+    "component-id": "07faef0f437653a5affcc5403fa955b9e6fea8cb"
+  },
+  "default": "Tarjetas1",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "imagen_2025-03-10_195357111"
+      },
+      {
+        "type": "text",
+        "id": "Saldo :"
+      },
+      {
+        "type": "text",
+        "id": "0.00 $"
+      },
+      {
+        "type": "text",
+        "id": "Desvincular"
+      },
+      {
+        "type": "text",
+        "id": "UID"
+      }
+    ],
+    "modes": {
+      "Tarjetas1": {
+        "rules": [
+          {
+            "id": "top_level",
+            "border-radius": 20.0,
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 10.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 9.0,
+              "blend-mode": "normal"
+            },
+            "is-structured": false,
+            "children": [
+              "imagen_2025-03-10_195357111",
+              "Saldo :",
+              "0.00 $",
+              "Desvincular",
+              "UID"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 183.31034482758622,
+              "saturation": 0.7178217821782178,
+              "value": 0.792156862745098
+            }
+          },
+          {
+            "id": "imagen_2025-03-10_195357111",
+            "drop-shadow": {
+              "color": {
+                "alpha": 0.24705882352941178,
+                "hue": 0.0,
+                "saturation": 0.0,
+                "value": 0.0
+              },
+              "blur": 4.0,
+              "offset-x": -4.0,
+              "offset-y": 4.0,
+              "spread": 0.0,
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -68.5
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -2.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 132.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 84.0
+              }
+            },
+            "image-content": "$setImage",
+            "scale": "cover"
+          },
+          {
+            "id": "Saldo :",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 77.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -21.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "Saldo :",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "0.00 $",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 107.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 11.0
+              }
+            },
+            "color": {
+              "alpha": 1.0,
+              "hue": 221.6417910447761,
+              "saturation": 0.7403314917127072,
+              "value": 0.7098039215686275
+            },
+            "text-content": "$Saldo",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 20.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "Desvincular",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 109.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 53.0
+              }
+            },
+            "font-weight": 600.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.7176470588235294,
+              "value": 1.0
+            },
+            "text-content": "Desvincular",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 15.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          },
+          {
+            "id": "UID",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -144.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -1.5
+              }
+            },
+            "relative-transform": [
+              [
+                2.688821387764051e-16,
+                1.0,
+                0.0
+              ],
+              [
+                -1.0,
+                2.688821387764051e-16,
+                0.0
+              ]
+            ],
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 0.14901960784313725
+            },
+            "text-content": "$UID",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 10.0,
+            "line-height": 1.3,
+            "typeface": "Niramit"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "setImage": {
+      "data-type": "image",
+      "required": false,
+      "description": ""
+    },
+    "Saldo": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "UID": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Tarjetas1",
+      "size": {
+        "width": 333.0,
+        "height": 136.0
+      },
+      "parameters": {
+        "setImage": "imagen_2025_03_10_195357111.png",
+        "Saldo": "0.00 $",
+        "UID": "04647502117080"
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
