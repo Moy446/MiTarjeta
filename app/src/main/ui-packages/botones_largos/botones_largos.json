@@ -1,0 +1,191 @@
+{
+  "name": "botones_largos",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "ejpyeHMPyRuPjwM3iib6kc",
+    "node": "238:104",
+    "version": "2200415821415940258",
+    "component-id": "6141ed0aea9c7403ae42c573597b31af4c231e17"
+  },
+  "default": "Property 1=Secundario",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 5"
+      },
+      {
+        "type": "text",
+        "id": "Nombre"
+      }
+    ],
+    "modes": {
+      "Property 1=Secundario": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Rectangle 5",
+              "Nombre"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 5",
+            "border-radius": 20.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rectangle_5.svg"
+          },
+          {
+            "id": "Nombre",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -0.5
+              }
+            },
+            "font-weight": 600.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "$Name",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 16.0,
+            "line-height": 1.2999999523162842,
+            "typeface": "Niramit"
+          }
+        ]
+      },
+      "Property 1=Primario": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Rectangle 5",
+              "Nombre"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 5",
+            "border-radius": 20.0,
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 42.0
+              }
+            },
+            "vector-content": "rectangle_6.svg"
+          },
+          {
+            "id": "Nombre",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -0.5
+              }
+            },
+            "font-weight": 600.0,
+            "color": {
+              "alpha": 1.0,
+              "hue": 202.94117647058823,
+              "saturation": 0.6238532110091742,
+              "value": 0.42745098039215684
+            },
+            "text-content": "$Name",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": 16.0,
+            "line-height": 1.2999999523162842,
+            "typeface": "Niramit"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "Name": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Property 1=Secundario",
+      "size": {
+        "width": 150.0,
+        "height": 42.0
+      },
+      "parameters": {
+        "Name": "Nombre"
+      }
+    },
+    {
+      "design": "Property 1=Primario",
+      "size": {
+        "width": 150.0,
+        "height": 42.0
+      },
+      "parameters": {
+        "Name": "Nombre"
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
