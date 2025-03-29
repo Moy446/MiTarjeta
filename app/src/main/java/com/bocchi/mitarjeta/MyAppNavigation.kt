@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
+
 @Composable
 fun MyAppNavigation() {
     // Aquí puedes definir la lógica de navegación y las pantallas de tu aplicación
