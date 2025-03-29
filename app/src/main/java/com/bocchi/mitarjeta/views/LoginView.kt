@@ -148,7 +148,7 @@ fun LoginView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate("registro") },
                 colors = ButtonDefaults.buttonColors(containerColor = SecondButton)
 
             ) {
