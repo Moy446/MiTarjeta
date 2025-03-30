@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "ejpyeHMPyRuPjwM3iib6kc",
     "node": "238:117",
-    "version": "2200759535825665402",
+    "version": "2201162312486111860",
     "component-id": "999c2485bc7d90242b8c122a2b9debf637fdc110"
   },
   "default": "Property 1=no Seleccionado",
@@ -54,46 +54,42 @@
             },
             "alignment": {
               "horizontal": {
-                "attachment": "center",
+                "attachment": "start",
                 "offset": -11.0
               },
               "vertical": {
-                "attachment": "center",
+                "attachment": "start",
                 "offset": -3.0
               }
             },
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "fixed",
-                "value": 100.0
+                "sizing-mode": "proportional",
+                "value": 1.0
               },
               "height-constraints": {
-                "sizing-mode": "fixed",
-                "value": 40.0
+                "sizing-mode": "proportional",
+                "value": 1.0
               }
             },
             "vector-content": "rectangle_3.svg"
           },
           {
             "id": "monto",
-            "alignment": {
-              "horizontal": {
-                "attachment": "center",
-                "offset": 0.5
-              },
-              "vertical": {
-                "attachment": "center",
-                "offset": 0.571436882019043
-              }
+            "margin": {
+              "left": 32.0,
+              "top": 5.71429443359375,
+              "right": 31.0,
+              "bottom": 4.571420669555664
             },
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "fixed",
-                "value": 37.0
+                "sizing-mode": "proportional",
+                "value": 1.0
               },
               "height-constraints": {
-                "sizing-mode": "fixed",
-                "value": 29.714284896850586
+                "sizing-mode": "proportional",
+                "value": 1.0
               }
             },
             "text-content": "$Monto",
@@ -134,22 +130,22 @@
             },
             "alignment": {
               "horizontal": {
-                "attachment": "center",
+                "attachment": "start",
                 "offset": -11.0
               },
               "vertical": {
-                "attachment": "center",
+                "attachment": "start",
                 "offset": -3.0
               }
             },
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "fixed",
-                "value": 100.0
+                "sizing-mode": "proportional",
+                "value": 1.0
               },
               "height-constraints": {
-                "sizing-mode": "fixed",
-                "value": 40.0
+                "sizing-mode": "proportional",
+                "value": 1.0
               }
             },
             "vector-content": "rectangle_4.svg"
