@@ -6,18 +6,28 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,9 +40,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.bocchi.mitarjeta.AuthRepository
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.formfield.FormField
+import com.bocchi.mitarjeta.ui.theme.FirstButton
+import com.bocchi.mitarjeta.ui.theme.SecondButton
 import com.bocchi.mitarjeta.ui.theme.Titulos
+import com.bocchi.mitarjeta.ui.theme.Words
 import com.bocchi.mitarjeta.ui.theme.backgroud
 
 
@@ -45,6 +59,11 @@ fun RegisterViewPreview() {
 
 @Composable
 fun RegisterView(navController: NavController) {
+    var user by rememberSaveable   { mutableStateOf("") }
+    var password by rememberSaveable { mutableStateOf("") }
+    var curpChecked by remember { mutableStateOf(false) }
+    var loading by remember { mutableStateOf(false) }
+    var message by remember { mutableStateOf("") }
 
     Box(
         modifier = androidx.compose.ui.Modifier.background(backgroud)
@@ -76,7 +95,8 @@ fun RegisterView(navController: NavController) {
 
             Spacer(modifier = Modifier.height(30.dp))
 
-            OutlinedTextField( //Campo de texto Nombre
+            OutlinedTextField( //Campo de texto Curp
+                enabled = false,
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
@@ -96,29 +116,123 @@ fun RegisterView(navController: NavController) {
                 )
             )
 
+            Spacer(modifier = Modifier.height(30.dp))
 
-//            OutlinedTextField( //Campo de texto CURP
-//                modifier = Modifier
-//                    .width(250.dp)
-//                    .height(50.dp),
-//                value = "",
-//                onValueChange = {/**/ },
-//                label = {
-//                    Text(
-//                        text = "CURP",
-//                        color = Titulos
-//                    )
-//                },
-//                shape = RoundedCornerShape(20.dp),
-//                colors = TextFieldDefaults.outlinedTextFieldColors(
-//                    containerColor = Color.White,
-//                    focusedBorderColor = Color.Blue,   // Borde activo
-//                    unfocusedBorderColor = Color.Gray, // Borde inactivo
-//                )
-//            )
+            OutlinedTextField( //Campo de texto Correo
+                modifier = Modifier
+                    .width(250.dp)
+                    .height(50.dp),
+                value = user,
+                onValueChange = { user = it },
+                label = {
+                    Text(
+                        text = "Correo Electrónico",
+                        color = Titulos
+                    )
+                },
+                shape = RoundedCornerShape(20.dp),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    containerColor = Color.White,
+                    focusedBorderColor = Color.Blue,   // Borde activo
+                    unfocusedBorderColor = Color.Gray, // Borde inactivo
+                )
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            OutlinedTextField( //Campo de texto Contraseña
+                modifier = Modifier
+                    .width(250.dp)
+                    .height(50.dp),
+                value = password,
+                onValueChange = { password = it },
+                label = {
+                    Text(
+                        text = "Contraseña",
+                        color = Titulos
+                    )
+                },
+                shape = RoundedCornerShape(20.dp),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    containerColor = Color.White,
+                    focusedBorderColor = Color.Blue,   // Borde activo
+                    unfocusedBorderColor = Color.Gray, // Borde inactivo
+                )
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            Button( //Boton Validacion
+                modifier = Modifier
+                    .width(250.dp)
+                    .height(50.dp),
+                onClick = { navController.navigate("") },
+                colors = ButtonDefaults.buttonColors(containerColor = SecondButton)
+
+            ) {
+                Text(
+                    text = "Validar CURP",
+                    color = Titulos
+                )
+            }
+            Spacer(modifier = Modifier.height(30.dp))
+
+            Row ( //Checkbox de Verificar
+                modifier = Modifier
+                    .width(190.dp)
+                    .height(50.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Validacion INE",
+                    color = Titulos,
+                )
+                Checkbox(
+                    checked = curpChecked,
+                    onCheckedChange = {curpChecked = it},
+                    colors = CheckboxDefaults.colors(
+                        checkedColor = Titulos,
+                        uncheckedColor = Color.Gray
+                    )
+                )
+
+            }
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            Button( //Boton Registrarse
+                modifier = Modifier
+                    .width(250.dp)
+                    .height(50.dp),
+                onClick = { loading = true
+                    AuthRepository.createAccount(user, password){ success, errorMsg ->
+                        loading = false
+                        if (success) {
+                            navController.navigate("login") {
+                                popUpTo("register") { inclusive = true }
+                            }
+                        } else {
+                            message = errorMsg ?: "Error desconocido"
+                        }
+
+                    }
+
+                },
+                colors = ButtonDefaults.buttonColors(containerColor = FirstButton)
+
+            ) {
+                Text(
+                    text = "Registrar",
+                    color = Titulos
+                )
+            }
 
 
         }
+
+
+
     }
 
 

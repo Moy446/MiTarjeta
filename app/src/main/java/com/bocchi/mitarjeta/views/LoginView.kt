@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
 package com.bocchi.mitarjeta.views
 
@@ -152,7 +152,7 @@ fun LoginView(navController: NavController) {
                     AuthRepository.signIn(user, password) { success, errorMsg ->
                         loading = false
                         if (success) {
-                            navController.navigate("register") {
+                            navController.navigate("home") {
                                 popUpTo("login") { inclusive = true } // Evita volver atrás
                             }
                         } else {
@@ -169,6 +169,7 @@ fun LoginView(navController: NavController) {
                 )
             }
             Spacer(modifier = Modifier.height(20.dp))
+
             Button( //Boton Registrarse
                 modifier = Modifier
                     .width(250.dp)
