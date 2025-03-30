@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.views.LoginView
+import com.bocchi.mitarjeta.views.RegisterView
 
 @Composable
 fun MyAppNavigation() {
@@ -19,6 +20,7 @@ fun MyAppNavigation() {
         startDestination = "login"
     ) {
         composable("login") { LoginView(navController) }
+        composable("register") {  RegisterView(navController)}
         //composable("home") { HomeView(navController) }
         // Agrega más destinos según sea necesario
     }

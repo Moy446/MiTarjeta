@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.bocchi.mitarjeta.views
 
 import androidx.compose.foundation.Image
@@ -34,18 +36,30 @@ import com.bocchi.mitarjeta.ui.theme.Titulos
 import com.bocchi.mitarjeta.ui.theme.Words
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.bocchi.mitarjeta.AuthRepository
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.btnqr.BtnQr
 
+/* ESTO SIRVE PARA MOSTRAR EL PREVIEW*/
+@Preview(showBackground = true)
+@Composable
+fun LoginViewPreview() {
+        val navController = rememberNavController()
+        LoginView(navController = navController)
+    }
+/* AQUI TERMINA LA MUESTRA DEL PREVIEW*/
 
-
-@OptIn(ExperimentalMaterial3Api::class)
+//@Preview(showBackground = true)
 @Composable
 fun LoginView(navController: NavController) {
-    var curp by rememberSaveable   { mutableStateOf("") }
+    var user by rememberSaveable   { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
     var rememberUser by rememberSaveable { mutableStateOf(false) }
+    var loading by remember { mutableStateOf(false) }
+    var message by remember { mutableStateOf("") }
     Box(modifier = Modifier.fillMaxSize().background(backgroud)) {
         Column(modifier = Modifier
             .fillMaxSize()
@@ -66,8 +80,8 @@ fun LoginView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
-                value = curp,
-                onValueChange = { curp = it },
+                value = user,
+                onValueChange = { user = it },
                 label = {
                     Text(
                         text = "CURP",
@@ -134,7 +148,18 @@ fun LoginView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
-                onClick = { navController.navigate("home") },
+                onClick = { loading = true
+                    AuthRepository.signIn(user, password) { success, errorMsg ->
+                        loading = false
+                        if (success) {
+                            navController.navigate("register") {
+                                popUpTo("login") { inclusive = true } // Evita volver atrás
+                            }
+                        } else {
+                            message = errorMsg ?: "Error desconocido"
+                        }
+                    }
+                },
                 colors = ButtonDefaults.buttonColors(containerColor = FirstButton)
                 
             ) {
@@ -148,7 +173,7 @@ fun LoginView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
-                onClick = { navController.navigate("registro") },
+                onClick = { navController.navigate("register") },
                 colors = ButtonDefaults.buttonColors(containerColor = SecondButton)
 
             ) {
@@ -162,6 +187,7 @@ fun LoginView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
+
             )
             Text(
                 text = "¿Olvidaste tu contraseña?",
