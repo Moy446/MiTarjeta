@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "499748979615",
+    "project_id": "mi-tarjeta-4ff79",
+    "storage_bucket": "mi-tarjeta-4ff79.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499748979615:android:4ab36614c26cdfba9f33aa",
+        "android_client_info": {
+          "package_name": "com.bocchi.mitarjeta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBspt66J_RYZ3ekV4XUZSRmOJsVM6OEvuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
