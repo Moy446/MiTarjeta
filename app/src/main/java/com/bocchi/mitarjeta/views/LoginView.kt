@@ -2,6 +2,8 @@
 
 package com.bocchi.mitarjeta.views
 
+import android.service.autofill.OnClickAction
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -88,7 +90,7 @@ fun LoginView(navController: NavController) {
                         color = Titulos
                     )
                 },
-                shape = RoundedCornerShape(20.dp),
+                shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
                     focusedBorderColor = Color.Blue,   // Borde activo
@@ -110,7 +112,7 @@ fun LoginView(navController: NavController) {
                         color = Titulos
                     )
                 },
-                shape = RoundedCornerShape(20.dp),
+                shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
                     focusedBorderColor = Color.Blue,   // Borde activo
@@ -148,20 +150,27 @@ fun LoginView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
-                onClick = { loading = true
-                    AuthRepository.signIn(user, password) { success, errorMsg ->
-                        loading = false
-                        if (success) {
-                            navController.navigate("home") {
-                                popUpTo("login") { inclusive = true } // Evita volver atrás
+                onClick = {
+                    if(user.isNotEmpty() && password.isNotEmpty()) {
+                        loading = true
+                        AuthRepository.signIn(user, password) { success, errorMessage ->
+                            loading = false
+                            if (success) {
+                                navController.navigate("home")
+                            } else {
+                                message = errorMessage ?: "Error desconocido"
                             }
-                        } else {
-                            message = errorMsg ?: "Error desconocido"
                         }
+                    } else {
+                        Toast.makeText(
+                            navController.context,
+                            "Por favor, completa todos los campos",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = FirstButton)
-                
+
             ) {
                 Text(
                     text = "Ingresar",
@@ -187,13 +196,14 @@ fun LoginView(navController: NavController) {
             BtnQr(
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
+                    .height(50.dp)
 
             )
             Text(
                 text = "¿Olvidaste tu contraseña?",
                 color = Words,
-                modifier = Modifier.padding(top = 20.dp)
+                modifier = Modifier.padding(top = 20.dp),
+
             )
 
         }

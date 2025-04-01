@@ -2,6 +2,7 @@
 
 package com.bocchi.mitarjeta.views
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -157,7 +159,8 @@ fun RegisterView(navController: NavController) {
                     containerColor = Color.White,
                     focusedBorderColor = Color.Blue,   // Borde activo
                     unfocusedBorderColor = Color.Gray, // Borde inactivo
-                )
+                ),
+                visualTransformation = PasswordVisualTransformation()
             )
 
             Spacer(modifier = Modifier.height(30.dp))
@@ -205,19 +208,32 @@ fun RegisterView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
-                onClick = { loading = true
-                    AuthRepository.createAccount(user, password){ success, errorMsg ->
-                        loading = false
-                        if (success) {
-                            navController.navigate("login") {
-                                popUpTo("register") { inclusive = true }
+                onClick = {
+                    if (user.isNotEmpty() && password.isNotEmpty()) {
+                        if(validacionCorreo(user) == true){
+                            loading = true
+                            AuthRepository.createAccount(user, password) { success, error ->
+                                loading = false
+                                if (success) {
+                                    navController.navigate("home")
+                                } else {
+                                    message = error ?: "Error desconocido"
+                                }
                             }
-                        } else {
-                            message = errorMsg ?: "Error desconocido"
+                        }else{
+                            Toast.makeText(
+                                navController.context,
+                                "Correo no valido",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
-
+                    } else {
+                        Toast.makeText(
+                            navController.context,
+                            "Por favor, completa todos los campos",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = FirstButton)
 
@@ -235,5 +251,8 @@ fun RegisterView(navController: NavController) {
 
     }
 
+}
 
+fun validacionCorreo(user: String): Boolean {
+    return android.util.Patterns.EMAIL_ADDRESS.matcher(user).matches()
 }
