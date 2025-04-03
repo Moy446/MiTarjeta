@@ -63,6 +63,7 @@ fun RegisterViewPreview() {
 fun RegisterView(navController: NavController) {
     var user by rememberSaveable   { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
+    var curp: String by rememberSaveable { mutableStateOf("") }
     var curpChecked by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(false) }
     var message by remember { mutableStateOf("") }
@@ -102,8 +103,8 @@ fun RegisterView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
-                value = "",
-                onValueChange = {/**/ },
+                value = curp,
+                onValueChange = {curp = it},
                 label = {
                     Text(
                         text = "Curp",
@@ -255,4 +256,19 @@ fun RegisterView(navController: NavController) {
 
 fun validacionCorreo(user: String): Boolean {
     return android.util.Patterns.EMAIL_ADDRESS.matcher(user).matches()
+}
+
+fun validacionPassword(password: String): Boolean {
+    return password.length >= 6
+}
+
+fun validacionCurp(curp: String): Boolean {
+    val curpRegex = Regex("^[A-Z]{4}\\d{6}[HM][A-Z]{2}\\d{2}\$")
+    return curpRegex.matches(curp)
+}
+fun subirCurp(curp: String): Boolean {
+    // Aquí puedes implementar la lógica para subir el CURP a Firebase
+    // Por ejemplo, puedes usar Firebase Storage o Firestore para almacenar el CURP
+    // y devolver true si la operación fue exitosa, o false en caso contrario.
+    return true
 }
