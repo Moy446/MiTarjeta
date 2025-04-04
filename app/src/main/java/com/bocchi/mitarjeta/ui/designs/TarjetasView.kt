@@ -42,12 +42,12 @@ import com.google.relay.compose.EmptyPainter
 
 
 private var tarjetasList:List<Tarjetas> = listOf(
-    Tarjetas("12345678", EmptyPainter(),"50 $"),
-    Tarjetas("12345679", EmptyPainter(),"150 $"),
-    Tarjetas("12345677", EmptyPainter(),"200 $"),
-    Tarjetas("12345676", EmptyPainter(),"258 $"),
-    Tarjetas("12345675", EmptyPainter(),"10 $"),
-    Tarjetas("12345675", EmptyPainter(),"80 $"),
+    Tarjetas("12345678","50 $"),
+    Tarjetas("12345679","150 $"),
+    Tarjetas("12345677","200 $"),
+    Tarjetas("12345676","258 $"),
+    Tarjetas("12345675","10 $"),
+    Tarjetas("12345675", "80 $"),
 )
 
 
@@ -58,61 +58,23 @@ fun TarjetasView (navController: NavController, tarjetas: List<Tarjetas>){
     MiTarjetaTheme() {
         Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(0.dp,40.dp,0.dp,0.dp)){
             Column ( modifier = Modifier.fillMaxSize().padding(bottom = 80.dp)){
-                text(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas","titulo")
-                text(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar","texto")
-                misTarjetas(tarjetasList)
+                textTittle(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas")
+                textDescription(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar")
+                rcvTarjeta(tarjetasList)
             }
+            //Impresion del Menu
             Box(modifier = Modifier.fillMaxWidth().height(106.dp).align(Alignment.BottomCenter)) {
                 menuView()
             }
+
+            //Impresion del QR
+            Box(modifier = Modifier.align(Alignment.BottomEnd).padding(0.dp,0.dp,10.dp,65.dp,)) {
+                BtnQr(modifier = Modifier.align(Alignment.BottomEnd).padding(bottom =20.dp))
+            }
         }
     }
 }
 
-@Composable
-fun text(modifier: Modifier, text:String, type:String){
-    var style = TextStyle()
-    style = if (type == "titulo"){
-        TextStyle(
-            fontSize = 40.sp,
-            fontWeight = FontWeight(500),
-            color = Color(0xFF3058B6),
-        )
-    }else{
-        TextStyle(
-            fontSize = 20.sp,
-            fontWeight = FontWeight(500),
-            color = Color(0xFF29536D),
-        )
-    }
-    Text(text,modifier, style = style)
-}
-
-@Composable
-fun tarjetaView(image: Painter, saldo:String, uid:String){
-    Tarjetas1(
-        Modifier
-        .shadow(elevation = 10.dp, spotColor = Color(0x40000000), ambientColor = Color(0x40000000))
-        .padding(30.dp,10.dp)
-        .fillMaxWidth()
-        .height(136.dp)
-        .background(color = Color(0xFF39C3CB), shape = RoundedCornerShape(size = 20.dp)),
-        image, saldo,uid)
-}
-
-@Composable
-fun misTarjetas(tarjetas:List<Tarjetas>){
-    LazyColumn {
-        items(tarjetas) {tarjeta->
-            tarjetaView(tarjeta.img,tarjeta.saldo,tarjeta.uid)
-        }
-    }
-}
-
-@Composable
-fun menuView(){
-    Menu(Modifier.fillMaxWidth().height(106.dp),Property1.Home)
-}
 
 @Preview(showSystemUi = true)
 @Composable
@@ -120,9 +82,9 @@ fun PreviewTarjetas(){
     MiTarjetaTheme() {
         Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(0.dp,40.dp,0.dp,0.dp)){
             Column ( modifier = Modifier.fillMaxSize().padding(bottom = 80.dp)){
-                text(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas","titulo")
-                text(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar","texto")
-                misTarjetas(tarjetasList)
+                textTittle(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas")
+                textDescription(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar")
+                rcvTarjeta(tarjetasList)
             }
             //Impresion del Menu
             Box(modifier = Modifier.fillMaxWidth().height(106.dp).align(Alignment.BottomCenter)) {
