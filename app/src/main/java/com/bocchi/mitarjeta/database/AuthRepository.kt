@@ -1,4 +1,4 @@
-package com.bocchi.mitarjeta
+package com.bocchi.mitarjeta.database
 
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth

@@ -21,7 +21,6 @@ import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -33,8 +32,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,13 +39,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.bocchi.mitarjeta.AuthRepository
-import com.bocchi.mitarjeta.R
-import com.bocchi.mitarjeta.formfield.FormField
+import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.ui.theme.FirstButton
 import com.bocchi.mitarjeta.ui.theme.SecondButton
 import com.bocchi.mitarjeta.ui.theme.Titulos
-import com.bocchi.mitarjeta.ui.theme.Words
 import com.bocchi.mitarjeta.ui.theme.backgroud
 
 

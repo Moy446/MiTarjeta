@@ -2,7 +2,6 @@
 
 package com.bocchi.mitarjeta.views
 
-import android.service.autofill.OnClickAction
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -41,7 +40,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.bocchi.mitarjeta.AuthRepository
+import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.btnqr.BtnQr
 
