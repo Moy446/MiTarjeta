@@ -2,6 +2,7 @@ package com.bocchi.mitarjeta.ui.designs
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -102,11 +103,6 @@ fun botonCuadrado(value: String) {
 fun tarjetaView(uid: String, saldo: String) {
     Box(
         modifier = Modifier
-            .shadow(
-                elevation = 10.dp,
-                spotColor = Color(0x40000000),
-                ambientColor = Color(0x40000000)
-            )
             .fillMaxWidth()
             .padding(30.dp, 10.dp)
             .height(136.dp)
@@ -133,11 +129,6 @@ fun tarjetaView(uid: String, saldo: String) {
             //Imagen de la tarjeta
             Image(
                 modifier = Modifier
-                    .shadow(
-                        elevation = 4.dp,
-                        spotColor = Color(0x40000000),
-                        ambientColor = Color(0x40000000)
-                    )
                     .padding(end = 20.dp)
                     .width(132.dp)
                     .height(84.dp),
