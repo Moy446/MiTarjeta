@@ -1,9 +1,13 @@
 package com.bocchi.mitarjeta
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.bocchi.mitarjeta.ui.designs.RecargaView
+import com.bocchi.mitarjeta.ui.designs.TarjetasView
 
 @Composable
 fun MyAppNavigation() {
@@ -18,7 +22,12 @@ fun MyAppNavigation() {
         startDestination = "login"
     ) {
         composable("login") { LoginView(navController) }
-        //composable("home") { HomeView(navController) }
+        composable("home") { TarjetasView(navController) }
+        composable("recargas/{uid}",
+            arguments = listOf(navArgument("uid") { type = NavType.StringType })){
+            backStackEntry->
+            val uid = backStackEntry.arguments?.getString("uid")
+            RecargaView(navController,uid) }
         // Agrega más destinos según sea necesario
     }
 }

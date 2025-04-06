@@ -1,5 +1,7 @@
 package com.bocchi.mitarjeta.ui.designs
 
+import android.graphics.drawable.Icon
+import androidx.appcompat.app.AlertDialog
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,9 +22,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -38,8 +47,10 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -47,6 +58,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.Tarjetas
 import com.bocchi.mitarjeta.ui.theme.Titulos
@@ -100,13 +112,18 @@ fun botonCuadrado(value: String) {
 }
 
 @Composable
-fun tarjetaView(uid: String, saldo: String) {
+fun tarjetaView(uid: String, saldo: String,navController: NavController) {
+    val openAlertDialog = remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .padding(30.dp, 10.dp)
             .height(136.dp)
             .background(color = Color(0xFF39C3CB), shape = RoundedCornerShape(size = 20.dp))
+            .clickable {
+                /*TODO navigation y pasando el uid*/
+                navController.navigate("recargas/${uid}")
+            }
     ) {
 
         //UID de la tarjeta
@@ -151,7 +168,10 @@ fun tarjetaView(uid: String, saldo: String) {
         //boton de desvincular
         Box(modifier = Modifier
             .align(Alignment.BottomEnd)
-            .padding(10.dp)) {
+            .padding(10.dp)
+            .clickable {
+                openAlertDialog.value = true
+            }) {
             Text(
                 text = "Desvincular",
                 style = TextStyle(
@@ -164,13 +184,21 @@ fun tarjetaView(uid: String, saldo: String) {
             )
         }
     }
+    if(openAlertDialog.value){
+        AlertDialogDesvincular(
+            dialogTitle = "Desvincular",
+            dialogText = "¿Seguro que quieres desvincular tu tarjeta de tu cuenta?",
+            showDialog = openAlertDialog.value,
+            onDismiss = { openAlertDialog.value = false }
+        )
+    }
 }
 
 @Composable
-fun rcvTarjeta(tarjetas: List<Tarjetas>) {
+fun rcvTarjeta(tarjetas: List<Tarjetas>,navController: NavController) {
     LazyColumn {
         items(tarjetas) { tarjeta ->
-            tarjetaView(tarjeta.uid, tarjeta.saldo)
+            tarjetaView(tarjeta.uid, tarjeta.saldo,navController)
         }
     }
 }
@@ -252,20 +280,98 @@ fun menuView() {
 
 
 @Composable
-fun ReadOnlyTextField(uid: String) {
+fun ReadOnlyTextField(uid: String?) {
     var text by remember { mutableStateOf(uid) }
-    TextField(
-        value = text,
-        onValueChange = { },
-        enabled = false,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp,10.dp),
-        shape = RoundedCornerShape(20.dp)
+    text?.let {
+        TextField(
+            value = it,
+            onValueChange = { },
+            enabled = false,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp,10.dp),
+            shape = RoundedCornerShape(20.dp)
 
-    )
+        )
+    }
 }
 
+
+@Composable
+fun AlertDialogDesvincular(dialogTitle: String,dialogText: String, showDialog: Boolean, onDismiss: () -> Unit){
+
+    if(showDialog){
+        AlertDialog(
+            icon = {
+                Icon(imageVector = ImageVector.vectorResource(R.drawable.ic_desvincular), contentDescription = "Desvincular")
+            },
+            title = {
+                Text(text = dialogTitle)
+            },
+            text = {
+                Text(text = dialogText)
+            },
+            onDismissRequest = {
+                onDismiss()
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        /*TODO falta la conexion a base de datos*/
+                        onDismiss()
+                    }
+                ) {
+                    Text("Desvincular",
+                        style = TextStyle(
+                            color =  Color(0xFFFF4848)))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        onDismiss()
+                    }
+                ) {
+                    Text("Cancelar")
+                }
+            }
+
+        )
+    }
+}
+
+@Composable
+fun botonQR(){
+    Box(
+        modifier = Modifier
+            .size(60.dp)
+            .clip(CircleShape)
+            .align(Alignment.Center)
+            .background(color = Color(0xFFE9762B))
+            .clickable {
+                /*TODO
+                *  que abra la camara*/
+            },
+    ) {
+        Image(
+            modifier = Modifier
+                .width(90.dp)
+                .height(76.dp)
+                .background(color = Color(0x00FFFFFF)),
+            painter = painterResource(id = R.drawable.btn_qr_vector),
+            contentDescription = "boton QR",
+            contentScale = ContentScale.None
+        )
+    }
+}
+
+@Composable
+fun botonBack(modifier: Modifier){
+    Icon(imageVector = Icons.Default.ArrowBack,
+        contentDescription = "Arrow back",
+        tint = Color(R.color.white),
+        modifier = modifier)
+}
 @Preview
 @Composable
 fun PreviewComponent() {

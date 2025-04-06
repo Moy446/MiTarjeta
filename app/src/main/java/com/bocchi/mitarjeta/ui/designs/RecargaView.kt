@@ -4,6 +4,7 @@ import android.util.Property
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.foundation.gestures.rememberScrollableState
 import androidx.compose.foundation.gestures.scrollable
@@ -56,6 +57,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.botonescuadrados.BotonesCuadrados
 import com.bocchi.mitarjeta.botonescuadrados.Seleccionado
@@ -71,8 +73,90 @@ import com.google.relay.compose.ColumnScopeInstanceImpl.align
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RecargaView(navController: NavController) {
+fun RecargaView(navController: NavController,uid:String?) {
+    MiTarjetaTheme {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(backgroud)
+                .padding(top = 40.dp)
+        ) {
 
+            Column (
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(bottom = 80.dp)
+                    .align(Alignment.Center)
+                    .verticalScroll(rememberScrollState())
+            ) {
+                Row {
+                    botonBack(Modifier
+                        .padding(start=30.dp,end=50.dp, top = 15.dp)
+                        .clickable {
+                            navController.popBackStack()
+                        })
+                    textTittle(
+                        Modifier
+                            .width(170.dp)
+                            .height(52.dp),
+                        "Recargas"
+                    )
+                }
+
+                textDescription(
+                    Modifier
+                        .width(329.dp)
+                        .height(26.dp)
+                        .align(Alignment.CenterHorizontally),
+                    "Proporciona los siguientes datos",
+                )
+                ReadOnlyTextField(uid)
+
+                SeleccionMontoRecargas()
+
+                SeleccionarTarjetaRecarga()
+
+                AgegarTarjetaRecarga()
+
+                MostrarMontosRecarga()
+
+                //botton pagar
+                Button(modifier = Modifier
+                    .padding(vertical = 5.dp)
+                    .width(301.dp)
+                    .height(42.dp)
+                    .align(Alignment.CenterHorizontally),
+                    shape = RoundedCornerShape(20.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFE9762B)
+                    ),
+                    onClick = {/*
+                    TODO
+                    validacion de que se seleccione un monto y una tarjeta la cual va a pagar
+                    */}) {
+                    Text(
+                        text = "Pagar",
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500),
+                            color = Color(0xFF3058B6),
+
+                            )
+                    )
+                }
+            }
+            //Impresion del Menu
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(106.dp)
+                    .align(Alignment.BottomCenter)
+            ) {
+                menuView()
+            }
+        }
+    }
 }
 
 
@@ -489,75 +573,4 @@ fun MostrarMontosRecarga(){
 @Composable
 fun PreviewRecargas() {
 
-    MiTarjetaTheme {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(backgroud)
-                .padding(top = 40.dp)
-        ) {
-            Column (
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(bottom = 80.dp)
-                    .align(Alignment.Center)
-                    .verticalScroll(rememberScrollState())
-            ) {
-                textTittle(
-                    Modifier
-                        .width(160.dp)
-                        .height(52.dp)
-                        .align(Alignment.CenterHorizontally),
-                    "Recargas"
-                )
-                textDescription(
-                    Modifier
-                        .width(329.dp)
-                        .height(26.dp)
-                        .align(Alignment.CenterHorizontally),
-                    "Proporciona los siguientes datos",
-                )
-                ReadOnlyTextField("12345678")
-
-                SeleccionMontoRecargas()
-
-                SeleccionarTarjetaRecarga()
-
-                AgegarTarjetaRecarga()
-
-                MostrarMontosRecarga()
-
-                Button(modifier = Modifier
-                    .shadow(elevation = 4.dp, spotColor = Color(0x40000000), ambientColor = Color(0x40000000))
-                    .width(301.dp)
-                    .height(42.dp)
-                    .align(Alignment.CenterHorizontally),
-                    shape = RoundedCornerShape(20.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFE9762B)
-                    ),
-                    onClick = {/*TODO*/}) {
-                    Text(
-                        text = "Pagar",
-                        style = TextStyle(
-                            fontSize = 20.sp,
-                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
-                            fontWeight = FontWeight(500),
-                            color = Color(0xFF3058B6),
-
-                            )
-                    )
-                }
-            }
-            //Impresion del Menu
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(106.dp)
-                    .align(Alignment.BottomCenter)
-            ) {
-                menuView()
-            }
-        }
-    }
 }

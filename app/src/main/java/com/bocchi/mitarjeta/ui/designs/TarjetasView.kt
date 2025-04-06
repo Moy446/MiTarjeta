@@ -1,6 +1,7 @@
 package com.bocchi.mitarjeta.ui.designs
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.Tarjetas
 import com.bocchi.mitarjeta.btnqr.BtnQr
 import com.bocchi.mitarjeta.menu.Menu
@@ -53,14 +55,18 @@ private var tarjetasList:List<Tarjetas> = listOf(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TarjetasView (navController: NavController, tarjetas: List<Tarjetas>){
-    tarjetasList = tarjetas
+fun TarjetasView (navController: NavController){
     MiTarjetaTheme() {
         Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(0.dp,40.dp,0.dp,0.dp)){
+            botonBack(Modifier
+                .padding(30.dp,15.dp)
+                .clickable {
+                    navController.popBackStack()
+                })
             Column ( modifier = Modifier.fillMaxSize().padding(bottom = 80.dp)){
                 textTittle(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas")
                 textDescription(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar")
-                rcvTarjeta(tarjetasList)
+                rcvTarjeta(tarjetasList,navController)
             }
             //Impresion del Menu
             Box(modifier = Modifier.fillMaxWidth().height(106.dp).align(Alignment.BottomCenter)) {
@@ -69,32 +75,15 @@ fun TarjetasView (navController: NavController, tarjetas: List<Tarjetas>){
 
             //Impresion del QR
             Box(modifier = Modifier.align(Alignment.BottomEnd).padding(0.dp,0.dp,10.dp,65.dp,)) {
-                BtnQr(modifier = Modifier.align(Alignment.BottomEnd).padding(bottom =20.dp))
+                botonQR()
             }
         }
     }
 }
 
 
+
 @Preview(showSystemUi = true)
 @Composable
 fun PreviewTarjetas(){
-    MiTarjetaTheme() {
-        Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(0.dp,40.dp,0.dp,0.dp)){
-            Column ( modifier = Modifier.fillMaxSize().padding(bottom = 80.dp)){
-                textTittle(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas")
-                textDescription(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar")
-                rcvTarjeta(tarjetasList)
-            }
-            //Impresion del Menu
-            Box(modifier = Modifier.fillMaxWidth().height(106.dp).align(Alignment.BottomCenter)) {
-                menuView()
-            }
-
-            //Impresion del QR
-            Box(modifier = Modifier.align(Alignment.BottomEnd).padding(0.dp,0.dp,10.dp,65.dp,)) {
-                BtnQr(modifier = Modifier.align(Alignment.BottomEnd).padding(bottom =20.dp))
-            }
-        }
-    }
 }
