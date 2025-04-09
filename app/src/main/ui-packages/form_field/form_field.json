@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "ejpyeHMPyRuPjwM3iib6kc",
     "node": "238:20",
-    "version": "2200415821415940258",
+    "version": "2200759535825665402",
     "component-id": "dee792ff705774749a87fdfea9d8015eb29ced06"
   },
   "default": "Property 1=Unselect",
@@ -25,12 +25,9 @@
         "id": "label"
       },
       {
-        "type": "group",
-        "id": "cursor"
-      },
-      {
-        "type": "vector",
-        "id": "cursor1"
+        "type": "adin_component",
+        "id": "cursor",
+        "key": "cursor"
       }
     ],
     "modes": {
@@ -184,6 +181,7 @@
                 "offset": 13.0
               }
             },
+            "design": "setVisible=Visible",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -193,36 +191,7 @@
                 "sizing-mode": "fixed",
                 "value": 18.0
               }
-            },
-            "is-structured": false,
-            "children": [
-              "cursor1"
-            ],
-            "clip-content": false
-          },
-          {
-            "id": "cursor1",
-            "alignment": {
-              "horizontal": {
-                "attachment": "start",
-                "offset": -1.0
-              },
-              "vertical": {
-                "attachment": "start",
-                "offset": 0.0
-              }
-            },
-            "size-constraints": {
-              "width-constraints": {
-                "sizing-mode": "proportional",
-                "value": 1.0
-              },
-              "height-constraints": {
-                "sizing-mode": "proportional",
-                "value": 1.0
-              }
-            },
-            "vector-content": "cursor.svg"
+            }
           }
         ]
       }
