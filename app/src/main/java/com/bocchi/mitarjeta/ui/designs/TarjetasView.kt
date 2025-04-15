@@ -1,5 +1,6 @@
 package com.bocchi.mitarjeta.ui.designs
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -17,6 +18,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -53,10 +56,16 @@ private var tarjetasList:List<Tarjetas> = listOf(
 )
 
 
-@OptIn(ExperimentalMaterial3Api::class)
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun TarjetasView (navController: NavController){
-    MiTarjetaTheme() {
+    Scaffold (bottomBar = {
+        //Impresion del Menu
+        menuView()
+    },floatingActionButton = {
+        botonQR()
+    }) {
         Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(0.dp,40.dp,0.dp,0.dp)){
             botonBack(Modifier
                 .padding(30.dp,15.dp)
@@ -67,15 +76,6 @@ fun TarjetasView (navController: NavController){
                 textTittle(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas")
                 textDescription(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar")
                 rcvTarjeta(tarjetasList,navController)
-            }
-            //Impresion del Menu
-            Box(modifier = Modifier.fillMaxWidth().height(106.dp).align(Alignment.BottomCenter)) {
-                menuView()
-            }
-
-            //Impresion del QR
-            Box(modifier = Modifier.align(Alignment.BottomEnd).padding(0.dp,0.dp,10.dp,65.dp,)) {
-                botonQR()
             }
         }
     }

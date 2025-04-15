@@ -87,13 +87,14 @@ fun textDescription(modifier: Modifier, text: String) {
 }
 
 @Composable
-fun botonCuadrado(value: String) {
+fun botonCuadrado(value: String,isSelected: Boolean, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .width(100.dp)
             .height(50.dp)
             .align(Alignment.Center)
-            .background(color = Color(0xFF57AD79))
+            .background(color = if (isSelected) Color(0xFFE9762B) else Color(0xFF57AD79))
+            .clickable { onClick() }
     ) {
         Text(
             "$ $value",
@@ -369,7 +370,7 @@ fun botonQR(){
 fun botonBack(modifier: Modifier){
     Icon(imageVector = Icons.Default.ArrowBack,
         contentDescription = "Arrow back",
-        tint = Color(R.color.white),
+        tint = Color.White,
         modifier = modifier)
 }
 @Preview
