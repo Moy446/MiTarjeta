@@ -8,6 +8,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.bocchi.mitarjeta.ui.designs.RecargaView
 import com.bocchi.mitarjeta.ui.designs.TarjetasView
+import com.bocchi.mitarjeta.views.LoginView
+import com.bocchi.mitarjeta.views.RegisterView
 
 @Composable
 fun MyAppNavigation() {
@@ -28,6 +30,9 @@ fun MyAppNavigation() {
             backStackEntry->
             val uid = backStackEntry.arguments?.getString("uid")
             RecargaView(navController,uid) }
+        composable("register") {  RegisterView(navController)}
+        composable("curp") { /* Aquí puedes agregar la vista para CURP */ }
+
         // Agrega más destinos según sea necesario
     }
 }
