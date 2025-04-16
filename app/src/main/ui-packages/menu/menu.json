@@ -5,10 +5,10 @@
     "type": "figma",
     "file": "ejpyeHMPyRuPjwM3iib6kc",
     "node": "308:75",
-    "version": "2200759535825665402",
+    "version": "2201880388631702538",
     "component-id": "d4dda2ee17aa3b1ef370fb5ed129f5ed10a0f149"
   },
-  "default": "Property 1=dates",
+  "default": "Property 1=vinculacion",
   "design": {
     "atoms": [
       {
@@ -62,6 +62,552 @@
       }
     ],
     "modes": {
+      "Property 1=vinculacion": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Rectangle 6",
+              "Subtract",
+              "Ellipse 10",
+              "Vinculacion",
+              "Salir",
+              "Citas",
+              "Home"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 6",
+            "margin": {
+              "top": 30.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_6.svg"
+          },
+          {
+            "id": "Subtract",
+            "margin": {
+              "left": 22.0166015625,
+              "top": 30.0,
+              "right": 292.01658630371094,
+              "bottom": 16.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "subtract.svg"
+          },
+          {
+            "id": "Ellipse 10",
+            "margin": {
+              "left": 41.0,
+              "top": 8.0,
+              "right": 311.0,
+              "bottom": 38.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "ellipse_10.svg"
+          },
+          {
+            "id": "Vinculacion",
+            "margin": {
+              "left": 26.0,
+              "right": 296.0,
+              "bottom": 30.0
+            },
+            "is-structured": false,
+            "children": [
+              "VinculationImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Salir",
+            "margin": {
+              "left": 296.0,
+              "top": 30.0,
+              "right": 26.0
+            },
+            "is-structured": false,
+            "children": [
+              "CloseImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Citas",
+            "margin": {
+              "left": 206.0,
+              "top": 30.0,
+              "right": 116.0
+            },
+            "is-structured": false,
+            "children": [
+              "CitasImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Home",
+            "margin": {
+              "left": 116.0,
+              "top": 30.0,
+              "right": 206.0
+            },
+            "is-structured": false,
+            "children": [
+              "HomeImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "VinculationImg",
+            "margin": {
+              "left": 26.0,
+              "top": 16.0,
+              "right": 26.0,
+              "bottom": 22.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "vinculation_img.svg"
+          },
+          {
+            "id": "CloseImg",
+            "margin": {
+              "left": 26.0,
+              "top": 19.0,
+              "right": 26.0,
+              "bottom": 19.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "close_img.svg"
+          },
+          {
+            "id": "CitasImg",
+            "margin": {
+              "top": 16.0,
+              "bottom": 22.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 38.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "citas_img.svg"
+          },
+          {
+            "id": "HomeImg",
+            "margin": {
+              "top": 16.0,
+              "bottom": 22.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 38.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "home_img.svg"
+          }
+        ]
+      },
+      "Property 1=home": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Rectangle 6",
+              "Subtract",
+              "Ellipse 10",
+              "Vinculacion",
+              "Salir",
+              "Citas",
+              "Home"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 6",
+            "margin": {
+              "top": 30.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_7.svg"
+          },
+          {
+            "id": "Subtract",
+            "margin": {
+              "left": 112.0166015625,
+              "top": 30.0,
+              "right": 202.01658630371094,
+              "bottom": 16.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "subtract1.svg"
+          },
+          {
+            "id": "Ellipse 10",
+            "margin": {
+              "left": 131.0,
+              "top": 8.0,
+              "right": 221.0,
+              "bottom": 38.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "ellipse_11.svg"
+          },
+          {
+            "id": "Vinculacion",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -135.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 15.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 76.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "VinculationImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Salir",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 135.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 15.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 76.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "CloseImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Citas",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 45.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": 15.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 76.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "CitasImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Home",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": -45.0
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": -15.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 90.0
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": 76.0
+              }
+            },
+            "is-structured": false,
+            "children": [
+              "HomeImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "VinculationImg",
+            "margin": {
+              "left": 26.0,
+              "top": 16.0,
+              "right": 26.0,
+              "bottom": 22.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "vinculation_img1.svg"
+          },
+          {
+            "id": "CloseImg",
+            "margin": {
+              "left": 26.0,
+              "top": 19.0,
+              "right": 26.0,
+              "bottom": 19.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "close_img1.svg"
+          },
+          {
+            "id": "CitasImg",
+            "margin": {
+              "top": 16.0,
+              "bottom": 22.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 38.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "citas_img1.svg"
+          },
+          {
+            "id": "HomeImg",
+            "margin": {
+              "top": 16.0,
+              "bottom": 22.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 38.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "home_img1.svg"
+          }
+        ]
+      },
       "Property 1=dates": {
         "rules": [
           {
@@ -80,6 +626,252 @@
           },
           {
             "id": "Rectangle 6",
+            "margin": {
+              "top": 30.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_8.svg"
+          },
+          {
+            "id": "Subtract",
+            "margin": {
+              "left": 201.0166015625,
+              "top": 30.0,
+              "right": 113.01658630371094,
+              "bottom": 16.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "subtract2.svg"
+          },
+          {
+            "id": "Ellipse 10",
+            "margin": {
+              "left": 220.0,
+              "top": 8.0,
+              "right": 132.0,
+              "bottom": 38.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "ellipse_12.svg"
+          },
+          {
+            "id": "Vinculacion",
+            "margin": {
+              "left": 26.0,
+              "top": 30.0,
+              "right": 296.0
+            },
+            "is-structured": false,
+            "children": [
+              "VinculationImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Salir",
+            "margin": {
+              "left": 296.0,
+              "top": 30.0,
+              "right": 26.0
+            },
+            "is-structured": false,
+            "children": [
+              "CloseImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Citas",
+            "margin": {
+              "left": 206.0,
+              "right": 116.0,
+              "bottom": 30.0
+            },
+            "is-structured": false,
+            "children": [
+              "CitasImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "Home",
+            "margin": {
+              "left": 116.0,
+              "top": 30.0,
+              "right": 206.0
+            },
+            "is-structured": false,
+            "children": [
+              "HomeImg"
+            ],
+            "background-color": {
+              "alpha": 0.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            }
+          },
+          {
+            "id": "VinculationImg",
+            "margin": {
+              "left": 26.0,
+              "top": 16.0,
+              "right": 26.0,
+              "bottom": 22.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "vinculation_img2.svg"
+          },
+          {
+            "id": "CloseImg",
+            "margin": {
+              "left": 26.0,
+              "top": 19.0,
+              "right": 26.0,
+              "bottom": 19.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "close_img2.svg"
+          },
+          {
+            "id": "CitasImg",
+            "margin": {
+              "top": 16.0,
+              "bottom": 22.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 38.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "citas_img2.svg"
+          },
+          {
+            "id": "HomeImg",
+            "margin": {
+              "top": 16.0,
+              "bottom": 22.0
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": 0.0
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": 0.0
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": 38.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "home_img2.svg"
+          }
+        ]
+      },
+      "Property 1=close": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Rectangle 6",
+              "Subtract",
+              "Ellipse 10",
+              "Vinculacion",
+              "Salir",
+              "Citas",
+              "Home"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 6",
+            "margin": {
+              "top": 30.0
+            },
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "proportional",
@@ -96,6 +888,7 @@
             "id": "Subtract",
             "margin": {
               "left": 292.0166015625,
+              "top": 30.0,
               "right": 22.016586303710938,
               "bottom": 16.0
             },
@@ -115,6 +908,7 @@
             "id": "Ellipse 10",
             "margin": {
               "left": 311.0,
+              "top": 8.0,
               "right": 41.0,
               "bottom": 38.0
             },
@@ -134,7 +928,7 @@
             "id": "Vinculacion",
             "margin": {
               "left": 26.0,
-              "top": 1.0,
+              "top": 30.0,
               "right": 296.0
             },
             "is-structured": false,
@@ -170,6 +964,7 @@
             "id": "Citas",
             "margin": {
               "left": 206.0,
+              "top": 30.0,
               "right": 116.0
             },
             "is-structured": false,
@@ -187,6 +982,7 @@
             "id": "Home",
             "margin": {
               "left": 116.0,
+              "top": 30.0,
               "right": 206.0
             },
             "is-structured": false,
@@ -302,10 +1098,31 @@
   },
   "previews": [
     {
+      "design": "Property 1=vinculacion",
+      "size": {
+        "width": 412.0,
+        "height": 106.0
+      }
+    },
+    {
+      "design": "Property 1=home",
+      "size": {
+        "width": 412.0,
+        "height": 106.0
+      }
+    },
+    {
       "design": "Property 1=dates",
       "size": {
         "width": 412.0,
-        "height": 76.0
+        "height": 106.0
+      }
+    },
+    {
+      "design": "Property 1=close",
+      "size": {
+        "width": 412.0,
+        "height": 106.0
       }
     }
   ],

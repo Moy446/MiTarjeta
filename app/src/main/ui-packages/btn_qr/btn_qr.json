@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "ejpyeHMPyRuPjwM3iib6kc",
     "node": "256:43",
-    "version": "2200759535825665402",
+    "version": "2201880388631702538",
     "component-id": "10c9457d5ce32d59247a98cd74e14130fc084fb8"
   },
   "default": "btnQR",
@@ -45,11 +45,11 @@
             "id": "btnQR-color",
             "alignment": {
               "horizontal": {
-                "attachment": "center",
+                "attachment": "end",
                 "offset": 0.0
               },
               "vertical": {
-                "attachment": "center",
+                "attachment": "end",
                 "offset": 0.0
               }
             },
@@ -69,12 +69,12 @@
             "id": "qrcode-solid 1",
             "alignment": {
               "horizontal": {
-                "attachment": "center",
-                "offset": 0.0
+                "attachment": "end",
+                "offset": -10.0
               },
               "vertical": {
-                "attachment": "center",
-                "offset": 0.0
+                "attachment": "end",
+                "offset": -10.0
               }
             },
             "size-constraints": {
