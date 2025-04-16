@@ -16,12 +16,16 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -38,6 +42,7 @@ import com.bocchi.mitarjeta.Tarjetas
 import com.bocchi.mitarjeta.btnqr.BtnQr
 import com.bocchi.mitarjeta.menu.Menu
 import com.bocchi.mitarjeta.menu.Property1
+import com.bocchi.mitarjeta.navigation.NavItemList
 import com.bocchi.mitarjeta.tarjetas1.Tarjetas1
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.backgroud
@@ -60,13 +65,21 @@ private var tarjetasList:List<Tarjetas> = listOf(
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun TarjetasView (navController: NavController){
+    var selectedRoute = remember { mutableStateOf("home") }
     Scaffold (bottomBar = {
-        //Impresion del Menu
-        menuView()
+            //Impresion del Menu
+            menuView(
+                navItemList = NavItemList.navItemList,
+                selectedView = selectedRoute.value,
+                onItemSelected = {
+                        titulo -> selectedRoute.value = titulo
+                    navController.navigate(titulo)
+                },
+            )
     },floatingActionButton = {
         botonQR()
     }) {
-        Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(0.dp,40.dp,0.dp,0.dp)){
+        Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(top = 40.dp, bottom = 40.dp)){
             botonBack(Modifier
                 .padding(30.dp,15.dp)
                 .clickable {

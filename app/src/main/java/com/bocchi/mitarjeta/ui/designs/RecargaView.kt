@@ -1,5 +1,6 @@
 package com.bocchi.mitarjeta.ui.designs
 
+import android.annotation.SuppressLint
 import android.util.Property
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,6 +34,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -64,6 +66,7 @@ import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.TarjetasDebito
 import com.bocchi.mitarjeta.botonescuadrados.BotonesCuadrados
 import com.bocchi.mitarjeta.botonescuadrados.Seleccionado
+import com.bocchi.mitarjeta.navigation.NavItemList
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.SecondButton
 import com.bocchi.mitarjeta.ui.theme.Titulos
@@ -72,125 +75,140 @@ import com.google.relay.compose.BoxScopeInstanceImpl.align
 import com.google.relay.compose.ColumnScopeInstanceImpl.align
 import java.util.Collections.addAll
 
-@OptIn(ExperimentalMaterial3Api::class)
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun RecargaView(navController: NavController,uid:String?) {
+fun RecargaView(navController: NavController, uid: String?) {
     var selectedMonto = remember { mutableStateOf(50) }
-    var agregarTarjeta = remember{ mutableStateOf(false) }
+    var agregarTarjeta = remember { mutableStateOf(false) }
 
     // Lista reactiva de tarjetas
-    val tarjetasDebitoList =  remember { mutableStateListOf<TarjetasDebito>() }
-    val tarjetas = remember { mutableStateListOf<String>().apply { addAll(obtenerNumerosTarjetas()) } }
+    val tarjetasDebitoList = remember { mutableStateListOf<TarjetasDebito>() }
+    val tarjetas =
+        remember { mutableStateListOf<String>().apply { addAll(obtenerNumerosTarjetas()) } }
     var tarjetaSeleccionada by remember { mutableStateOf(tarjetas.firstOrNull() ?: "") }
+    //menu variables
+    var selectedRoute = remember { mutableStateOf("home") }
 
 
     MiTarjetaTheme {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(backgroud)
-                .padding(top = 40.dp)
-        ) {
-
-            Column (
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(bottom = 80.dp)
-                    .align(Alignment.Center)
-                    .verticalScroll(rememberScrollState())
-            ) {
-                Row {
-                    botonBack(
-                        Modifier
-                            .padding(start = 30.dp, end = 50.dp, top = 15.dp)
-                            .clickable {
-                                navController.popBackStack()
-                            })
-                    textTittle(
-                        Modifier
-                            .width(170.dp)
-                            .height(52.dp),
-                        "Recargas"
-                    )
-                }
-
-                textDescription(
-                    Modifier
-                        .width(329.dp)
-                        .height(26.dp)
-                        .align(Alignment.CenterHorizontally),
-                    "Proporciona los siguientes datos",
-                )
-                ReadOnlyTextField(uid)
-
-                selectedMonto.value=seleccionMontoRecargas()
-
-                seleccionarTarjetaRecarga(
-                    tarjetasList = tarjetas,
-                    tarjetaSeleccionada = tarjetaSeleccionada,
-                    onSeleccionarTarjeta = { tarjetaSeleccionada = it },
-                    onAgregarTarjeta = { agregarTarjeta.value = !agregarTarjeta.value }
-                )
-
-                if (agregarTarjeta.value) {
-                    agegarTarjetaRecarga(true) { nuevaTarjeta ->
-                        if (!tarjetasDebitoList.contains(nuevaTarjeta)) {
-                            tarjetasDebitoList.add(nuevaTarjeta)
-                            var numero = nuevaTarjeta.numeroTarjeta
-                            numero = numero.reversed()
-                            numero = "**${numero[3]}${numero[2]}${numero[1]}${numero[0]}"
-                            tarjetas.add(numero)
-                            tarjetaSeleccionada = numero
-                        }
-                        agregarTarjeta.value = false
-                    }
-                }
-
-                mostrarMontosRecarga(selectedMonto.value)
-
-                //botton pagar
-                Button(modifier = Modifier
-                    .padding(vertical = 5.dp)
-                    .width(301.dp)
-                    .height(42.dp)
-                    .align(Alignment.CenterHorizontally),
-                    shape = RoundedCornerShape(20.dp),
-                    enabled = tarjetaSeleccionada != "------",
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFE9762B)
-                    ),
-                    onClick = {
-                        /*TODO
-                            una tarjeta la cual va a pagar*/
-                    }) {
-                    Text(
-                        text = "Pagar",
-                        style = TextStyle(
-                            fontSize = 20.sp,
-                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
-                            fontWeight = FontWeight(500),
-                            color = Color(0xFF3058B6),
-
-                            )
-                    )
-                }
-            }
+        Scaffold(bottomBar = {
             //Impresion del Menu
+            menuView(
+                navItemList = NavItemList.navItemList,
+                selectedView = selectedRoute.value,
+                onItemSelected = { titulo ->
+                    selectedRoute.value = titulo
+                    navController.navigate(titulo)
+                },
+            )
+        }
+        ) {
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(106.dp)
-                    .align(Alignment.BottomCenter)
+                    .fillMaxSize()
+                    .background(backgroud)
+                    .padding(top = 40.dp, bottom = 50.dp)
             ) {
-                menuView()
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(bottom = 80.dp)
+                        .align(Alignment.Center)
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    Row {
+                        botonBack(
+                            Modifier
+                                .padding(start = 30.dp, end = 50.dp, top = 15.dp)
+                                .clickable {
+                                    navController.popBackStack()
+                                })
+                        textTittle(
+                            Modifier
+                                .width(170.dp)
+                                .height(52.dp),
+                            "Recargas"
+                        )
+                    }
+
+                    textDescription(
+                        Modifier
+                            .width(329.dp)
+                            .height(26.dp)
+                            .align(Alignment.CenterHorizontally),
+                        "Proporciona los siguientes datos",
+                    )
+                    ReadOnlyTextField(uid)
+
+                    selectedMonto.value = seleccionMontoRecargas()
+
+                    seleccionarTarjetaRecarga(
+                        tarjetasList = tarjetas,
+                        tarjetaSeleccionada = tarjetaSeleccionada,
+                        onSeleccionarTarjeta = { tarjetaSeleccionada = it },
+                        onAgregarTarjeta = { agregarTarjeta.value = !agregarTarjeta.value }
+                    )
+
+                    if (agregarTarjeta.value) {
+                        agegarTarjetaRecarga(true) { nuevaTarjeta ->
+                            if (!tarjetasDebitoList.contains(nuevaTarjeta)) {
+                                tarjetasDebitoList.add(nuevaTarjeta)
+                                var numero = nuevaTarjeta.numeroTarjeta
+                                numero = numero.reversed()
+                                numero = "**${numero[3]}${numero[2]}${numero[1]}${numero[0]}"
+                                tarjetas.add(numero)
+                                tarjetaSeleccionada = numero
+                            }
+                            agregarTarjeta.value = false
+                        }
+                    }
+
+                    mostrarMontosRecarga(selectedMonto.value)
+
+                    //botton pagar
+                    Button(modifier = Modifier
+                        .padding(vertical = 5.dp)
+                        .width(301.dp)
+                        .height(42.dp)
+                        .align(Alignment.CenterHorizontally),
+                        shape = RoundedCornerShape(20.dp),
+                        enabled = tarjetaSeleccionada != "------",
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFFE9762B)
+                        ),
+                        onClick = {
+                            /*TODO
+                                una tarjeta la cual va a pagar*/
+                        }) {
+                        Text(
+                            text = "Pagar",
+                            style = TextStyle(
+                                fontSize = 20.sp,
+                                fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                                fontWeight = FontWeight(500),
+                                color = Color(0xFF3058B6),
+
+                                )
+                        )
+                    }
+                }
+                //Impresion del Menu
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(106.dp)
+                        .align(Alignment.BottomCenter)
+                ) {
+                }
             }
         }
     }
 }
 
 @Composable
-fun seleccionMontoRecargas ():Int{
+fun seleccionMontoRecargas(): Int {
     var selectedMonto = remember { mutableStateOf("50") }
     //Caja de seleccionar monto
     Box(
@@ -213,7 +231,7 @@ fun seleccionMontoRecargas ():Int{
                 horizontalArrangement = Arrangement.spacedBy(40.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                botonCuadrado("50", selectedMonto.value == "50")   { selectedMonto.value = "50"  }
+                botonCuadrado("50", selectedMonto.value == "50") { selectedMonto.value = "50" }
                 botonCuadrado("100", selectedMonto.value == "100") { selectedMonto.value = "100" }
             }
             Row(
@@ -233,29 +251,37 @@ fun seleccionMontoRecargas ():Int{
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun seleccionarTarjetaRecarga(tarjetasList: List<String>, tarjetaSeleccionada: String,
-                              onSeleccionarTarjeta: (String) -> Unit, onAgregarTarjeta: () -> Unit){
+fun seleccionarTarjetaRecarga(
+    tarjetasList: List<String>, tarjetaSeleccionada: String,
+    onSeleccionarTarjeta: (String) -> Unit, onAgregarTarjeta: () -> Unit
+) {
 
     var isExpanded = remember { mutableStateOf(false) }
 
 
-    Box (modifier = Modifier
-        .border(width = 1.dp, color = Color(0xFF4FE49F))
-        .fillMaxWidth()
-        .height(116.dp)
-    ) {
-        Column (modifier = Modifier
-            .padding(58.dp, 5.dp)
+    Box(
+        modifier = Modifier
+            .border(width = 1.dp, color = Color(0xFF4FE49F))
             .fillMaxWidth()
-            .fillMaxHeight()
-            .align(Alignment.Center)){
+            .height(116.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(58.dp, 5.dp)
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .align(Alignment.Center)
+        ) {
             textDescription(
                 Modifier
                     .width(329.dp)
                     .height(26.dp)
                     .align(Alignment.CenterHorizontally),
-                "Selecciona tu metodo de pago")
-            ExposedDropdownMenuBox(expanded = isExpanded.value, onExpandedChange = { isExpanded.value = !isExpanded.value }) {
+                "Selecciona tu metodo de pago"
+            )
+            ExposedDropdownMenuBox(
+                expanded = isExpanded.value,
+                onExpandedChange = { isExpanded.value = !isExpanded.value }) {
                 OutlinedTextField(
                     modifier = Modifier.menuAnchor(),
                     value = tarjetaSeleccionada,
@@ -269,7 +295,9 @@ fun seleccionarTarjetaRecarga(tarjetasList: List<String>, tarjetaSeleccionada: S
                         unfocusedBorderColor = Color.Gray,
                     )
                 )
-                ExposedDropdownMenu(expanded = isExpanded.value, onDismissRequest = { isExpanded.value = false }) {
+                ExposedDropdownMenu(
+                    expanded = isExpanded.value,
+                    onDismissRequest = { isExpanded.value = false }) {
                     tarjetasList.forEach { tarjeta ->
                         DropdownMenuItem(
                             text = { Text(tarjeta) },
@@ -303,14 +331,15 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
     var titular by rememberSaveable { mutableStateOf("") }
     var expiracion by rememberSaveable { mutableStateOf("") }
     var cvv by rememberSaveable { mutableStateOf("") }
-    var validate = numeroTarjeta.isNotEmpty() && titular.isNotEmpty() && expiracion.isNotEmpty()&&cvv.isNotEmpty()
+    var validate =
+        numeroTarjeta.isNotEmpty() && titular.isNotEmpty() && expiracion.isNotEmpty() && cvv.isNotEmpty()
 
     //escuchar si hay algun cambio
     LaunchedEffect(expand) {
-         isExpand.value= expand
+        isExpand.value = expand
     }
 
-    if (isExpand.value){
+    if (isExpand.value) {
         //caja de rellenar tarjeta
         Box(
             Modifier
@@ -318,10 +347,12 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                 .fillMaxWidth()
                 .height(216.dp)
         ) {
-            Column(modifier = Modifier
-                .padding(58.dp, 20.dp)
-                .fillMaxWidth()
-                .fillMaxHeight()) {
+            Column(
+                modifier = Modifier
+                    .padding(58.dp, 20.dp)
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+            ) {
                 Row {
                     //numero de tarjeta
                     OutlinedTextField(
@@ -361,21 +392,23 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                             keyboardType = KeyboardType.Number,
                         )
                     )
-                    Image(modifier = Modifier
-                        .width(42.dp)
-                        .height(26.dp)
-                        .padding(end = 2.dp)
-                        .align(Alignment.CenterVertically),
+                    Image(
+                        modifier = Modifier
+                            .width(42.dp)
+                            .height(26.dp)
+                            .padding(end = 2.dp)
+                            .align(Alignment.CenterVertically),
                         painter = painterResource(id = R.drawable.visa_logo),
                         contentDescription = "image description",
                         contentScale = ContentScale.Fit
                     )
 
-                    Image(modifier = Modifier
-                        .width(42.dp)
-                        .height(26.dp)
-                        .padding(start = 2.dp)
-                        .align(Alignment.CenterVertically),
+                    Image(
+                        modifier = Modifier
+                            .width(42.dp)
+                            .height(26.dp)
+                            .padding(start = 2.dp)
+                            .align(Alignment.CenterVertically),
                         painter = painterResource(id = R.drawable.master_card),
                         contentDescription = "image description",
                         contentScale = ContentScale.Fit
@@ -501,13 +534,13 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                         .width(140.dp)
                         .height(35.dp)
                         .align(Alignment.CenterHorizontally),
-                        enabled = validate,
+                    enabled = validate,
                     onClick = {
                         /*TODO
                         *  falta agregar la tarjeta a base de datos*/
-                        onTarjetaAgregada(TarjetasDebito(numeroTarjeta,titular,expiracion,cvv))
+                        onTarjetaAgregada(TarjetasDebito(numeroTarjeta, titular, expiracion, cvv))
                         isExpand.value = false
-                              },
+                    },
                     colors = ButtonDefaults.buttonColors(containerColor = SecondButton)
                 ) {
                     Text(
@@ -530,16 +563,16 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
 }
 
 @Composable
-fun mostrarMontosRecarga(monto:Int){
+fun mostrarMontosRecarga(monto: Int) {
     // precios
     var subtotal by remember { mutableStateOf(monto) }
     var impuesto by remember { mutableStateOf(0) }
 
     LaunchedEffect(monto) {
         subtotal = monto
-        if (monto>100) {
+        if (monto > 100) {
             impuesto = (monto * .02).toInt()
-        }else
+        } else
             impuesto = 0
     }
 
@@ -549,10 +582,12 @@ fun mostrarMontosRecarga(monto:Int){
             .border(width = 1.dp, color = Color(0xFF4FE49F))
             .fillMaxWidth()
             .height(100.dp)
-    ){
-        Column (modifier = Modifier.padding(58.dp,20.dp)){
-            Row (modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween) {
+    ) {
+        Column(modifier = Modifier.padding(58.dp, 20.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     modifier = Modifier
                         .width(100.dp)
@@ -581,8 +616,10 @@ fun mostrarMontosRecarga(monto:Int){
                     )
                 )
             }
-            Row (modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     modifier = Modifier
                         .width(100.dp)
@@ -610,8 +647,10 @@ fun mostrarMontosRecarga(monto:Int){
                     )
                 )
             }
-            Row (modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween){
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     modifier = Modifier
                         .width(100.dp)
@@ -648,11 +687,11 @@ fun mostrarMontosRecarga(monto:Int){
 fun PreviewRecargas() {
 }
 
-fun obtenerNumerosTarjetas():MutableList<String>{
+fun obtenerNumerosTarjetas(): MutableList<String> {
     /*TODO
     *  FALTA LA EXTRACCION DE BASE DE DATOS PARA LAS TARJETAS*/
     //var tarjetasDebito:MutableList<TarjetasDebito> = mutableListOf(TarjetasDebito("------","----","-----","----"))
-    var numeroTarjetas:MutableList<String> = mutableListOf("------")
+    var numeroTarjetas: MutableList<String> = mutableListOf("------")
 
     return numeroTarjetas
 }

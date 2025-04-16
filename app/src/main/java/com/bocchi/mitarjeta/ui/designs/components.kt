@@ -29,6 +29,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -61,6 +64,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.Tarjetas
+import com.bocchi.mitarjeta.navigation.NavItem
 import com.bocchi.mitarjeta.ui.theme.Titulos
 import com.google.relay.compose.BoxScopeInstanceImpl.align
 
@@ -205,80 +209,28 @@ fun rcvTarjeta(tarjetas: List<Tarjetas>,navController: NavController) {
 }
 
 @Composable
-fun menuView() {
-    Box(modifier = Modifier
-        .fillMaxWidth()
-        .height(106.dp)) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(76.dp)
-                .align(Alignment.BottomCenter)
-                .background(color = Color(0xFF57A8AD))
-        ) {
-            Row(modifier = Modifier.align(Alignment.Center)) {
 
-                //cuadro seleccionado
-                Box(
-                    modifier = Modifier
-                        .size(70.dp)
-                        .clip(CircleShape)
-                        .background(color = Color(0xFF57AD96))
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(60.dp)
-                            .clip(CircleShape)
-                            .align(Alignment.Center)
-                            .background(color = Color(0xFFE9762B))
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .width(90.dp)
-                                .height(76.dp)
-                                .background(color = Color(0x00FFFFFF)),
-                            painter = painterResource(id = R.drawable.menu_vinculation_img),
-                            contentDescription = "image description",
-                            contentScale = ContentScale.None
-                        )
-                    }
-                }
-
-                //resto de opciones
-                Image(
-                    modifier = Modifier
-                        .width(90.dp)
-                        .height(76.dp)
-                        .background(color = Color(0x00FFFFFF)),
-                    painter = painterResource(id = R.drawable.menu_home_img),
-                    contentDescription = "image description",
-                    contentScale = ContentScale.None
+fun menuView(navItemList: List<NavItem>, selectedView:String, onItemSelected:(String) -> Unit){
+    NavigationBar(containerColor = Color(0xFF57A8AD)) {
+        navItemList.forEachIndexed{index, navItem->
+            NavigationBarItem(
+                selected = selectedView == navItem.titulo,
+                onClick = { onItemSelected(navItem.titulo) },
+                icon = {
+                    Icon(
+                        ImageVector.vectorResource(navItem.icono),
+                        contentDescription = "Icono",
+                        tint =Color(0xFF29536D)
+                    )
+                },
+                colors =NavigationBarItemDefaults.colors(
+                    indicatorColor = Color(0xFFE9762B)
                 )
+            )
 
-                Image(
-                    modifier = Modifier
-                        .width(90.dp)
-                        .height(76.dp)
-                        .background(color = Color(0x00FFFFFF)),
-                    painter = painterResource(id = R.drawable.menu_citas_img),
-                    contentDescription = "image description",
-                    contentScale = ContentScale.None
-                )
-
-                Image(
-                    modifier = Modifier
-                        .width(90.dp)
-                        .height(76.dp)
-                        .background(color = Color(0x00FFFFFF)),
-                    painter = painterResource(id = R.drawable.menu_close_img),
-                    contentDescription = "image description",
-                    contentScale = ContentScale.None
-                )
-            }
         }
     }
 }
-
 
 @Composable
 fun ReadOnlyTextField(uid: String?) {
@@ -290,7 +242,7 @@ fun ReadOnlyTextField(uid: String?) {
             enabled = false,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp,10.dp),
+                .padding(20.dp, 10.dp),
             shape = RoundedCornerShape(20.dp)
 
         )
