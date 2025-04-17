@@ -1,6 +1,7 @@
 package com.bocchi.mitarjeta.ui.designs
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -24,6 +25,8 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -40,32 +43,40 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.Tarjetas
 import com.bocchi.mitarjeta.btnqr.BtnQr
+import com.bocchi.mitarjeta.database.getTarjetas
 import com.bocchi.mitarjeta.menu.Menu
 import com.bocchi.mitarjeta.menu.Property1
 import com.bocchi.mitarjeta.navigation.NavItemList
 import com.bocchi.mitarjeta.tarjetas1.Tarjetas1
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.backgroud
+import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 import com.google.relay.compose.BoxScopeInstanceImpl.align
 import com.google.relay.compose.ColumnScopeInstanceImpl.align
 import com.google.relay.compose.EmptyPainter
-
-
-private var tarjetasList:List<Tarjetas> = listOf(
-    Tarjetas("12345678","50 $"),
-    Tarjetas("12345679","150 $"),
-    Tarjetas("12345677","200 $"),
-    Tarjetas("12345676","258 $"),
-    Tarjetas("12345675","10 $"),
-    Tarjetas("12345675", "80 $"),
-)
-
+import kotlinx.coroutines.tasks.await
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun TarjetasView (navController: NavController){
+fun TarjetasView (navController: NavController,curp: String?){
+
     var selectedRoute = remember { mutableStateOf("home") }
+    //obtener las tarjetas almacenadas
+    val tarjetasList = remember { mutableStateListOf<Tarjetas>() }
+
+    LaunchedEffect(key1 = curp) {
+        if (curp != null) {
+            getTarjetas(curp) { tarjetas ->
+                tarjetasList.clear()
+                tarjetasList.addAll(tarjetas)
+            }
+        }
+    }
+
     Scaffold (bottomBar = {
             //Impresion del Menu
             menuView(
@@ -88,13 +99,14 @@ fun TarjetasView (navController: NavController){
             Column ( modifier = Modifier.fillMaxSize().padding(bottom = 80.dp)){
                 textTittle(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas")
                 textDescription(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar")
-                rcvTarjeta(tarjetasList,navController)
+                rcvTarjeta(tarjetasList,curp!!,navController,{ onUpdate->
+                    tarjetasList.clear()
+                    tarjetasList.addAll(onUpdate)
+                })
             }
         }
     }
 }
-
-
 
 @Preview(showSystemUi = true)
 @Composable

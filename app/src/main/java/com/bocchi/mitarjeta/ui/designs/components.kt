@@ -64,8 +64,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.Tarjetas
+import com.bocchi.mitarjeta.database.deleteTarjeta
 import com.bocchi.mitarjeta.navigation.NavItem
 import com.bocchi.mitarjeta.ui.theme.Titulos
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.relay.compose.BoxScopeInstanceImpl.align
 
 @Composable
@@ -117,7 +119,7 @@ fun botonCuadrado(value: String,isSelected: Boolean, onClick: () -> Unit) {
 }
 
 @Composable
-fun tarjetaView(uid: String, saldo: String,navController: NavController) {
+fun tarjetaView(uid: String, saldo: String,curp:String,navController: NavController,onUpdate:(List<Tarjetas>)->Unit) {
     val openAlertDialog = remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
@@ -126,7 +128,6 @@ fun tarjetaView(uid: String, saldo: String,navController: NavController) {
             .height(136.dp)
             .background(color = Color(0xFF39C3CB), shape = RoundedCornerShape(size = 20.dp))
             .clickable {
-                /*TODO navigation y pasando el uid*/
                 navController.navigate("recargas/${uid}")
             }
     ) {
@@ -166,7 +167,7 @@ fun tarjetaView(uid: String, saldo: String,navController: NavController) {
                         .height(33.dp), "Saldo")
                 textDescription(
                     Modifier
-                        .width(59.dp)
+                        .fillMaxWidth()
                         .height(26.dp), "$ $saldo")
             }
         }
@@ -194,16 +195,22 @@ fun tarjetaView(uid: String, saldo: String,navController: NavController) {
             dialogTitle = "Desvincular",
             dialogText = "¿Seguro que quieres desvincular tu tarjeta de tu cuenta?",
             showDialog = openAlertDialog.value,
+            onAccept = {
+                deleteTarjeta(curp,uid,{update->
+                    onUpdate(update)
+                })
+                openAlertDialog.value = false
+            },
             onDismiss = { openAlertDialog.value = false }
         )
     }
 }
 
 @Composable
-fun rcvTarjeta(tarjetas: List<Tarjetas>,navController: NavController) {
+fun rcvTarjeta(tarjetas: List<Tarjetas>,curp:String,navController: NavController,onUpdate:(List<Tarjetas>)->Unit) {
     LazyColumn {
         items(tarjetas) { tarjeta ->
-            tarjetaView(tarjeta.uid, tarjeta.saldo,navController)
+            tarjetaView(tarjeta.uid, tarjeta.saldo, curp,navController,onUpdate)
         }
     }
 }
@@ -251,7 +258,7 @@ fun ReadOnlyTextField(uid: String?) {
 
 
 @Composable
-fun AlertDialogDesvincular(dialogTitle: String,dialogText: String, showDialog: Boolean, onDismiss: () -> Unit){
+fun AlertDialogDesvincular(dialogTitle: String,dialogText: String, showDialog: Boolean,onAccept:()->Unit, onDismiss: () -> Unit){
 
     if(showDialog){
         AlertDialog(
@@ -270,8 +277,7 @@ fun AlertDialogDesvincular(dialogTitle: String,dialogText: String, showDialog: B
             confirmButton = {
                 TextButton(
                     onClick = {
-                        /*TODO falta la conexion a base de datos*/
-                        onDismiss()
+                        onAccept()
                     }
                 ) {
                     Text("Desvincular",

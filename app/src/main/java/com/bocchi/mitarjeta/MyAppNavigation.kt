@@ -24,7 +24,7 @@ fun MyAppNavigation() {
         startDestination = "login"
     ) {
         composable("login") { LoginView(navController) }
-        composable("home") { TarjetasView(navController) }
+        composable("home") { TarjetasView(navController,"OECM030426HJCTBSA1") }
         composable("recargas/{uid}",
             arguments = listOf(navArgument("uid") { type = NavType.StringType })){
             backStackEntry->
