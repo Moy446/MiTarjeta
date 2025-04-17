@@ -26,10 +26,10 @@ fun MyAppNavigation() {
         composable("login") { LoginView(navController) }
 
         composable("home/{curp}",
-            arguments = listOf(navArgument("uid") { type = NavType.StringType })){
+            arguments = listOf(navArgument("curp") { type = NavType.StringType })){
                 backStackEntry->
-            val uid = backStackEntry.arguments?.getString("uid")
-            TarjetasView(navController,uid) }
+            val curp = backStackEntry.arguments?.getString("curp")
+            TarjetasView(navController,curp) }
 
         composable("recargas/{uid}",
             arguments = listOf(navArgument("uid") { type = NavType.StringType })){
