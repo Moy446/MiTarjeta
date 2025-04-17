@@ -24,13 +24,21 @@ fun MyAppNavigation() {
         startDestination = "login"
     ) {
         composable("login") { LoginView(navController) }
-        composable("home") { TarjetasView(navController,"OECM030426HJCTBSA1") }
+
+        composable("home/{curp}",
+            arguments = listOf(navArgument("uid") { type = NavType.StringType })){
+                backStackEntry->
+            val uid = backStackEntry.arguments?.getString("uid")
+            TarjetasView(navController,uid) }
+
         composable("recargas/{uid}",
             arguments = listOf(navArgument("uid") { type = NavType.StringType })){
             backStackEntry->
             val uid = backStackEntry.arguments?.getString("uid")
             RecargaView(navController,uid) }
+
         composable("register") {  RegisterView(navController)}
+
         composable("curp") { /* Aquí puedes agregar la vista para CURP */ }
 
         // Agrega más destinos según sea necesario
