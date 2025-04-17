@@ -689,7 +689,7 @@ fun PreviewRecargas() {
 fun getNumerosTarjetas(): MutableList<String> {
     /*TODO
     *  FALTA LA EXTRACCION DE BASE DE DATOS PARA LAS TARJETAS*/
-    
+
     var numeroTarjetas: MutableList<String> = mutableListOf("------")
 
     return numeroTarjetas
