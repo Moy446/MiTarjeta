@@ -155,7 +155,7 @@ fun LoginView(navController: NavController) {
                         AuthRepository.signIn(user, password) { success, errorMessage ->
                             loading = false
                             if (success) {
-                                navController.navigate("home")
+                                navController.navigate("home/${user}")
                             } else {
                                 message = errorMessage ?: "Error desconocido"
                             }

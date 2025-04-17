@@ -84,8 +84,7 @@ fun RecargaView(navController: NavController, uid: String?) {
 
     // Lista reactiva de tarjetas
     val tarjetasDebitoList = remember { mutableStateListOf<TarjetasDebito>() }
-    val tarjetas =
-        remember { mutableStateListOf<String>().apply { addAll(obtenerNumerosTarjetas()) } }
+    val tarjetas = remember { mutableStateListOf<String>().apply { addAll(getNumerosTarjetas()) } }
     var tarjetaSeleccionada by remember { mutableStateOf(tarjetas.firstOrNull() ?: "") }
     //menu variables
     var selectedRoute = remember { mutableStateOf("home") }
@@ -687,10 +686,10 @@ fun mostrarMontosRecarga(monto: Int) {
 fun PreviewRecargas() {
 }
 
-fun obtenerNumerosTarjetas(): MutableList<String> {
+fun getNumerosTarjetas(): MutableList<String> {
     /*TODO
     *  FALTA LA EXTRACCION DE BASE DE DATOS PARA LAS TARJETAS*/
-    //var tarjetasDebito:MutableList<TarjetasDebito> = mutableListOf(TarjetasDebito("------","----","-----","----"))
+
     var numeroTarjetas: MutableList<String> = mutableListOf("------")
 
     return numeroTarjetas

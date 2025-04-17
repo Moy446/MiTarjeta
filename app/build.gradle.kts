@@ -51,8 +51,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.firebase.auth.ktx)
-    implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
     implementation(libs.androidx.runtime.saved.instance.state)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -65,4 +63,9 @@ dependencies {
     //google fonts
     implementation ("com.google.android.material:material:1.6.0")  // o la última versión disponible
     implementation ("androidx.core:core-ktx:1.9.0")  // para trabajar con las fuentes más fácilmente
+
+    //firebase
+    implementation("com.google.firebase:firebase-bom:32.7.0")
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.auth.ktx)
 }
