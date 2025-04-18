@@ -1,0 +1,2 @@
+class CitasView2 {
+}
