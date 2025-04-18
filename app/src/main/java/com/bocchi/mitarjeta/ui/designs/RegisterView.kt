@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.bocchi.mitarjeta.views
+package com.bocchi.mitarjeta.ui.designs
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -9,11 +9,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -32,13 +35,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.ui.theme.FirstButton
 import com.bocchi.mitarjeta.ui.theme.SecondButton
@@ -93,18 +100,26 @@ fun RegisterView(navController: NavController) {
             Spacer(modifier = Modifier.height(30.dp))
 
             OutlinedTextField( //Campo de texto Curp
-                enabled = false,
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
+                    .defaultMinSize(minHeight = 64.dp),
                 value = curp,
                 onValueChange = {curp = it},
                 label = {
                     Text(
                         text = "Curp",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false
+                ),
                 shape = RoundedCornerShape(20.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
@@ -118,15 +133,25 @@ fun RegisterView(navController: NavController) {
             OutlinedTextField( //Campo de texto Correo
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
+                    .defaultMinSize(minHeight = 64.dp),
                 value = user,
                 onValueChange = { user = it },
                 label = {
                     Text(
                         text = "Correo Electrónico",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                    keyboardType = KeyboardType.Email
+                ),
                 shape = RoundedCornerShape(20.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
@@ -140,15 +165,25 @@ fun RegisterView(navController: NavController) {
             OutlinedTextField( //Campo de texto Contraseña
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
+                    .defaultMinSize(minHeight = 64.dp),
                 value = password,
                 onValueChange = { password = it },
                 label = {
                     Text(
                         text = "Contraseña",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                    keyboardType = KeyboardType.Password
+                ),
                 shape = RoundedCornerShape(20.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,

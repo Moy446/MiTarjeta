@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
-package com.bocchi.mitarjeta.views
+package com.bocchi.mitarjeta.ui.designs
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.ButtonDefaults
@@ -37,7 +39,13 @@ import com.bocchi.mitarjeta.ui.theme.Titulos
 import com.bocchi.mitarjeta.ui.theme.Words
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.database.AuthRepository
@@ -80,16 +88,26 @@ fun LoginView(navController: NavController) {
             OutlinedTextField( //Campo de texto CURP
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
+                    .defaultMinSize(minHeight = 64.dp),
                 value = user,
                 onValueChange = { user = it },
                 label = {
                     Text(
+
                         text = "CURP",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 10.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
-                shape = RoundedCornerShape(10.dp),
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                ),
+                shape = RoundedCornerShape(16.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
                     focusedBorderColor = Color.Blue,   // Borde activo
@@ -101,17 +119,26 @@ fun LoginView(navController: NavController) {
 
             OutlinedTextField( //Campo de texto Password
                 modifier = Modifier
-                    .width(250.dp)
-                    .height(50.dp),
+                    .width(250.dp).defaultMinSize(minHeight = 64.dp),
                 value = password,
                 onValueChange = { password = it },
                 label = {
                     Text(
                         text = "Contraseña",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 10.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
-                shape = RoundedCornerShape(10.dp),
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                    keyboardType = KeyboardType.Password
+                ),
+                shape = RoundedCornerShape(16.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
                     focusedBorderColor = Color.Blue,   // Borde activo
@@ -155,8 +182,13 @@ fun LoginView(navController: NavController) {
                         AuthRepository.signIn(user, password) { success, errorMessage ->
                             loading = false
                             if (success) {
-                                navController.navigate("home")
+                                navController.navigate("home/${user}")
                             } else {
+                                Toast.makeText(
+                                    navController.context,
+                                    "Autenticación fallida",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 message = errorMessage ?: "Error desconocido"
                             }
                         }
