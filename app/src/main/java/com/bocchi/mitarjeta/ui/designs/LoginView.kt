@@ -50,7 +50,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.R
-import com.bocchi.mitarjeta.btnqr.BtnQr
+import com.bocchi.mitarjeta.database.CRUDUsers
 
 /* ESTO SIRVE PARA MOSTRAR EL PREVIEW*/
 @Preview(showBackground = true)
@@ -179,7 +179,7 @@ fun LoginView(navController: NavController) {
                 onClick = {
                     if(user.isNotEmpty() && password.isNotEmpty()) {
                         loading = true
-                        AuthRepository.signIn(user, password) { success, errorMessage ->
+                        CRUDUsers.signInWithCurp(user, password) { success, errorMessage ->
                             loading = false
                             if (success) {
                                 navController.navigate("home/${user}")
@@ -224,12 +224,6 @@ fun LoginView(navController: NavController) {
                 )
             }
             Spacer(modifier = Modifier.height(30.dp))
-            BtnQr(
-                modifier = Modifier
-                    .width(250.dp)
-                    .height(50.dp)
-
-            )
             Text(
                 text = "¿Olvidaste tu contraseña?",
                 color = Words,

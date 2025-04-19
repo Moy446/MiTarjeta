@@ -47,6 +47,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.database.AuthRepository
+import com.bocchi.mitarjeta.database.CRUDUsers
 import com.bocchi.mitarjeta.ui.theme.FirstButton
 import com.bocchi.mitarjeta.ui.theme.SecondButton
 import com.bocchi.mitarjeta.ui.theme.Titulos
@@ -242,7 +243,7 @@ fun RegisterView(navController: NavController) {
                     if (user.isNotEmpty() && password.isNotEmpty()) {
                         if(validacionCorreo(user) == true){
                             loading = true
-                            AuthRepository.createAccount(user, password) { success, error ->
+                            CRUDUsers.registerUserWithCurp(curp,user, password) { success, error ->
                                 loading = false
                                 if (success) {
                                     navController.navigate("home")
