@@ -5,6 +5,7 @@ package com.bocchi.mitarjeta.ui.designs
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,6 +45,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -51,6 +53,8 @@ import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.database.CRUDUsers
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 /* ESTO SIRVE PARA MOSTRAR EL PREVIEW*/
 @Preview(showBackground = true)
@@ -90,7 +94,9 @@ fun LoginView(navController: NavController) {
                     .width(250.dp)
                     .defaultMinSize(minHeight = 64.dp),
                 value = user,
-                onValueChange = { user = it },
+                onValueChange = {if (it.length <= 18){ // Limitar a 18 caracteres
+                    user = it.uppercase() // Convierte a mayúsculas
+                } },
                 label = {
                     Text(
 
@@ -144,6 +150,8 @@ fun LoginView(navController: NavController) {
                     focusedBorderColor = Color.Blue,   // Borde activo
                     unfocusedBorderColor = Color.Gray, // Borde inactivo
                 )
+                ,visualTransformation = PasswordVisualTransformation()
+
             )
 
             Spacer(modifier = Modifier.height(15.dp)) //Espacio entre los campos de texto
@@ -178,19 +186,27 @@ fun LoginView(navController: NavController) {
                     .height(50.dp),
                 onClick = {
                     if(user.isNotEmpty() && password.isNotEmpty()) {
-                        loading = true
-                        CRUDUsers.signInWithCurp(user, password) { success, errorMessage ->
-                            loading = false
-                            if (success) {
-                                navController.navigate("home/${user}")
-                            } else {
-                                Toast.makeText(
-                                    navController.context,
-                                    "Autenticación fallida",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                message = errorMessage ?: "Error desconocido"
+                        if(validacionCurp(user) == true){
+                            loading = true
+                            CRUDUsers.signInWithCurp(user, password) { success, errorMessage ->
+                                loading = false
+                                if (success) {
+                                    navController.navigate("home/${user}")
+                                } else {
+                                    Toast.makeText(
+                                        navController.context,
+                                        "Autenticación fallida: Credenciales incorrectas",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    message = errorMessage ?: "Error desconocido"
+                                }
                             }
+                        } else{
+                            Toast.makeText(
+                                navController.context,
+                                "CURP no válido",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     } else {
                         Toast.makeText(
@@ -226,8 +242,19 @@ fun LoginView(navController: NavController) {
             Spacer(modifier = Modifier.height(30.dp))
             Text(
                 text = "¿Olvidaste tu contraseña?",
+
                 color = Words,
-                modifier = Modifier.padding(top = 20.dp),
+                modifier = Modifier.padding(top = 20.dp).clickable {
+                    if (user.isNotEmpty()) {
+                        recuperarPassword(user)
+                    } else {
+                        Toast.makeText(
+                            navController.context,
+                            "Por favor, ingresa tu CURP",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                },
 
             )
 
@@ -235,3 +262,54 @@ fun LoginView(navController: NavController) {
     }
 
 }
+
+fun recuperarPassword(curp: String) {
+    val db = FirebaseFirestore.getInstance()
+    val auth = FirebaseAuth.getInstance()
+    db.collection("Usuarios")
+        .whereEqualTo("curp", curp)
+        .get()
+        .addOnSuccessListener { documents ->
+            if (documents.isEmpty) {
+                // No se encontró el CURP
+                Toast.makeText(
+                    null,
+                    "No se encontró el CURP",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                for (document in documents) {
+                    val email = document.getString("email")
+                    if (email != null) {
+                        auth.sendPasswordResetEmail(email)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    // Envío exitoso
+                                    Toast.makeText(
+                                        null,
+                                        "Se ha enviado un correo para restablecer la contraseña",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    // Error al enviar el correo
+                                    Toast.makeText(
+                                        null,
+                                        "Error al enviar el correo: ${task.exception?.message}",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                    }
+                }
+            }
+        }
+        .addOnFailureListener { exception ->
+            // Error al buscar el CURP
+            Toast.makeText(
+                null,
+                "Error al buscar el CURP: ${exception.message}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+}
+

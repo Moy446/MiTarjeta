@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -46,7 +45,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.R
-import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.database.CRUDUsers
 import com.bocchi.mitarjeta.ui.theme.FirstButton
 import com.bocchi.mitarjeta.ui.theme.SecondButton
@@ -63,9 +61,9 @@ fun RegisterViewPreview() {
 
 @Composable
 fun RegisterView(navController: NavController) {
-    var user by rememberSaveable   { mutableStateOf("") }
+    var email by rememberSaveable   { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
-    var curp: String by rememberSaveable { mutableStateOf("") }
+    var user: String by rememberSaveable { mutableStateOf("") }
     var curpChecked by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(false) }
     var message by remember { mutableStateOf("") }
@@ -104,8 +102,10 @@ fun RegisterView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .defaultMinSize(minHeight = 64.dp),
-                value = curp,
-                onValueChange = {curp = it},
+                value = user,
+                onValueChange = {if (it.length <= 18){ // Limitar a 18 caracteres
+                    user = it.uppercase() // Convierte a mayúsculas
+                } },
                 label = {
                     Text(
                         text = "Curp",
@@ -135,8 +135,8 @@ fun RegisterView(navController: NavController) {
                 modifier = Modifier
                     .width(250.dp)
                     .defaultMinSize(minHeight = 64.dp),
-                value = user,
-                onValueChange = { user = it },
+                value = email,
+                onValueChange = { email = it },
                 label = {
                     Text(
                         text = "Correo Electrónico",
@@ -240,16 +240,25 @@ fun RegisterView(navController: NavController) {
                     .width(250.dp)
                     .height(50.dp),
                 onClick = {
-                    if (user.isNotEmpty() && password.isNotEmpty()) {
-                        if(validacionCorreo(user) == true){
-                            loading = true
-                            CRUDUsers.registerUserWithCurp(curp,user, password) { success, error ->
-                                loading = false
-                                if (success) {
-                                    navController.navigate("home")
-                                } else {
-                                    message = error ?: "Error desconocido"
+                    if (email.isNotEmpty() && password.isNotEmpty()) {
+                        if(validacionCorreo(email) == true){
+                            if(validacionCurp(user) == true){
+                                loading = true
+                                CRUDUsers.registerUserWithCurp(user,email, password) { success, error ->
+                                    loading = false
+                                    if (success) {
+                                        navController.navigate("home/${email}")
+                                    } else {
+                                        message = error ?: "Error desconocido"
+                                    }
                                 }
+                            }
+                            else{
+                                Toast.makeText(
+                                    navController.context,
+                                    "Curp no valido",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }else{
                             Toast.makeText(
@@ -293,7 +302,17 @@ fun validacionPassword(password: String): Boolean {
 }
 
 fun validacionCurp(curp: String): Boolean {
-    val curpRegex = Regex("^[A-Z]{4}\\d{6}[HM][A-Z]{2}\\d{2}\$")
+    val curpRegex = Regex(
+        pattern = "^[A-Z][AEIOU][A-Z]{2}" +         // 4 letras: iniciales
+                "\\d{2}" +                         // Año (2 dígitos)
+                "(0[1-9]|1[0-2])" +                // Mes válido
+                "(0[1-9]|[12][0-9]|3[01])" +       // Día válido
+                "[HM]" +                           // Sexo: H o M
+                "(AS|BC|BS|CC|CL|CM|CS|CH|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS)" + // Estados
+                "[B-DF-HJ-NP-TV-Z]{3}" +           // Consonantes internas (sin vocales ni Ñ)
+                "[0-9A-Z]" +                       // Homoclave
+                "\\d$"                             // Dígito verificador final
+    )
     return curpRegex.matches(curp)
 }
 fun subirCurp(curp: String): Boolean {

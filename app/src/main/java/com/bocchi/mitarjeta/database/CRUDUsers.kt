@@ -32,9 +32,11 @@ object CRUDUsers {
                             }
                     } else {
                         callback(false, "No se encontró email para este CURP")
+                        Log.d("Auth", "No se encontró email para este CURP")
                     }
                 } else {
                     callback(false, "CURP no registrado")
+                    Log.d("Auth", "CURP no registrado")
                 }
             }
             .addOnFailureListener { e ->
@@ -74,6 +76,7 @@ object CRUDUsers {
                         }
                 } else {
                     callback(false, "No se pudo obtener el UID del usuario")
+                    Log.d("Auth", "No se pudo obtener el UID del usuario")
                 }
             }
             .addOnFailureListener { e ->

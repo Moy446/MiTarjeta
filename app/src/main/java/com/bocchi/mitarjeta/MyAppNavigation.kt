@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 //import com.bocchi.mitarjeta.views.HomeView
 import com.bocchi.mitarjeta.ui.designs.LoginView
 import com.bocchi.mitarjeta.ui.designs.RegisterView
+import com.bocchi.mitarjeta.views.HomeView
 
 @Composable
 fun MyAppNavigation() {
@@ -23,7 +24,10 @@ fun MyAppNavigation() {
         composable("login") { LoginView(navController) }
         composable("register") {  RegisterView(navController) }
         composable("curp") { /* Aquí puedes agregar la vista para CURP */ }
-        //composable("home") { HomeView(navController) }
+        composable("home/{user}") { backStackEntry ->
+            val user = backStackEntry.arguments?.getString("user")
+            HomeView(navController = navController, user = user)
+        }
         //composable("home") { HomeView(navController) }
         // Agrega más destinos según sea necesario
     }
