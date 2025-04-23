@@ -1,5 +1,6 @@
 package com.bocchi.mitarjeta.ui.designs
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -30,22 +31,29 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.R
+import com.bocchi.mitarjeta.database.AuthRepository
+import com.bocchi.mitarjeta.database.setTarjeta
 import com.bocchi.mitarjeta.navigation.NavItemList
 import com.bocchi.mitarjeta.navigation.NavItemList.navItemList
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.backgroud
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun VinculacionView(navController: NavController){ //navController: controlador de navegación entre pantallas.
+fun VinculacionView(navController: NavController) { //navController: controlador de navegación entre pantallas.
 
+    //variables para una tarjeta
     var UIDTarjeta by rememberSaveable { mutableStateOf("") }
+    var saldoTarjeta by rememberSaveable { mutableStateOf("") }
 
     //menu variables
-    var selectedRoute = remember { mutableStateOf("Vinculo") }
+    var selectedRoute = remember { mutableStateOf("vinculacion") }
 
     MiTarjetaTheme {
         Scaffold(bottomBar = {
@@ -67,107 +75,129 @@ fun VinculacionView(navController: NavController){ //navController: controlador 
                     .padding(top = 40.dp, bottom = 50.dp)
             ) {
 
+                botonBack(
+                    Modifier
+                        .padding(30.dp, 15.dp)
+                        .clickable {
+                            navController.popBackStack()
+                        })
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(bottom = 80.dp)
+                        .padding(bottom = 80.dp, start = 10.dp, end = 10.dp)
                         .align(Alignment.Center)
                         .verticalScroll(rememberScrollState())
                 ) {
-                    Row {
-                        botonBack(
-                            Modifier
-                                .padding(start = 30.dp, end = 50.dp, top = 15.dp)
-                                .clickable {
-                                    navController.popBackStack()
-                                })
-                        textTittle(
-                            Modifier
-                                .width(170.dp)
-                                .height(52.dp),
-                            "Recargas"
-                        )
-                    }
-
+                    textTittle(
+                        Modifier
+                            .width(250.dp)
+                            .height(52.dp)
+                            .align(Alignment.CenterHorizontally),
+                        "Vinculacion"
+                    )
                     textDescription(
                         Modifier
                             .width(329.dp)
                             .height(26.dp)
                             .align(Alignment.CenterHorizontally),
-                        "Proporciona los siguientes datos",
-                    )
-                    ReadOnlyTextField(uid)
-
-                    selectedMonto.value = seleccionMontoRecargas()
-
-                    seleccionarTarjetaRecarga(
-                        tarjetasList = tarjetas,
-                        tarjetaSeleccionada = tarjetaSeleccionada,
-                        onSeleccionarTarjeta = { tarjetaSeleccionada = it },
-                        onAgregarTarjeta = { agregarTarjeta.value = !agregarTarjeta.value }
+                        "Selecciona una forma para vincular tu tarjeta"
                     )
 
-                    if (agregarTarjeta.value) {
-                        agegarTarjetaRecarga(true) { nuevaTarjeta ->
-                            if (!tarjetasDebitoList.contains(nuevaTarjeta)) {
-                                tarjetasDebitoList.add(nuevaTarjeta)
-                                var numero = nuevaTarjeta.numeroTarjeta
-                                numero = numero.reversed()
-                                numero = "**${numero[3]}${numero[2]}${numero[1]}${numero[0]}"
-                                tarjetas.add(numero)
-                                tarjetaSeleccionada = numero
-                            }
-                            agregarTarjeta.value = false
+                    ReadOnlyTextField(UIDTarjeta)
+
+                    Row (modifier = Modifier
+                        .padding(40.dp, 20.dp)){
+
+                        //boton RFID
+                        Button(modifier = Modifier
+                            .padding(end = 10.dp)
+                            .width(135.dp)
+                            .height(54.dp)
+                            ,colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFFE9762B)
+                                ),
+                            shape = RoundedCornerShape(40.dp),
+                            onClick = {
+                                /*TODO
+                                ACTIVAR EL SENSEOR RFID Y LEER LA TARJETA
+                                 */
+                            }) {
+                            Text(
+                                text = "RFID",
+                                style = TextStyle(
+                                    fontSize = 20.sp,
+                                    fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                                    fontWeight = FontWeight(500),
+                                    color = Color(0xFF3058B6),
+                                )
+                            )
+                        }
+                        //boton QR
+                        Button(modifier = Modifier
+                            .padding(start = 10.dp)
+                            .width(135.dp)
+                            .height(54.dp)
+                            ,colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFFE9762B)
+                            ),
+                            shape = RoundedCornerShape(40.dp),
+                            onClick = {
+                                /*TODO
+                                    activar la camara QR y leer el codigo
+                                 */
+                                setTarjeta(AuthRepository.getCurrentUser().toString(),UIDTarjeta,saldoTarjeta)
+                                navController.navigate("home")
+                            }) {
+                            Text(
+                                text = "QR",
+                                style = TextStyle(
+                                    fontSize = 20.sp,
+                                    fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                                    fontWeight = FontWeight(500),
+                                    color = Color(0xFF3058B6),
+                                )
+                            )
                         }
                     }
 
-                    mostrarMontosRecarga(selectedMonto.value)
-
-                    //botton pagar
+                    //botton Vincular
                     Button(modifier = Modifier
                         .padding(vertical = 5.dp)
                         .width(301.dp)
                         .height(42.dp)
                         .align(Alignment.CenterHorizontally),
                         shape = RoundedCornerShape(20.dp),
-                        enabled = tarjetaSeleccionada != "------",
+                        enabled = UIDTarjeta != "",
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFFE9762B)
                         ),
                         onClick = {
                             /*TODO
-                                una tarjeta la cual va a pagar*/
+                                Agregar a la base de datos
+                                el uid de la tarjeta que se esta mandado
+                                */
+
                         }) {
                         Text(
-                            text = "Pagar",
+                            text = "Vincular",
                             style = TextStyle(
                                 fontSize = 20.sp,
                                 fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
                                 fontWeight = FontWeight(500),
                                 color = Color(0xFF3058B6),
-
-                                )
+                            )
                         )
                     }
-                }
-                //Impresion del Menu
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(106.dp)
-                        .align(Alignment.BottomCenter)
-                ) {
                 }
             }
         }
     }
+}
 
-   /*
-    menuView(
-        navItemList = navItemList,
-        selectedView = selectedRoute,
-        onItemSelected = { nuevoItem -> onItemSelected = nuevoItem
-    ) { }
-
-    */
+@Preview
+@Composable
+fun PreviewVinculacion() {
+    var navController = rememberNavController()
+    VinculacionView(navController)
 }
