@@ -11,16 +11,22 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -39,6 +45,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -72,7 +79,9 @@ fun RegisterView(navController: NavController) {
         modifier = androidx.compose.ui.Modifier.background(backgroud)
             .fillMaxSize()
             .padding(start = 1.dp, top = 1.dp, end = 1.dp, bottom = 1.dp)
+
     ){
+
 
 
         Column(modifier = Modifier
@@ -81,20 +90,36 @@ fun RegisterView(navController: NavController) {
             //.background(color = MaterialTheme.colorScheme.background),
             verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.Top),
             horizontalAlignment = Alignment.CenterHorizontally){
-            Text(
+
+            Box(
                 modifier = Modifier
-                    .width(200.dp)
-                    .height(52.dp),
-
-                text = "Registro",
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                style = TextStyle(
-                    fontSize = 40.sp,
-                    fontWeight = FontWeight(500),
-                    color = Color(0xFF3058B6),
-
+                    .fillMaxWidth()
+                    .height(52.dp)
+                    .padding(horizontal = 16.dp)
+            ) {
+                IconButton(
+                    onClick = { navController.navigate("login") },
+                    modifier = Modifier.align(Alignment.CenterStart)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Volver",
+                        tint = Color.White,
                     )
-            )
+                }
+
+                Text(
+                    text = "Registro",
+                    modifier = Modifier.align(Alignment.Center),
+                    textAlign = TextAlign.Center,
+                    style = TextStyle(
+                        fontSize = 40.sp,
+                        fontWeight = FontWeight(500),
+                        color = Color(0xFF3058B6)
+                    )
+                )
+            }
+
 
             Spacer(modifier = Modifier.height(30.dp))
 
