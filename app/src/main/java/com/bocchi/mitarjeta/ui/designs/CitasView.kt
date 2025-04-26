@@ -1,6 +1,10 @@
 package com.bocchi.mitarjeta.ui.designs
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.widget.CalendarView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,6 +21,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -25,6 +30,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -35,6 +41,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -46,17 +53,25 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.bocchi.mitarjeta.Cita
 import com.bocchi.mitarjeta.R
+import com.bocchi.mitarjeta.database.SQLiteHelperCitas
 import com.bocchi.mitarjeta.navigation.NavItemList
+import com.bocchi.mitarjeta.notification.Notification
 import com.bocchi.mitarjeta.ui.theme.Titulos
 import com.bocchi.mitarjeta.ui.theme.backgroud
 import kotlinx.coroutines.withContext
+import java.time.LocalDate
+import java.util.Calendar
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun CitasView(navController: NavController) {
+    var context =LocalContext.current
+    val sqLiteHelperCitas = SQLiteHelperCitas(context)
+
     var selectedRoute = remember { mutableStateOf("citas") }
 
     //datos del usuario
@@ -71,9 +86,7 @@ fun CitasView(navController: NavController) {
     var horarioSelected by remember { mutableStateOf(horarioList.firstOrNull() ?: "") }
 
     //var fecha
-    var date by rememberSaveable {
-        mutableStateOf("")
-    }
+    val date  = remember { mutableStateOf(LocalDate.now()) }
     Scaffold(bottomBar = {
         //Impresion del Menu
         menuView(
@@ -125,7 +138,7 @@ fun CitasView(navController: NavController) {
                 //CURP
                 OutlinedTextField(
                     modifier = Modifier
-                        .padding(20.dp)
+                        .padding(20.dp,20.dp,20.dp,10.dp)
                         .fillMaxWidth()
                         .height(45.dp),
                     value = curp,
@@ -227,12 +240,10 @@ fun CitasView(navController: NavController) {
                     }
                 }
 
-                AndroidView(
-                    factory = { context -> CalendarView(context) },
-                    update = { calendarView ->
-                        calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-                            date = "$dayOfMonth - ${month + 1} - $year"
-                        }
+                CustomCalendar(
+                    onDateSelected = { selectedDate ->
+                        date.value = selectedDate
+                        curp =  date.value.toString()
                     }
                 )
 
@@ -248,11 +259,8 @@ fun CitasView(navController: NavController) {
                         containerColor = Color(0xFFE9762B)
                     ),
                     onClick = {
-                        /*TODO
-                            Agregar al calendario personal y que
-                            envie el mensaje por whattsap con los datos proporcionados
-                            */
-
+                        sqLiteHelperCitas.insertCita(Cita(date.toString(), horarioSelected,lugarSelected,curp))
+                        agendarCita(Cita(date.toString(), horarioSelected,lugarSelected,curp),context)
                     }) {
                     Text(
                         text = "Agendar cita",
@@ -267,6 +275,34 @@ fun CitasView(navController: NavController) {
             }
         }
     }
+}
+
+@SuppressLint("ScheduleExactAlarm")
+fun agendarCita(cita: Cita, context: Context){
+    var fechaCita = cita.fecha.split("-")
+    var horaCita = cita.horario.split(":")
+    var calendar = Calendar.getInstance().apply {
+        set(Calendar.YEAR,fechaCita[0].toInt())
+        set(Calendar.MONTH, fechaCita[1].toInt())
+        set(Calendar.DAY_OF_MONTH,fechaCita[2].toInt())
+        set(Calendar.HOUR,horaCita[0].toInt())
+        set(Calendar.MINUTE,horaCita[1].toInt())
+    }
+
+        val intent = Intent(context, Notification::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            pendingIntent
+        )
 }
 
 fun getLugares():MutableList<String>{
