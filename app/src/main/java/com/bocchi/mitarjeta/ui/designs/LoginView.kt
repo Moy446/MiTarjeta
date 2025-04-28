@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
-package com.bocchi.mitarjeta.ui.designs
+package com.bocchi.mitarjeta.views
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -240,6 +240,12 @@ fun LoginView(navController: NavController) {
                 )
             }
             Spacer(modifier = Modifier.height(30.dp))
+            BtnQr(
+                modifier = Modifier
+                    .width(250.dp)
+                    .height(50.dp)
+
+            )
             Text(
                 text = "¿Olvidaste tu contraseña?",
 

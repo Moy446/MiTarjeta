@@ -1,13 +1,14 @@
 package com.bocchi.mitarjeta
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-//import com.bocchi.mitarjeta.views.HomeView
-import com.bocchi.mitarjeta.ui.designs.LoginView
-import com.bocchi.mitarjeta.ui.designs.RegisterView
-import com.bocchi.mitarjeta.views.HomeView
+import androidx.navigation.navArgument
+import com.bocchi.mitarjeta.ui.designs.RecargaView
+import com.bocchi.mitarjeta.ui.designs.TarjetasView
+import com.bocchi.mitarjeta.views.LoginView
 
 @Composable
 fun MyAppNavigation() {
@@ -23,12 +24,23 @@ fun MyAppNavigation() {
     ) {
         composable("login") { LoginView(navController) }
         composable("register") {  RegisterView(navController) }
+
+        composable("home/{curp}",
+            arguments = listOf(navArgument("curp") { type = NavType.StringType })){
+                backStackEntry->
+            val curp = backStackEntry.arguments?.getString("curp")
+            TarjetasView(navController,curp) }
+
+        composable("recargas/{uid}",
+            arguments = listOf(navArgument("uid") { type = NavType.StringType })){
+            backStackEntry->
+            val uid = backStackEntry.arguments?.getString("uid")
+            RecargaView(navController,uid) }
+
+        composable("register") {  RegisterView(navController)}
+
         composable("curp") { /* Aquí puedes agregar la vista para CURP */ }
-        composable("home/{user}") { backStackEntry ->
-            val user = backStackEntry.arguments?.getString("user")
-            HomeView(navController = navController, user = user)
-        }
-        //composable("home") { HomeView(navController) }
+
         // Agrega más destinos según sea necesario
     }
 }
