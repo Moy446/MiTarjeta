@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.bocchi.mitarjeta.ui.designs.CitasView
 import com.bocchi.mitarjeta.ui.designs.RecargaView
+import com.bocchi.mitarjeta.ui.designs.RegisterView
 import com.bocchi.mitarjeta.ui.designs.TarjetasView
 import com.bocchi.mitarjeta.ui.designs.VinculacionView
 import com.bocchi.mitarjeta.views.LoginView

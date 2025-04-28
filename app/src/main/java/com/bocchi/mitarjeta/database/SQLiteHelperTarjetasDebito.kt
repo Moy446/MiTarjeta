@@ -10,7 +10,7 @@ import com.bocchi.mitarjeta.TarjetasDebito
 
 class SQLiteHelperTarjetasDebito(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,1)  {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE tarjetasDebito(_id INTERGER PRIMARY KEY AUTOINCREMENT, " +
+        val query = "CREATE TABLE tarjetasDebito(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "numero VARCHAR(255)," +
                 "titular VARCHAR(255)," +
                 "expiracion VARCHAR(8)," +
@@ -19,7 +19,8 @@ class SQLiteHelperTarjetasDebito(context: Context): SQLiteOpenHelper(context,"mi
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
+        db?.execSQL("DROP TABLE IF EXISTS tarjetasDebito")
+        onCreate(db)
     }
 
     fun insertTarjetaDebito(tarjetasDebito: TarjetasDebito){

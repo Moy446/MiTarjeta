@@ -9,7 +9,7 @@ import com.bocchi.mitarjeta.Cita
 
 class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE citas(_id INTERGER PRIMARY KEY AUTOINCREMENT, " +
+        val query = "CREATE TABLE citas(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "fecha DATE," +
                 "hora TIME," +
                 "lugar VARCHAR(255)," +
@@ -18,7 +18,8 @@ class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.d
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
+        db?.execSQL("DROP TABLE IF EXISTS citas")
+        onCreate(db)
     }
 
     fun insertCita(cita: Cita){
@@ -33,7 +34,6 @@ class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.d
     }
 
 
-    @SuppressLint("Range")
     fun getCitas():MutableList<String>{
         var citas:MutableList<String> = ArrayList()
         val db = this.readableDatabase
@@ -41,7 +41,7 @@ class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.d
         val resultados  = db.rawQuery(query,null)
         if (resultados.moveToFirst()){
             do{
-                var fecha = resultados.getString(resultados.getColumnIndex("fecha"))
+                val fecha = resultados.getString(resultados.getColumnIndexOrThrow("fecha"))
 
                 citas.add(fecha)
             }while (resultados.moveToNext())
@@ -54,6 +54,7 @@ class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.d
     fun deleteCita(fecha:String){
         val db = this.writableDatabase
         db.delete("citas","fecha=?", arrayOf(fecha))
+        db.close()
     }
 
 }

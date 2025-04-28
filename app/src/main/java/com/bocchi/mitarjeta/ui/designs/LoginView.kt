@@ -52,7 +52,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.R
+import com.bocchi.mitarjeta.btnqr.BtnQr
 import com.bocchi.mitarjeta.database.CRUDUsers
+import com.bocchi.mitarjeta.ui.designs.validacionCurp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
