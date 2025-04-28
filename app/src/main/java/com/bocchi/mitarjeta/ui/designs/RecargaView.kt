@@ -1,6 +1,7 @@
 package com.bocchi.mitarjeta.ui.designs
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.util.Property
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -51,6 +52,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -66,6 +68,7 @@ import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.TarjetasDebito
 import com.bocchi.mitarjeta.botonescuadrados.BotonesCuadrados
 import com.bocchi.mitarjeta.botonescuadrados.Seleccionado
+import com.bocchi.mitarjeta.database.SQLiteHelperTarjetasDebito
 import com.bocchi.mitarjeta.navigation.NavItemList
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.SecondButton
@@ -79,12 +82,13 @@ import java.util.Collections.addAll
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun RecargaView(navController: NavController, uid: String?) {
+    var context = LocalContext.current
     var selectedMonto = remember { mutableStateOf(50) }
     var agregarTarjeta = remember { mutableStateOf(false) }
 
     // Lista reactiva de tarjetas
     val tarjetasDebitoList = remember { mutableStateListOf<TarjetasDebito>() }
-    val tarjetas = remember { mutableStateListOf<String>().apply { addAll(getNumerosTarjetas()) } }
+    val tarjetas = remember { mutableStateListOf<String>().apply { addAll(getNumerosTarjetas(context)) } }
     var tarjetaSeleccionada by remember { mutableStateOf(tarjetas.firstOrNull() ?: "") }
     //menu variables
     var selectedRoute = remember { mutableStateOf("home") }
@@ -325,6 +329,7 @@ fun seleccionarTarjetaRecarga(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) -> Unit) {
+    val sqLiteHelperTarjetasDebito = SQLiteHelperTarjetasDebito(LocalContext.current)
     var isExpand = remember { mutableStateOf(expand) }
     var numeroTarjeta by rememberSaveable { mutableStateOf("") }
     var titular by rememberSaveable { mutableStateOf("") }
@@ -535,9 +540,8 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                         .align(Alignment.CenterHorizontally),
                     enabled = validate,
                     onClick = {
-                        /*TODO
-                        *  falta agregar la tarjeta a base de datos*/
                         onTarjetaAgregada(TarjetasDebito(numeroTarjeta, titular, expiracion, cvv))
+                        sqLiteHelperTarjetasDebito.insertTarjetaDebito(TarjetasDebito(numeroTarjeta, titular, expiracion, cvv))
                         isExpand.value = false
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = SecondButton)
@@ -686,11 +690,13 @@ fun mostrarMontosRecarga(monto: Int) {
 fun PreviewRecargas() {
 }
 
-fun getNumerosTarjetas(): MutableList<String> {
-    /*TODO
-    *  FALTA LA EXTRACCION DE BASE DE DATOS PARA LAS TARJETAS*/
 
+fun getNumerosTarjetas(context: Context): MutableList<String> {
+    val sqLiteHelperTarjetasDebito = SQLiteHelperTarjetasDebito(context)
+    var tarjetas:MutableList<TarjetasDebito> = sqLiteHelperTarjetasDebito.getTarjetas()
     var numeroTarjetas: MutableList<String> = mutableListOf("------")
-
+    tarjetas.forEach { num->
+        numeroTarjetas.add(num.numeroTarjeta)
+    }
     return numeroTarjetas
 }
