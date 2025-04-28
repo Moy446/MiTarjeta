@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.bocchi.mitarjeta.views
+package com.bocchi.mitarjeta.ui.designs
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -9,16 +9,24 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -32,14 +40,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.bocchi.mitarjeta.database.AuthRepository
+import com.bocchi.mitarjeta.R
+import com.bocchi.mitarjeta.database.CRUDUsers
 import com.bocchi.mitarjeta.ui.theme.FirstButton
 import com.bocchi.mitarjeta.ui.theme.SecondButton
 import com.bocchi.mitarjeta.ui.theme.Titulos
@@ -55,9 +68,9 @@ fun RegisterViewPreview() {
 
 @Composable
 fun RegisterView(navController: NavController) {
-    var user by rememberSaveable   { mutableStateOf("") }
+    var email by rememberSaveable   { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
-    var curp: String by rememberSaveable { mutableStateOf("") }
+    var user: String by rememberSaveable { mutableStateOf("") }
     var curpChecked by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(false) }
     var message by remember { mutableStateOf("") }
@@ -66,7 +79,9 @@ fun RegisterView(navController: NavController) {
         modifier = androidx.compose.ui.Modifier.background(backgroud)
             .fillMaxSize()
             .padding(start = 1.dp, top = 1.dp, end = 1.dp, bottom = 1.dp)
+
     ){
+
 
 
         Column(modifier = Modifier
@@ -75,36 +90,62 @@ fun RegisterView(navController: NavController) {
             //.background(color = MaterialTheme.colorScheme.background),
             verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.Top),
             horizontalAlignment = Alignment.CenterHorizontally){
-            Text(
+
+            Box(
                 modifier = Modifier
-                    .width(200.dp)
-                    .height(52.dp),
-
-                text = "Registro",
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                style = TextStyle(
-                    fontSize = 40.sp,
-                    fontWeight = FontWeight(500),
-                    color = Color(0xFF3058B6),
-
+                    .fillMaxWidth()
+                    .height(52.dp)
+                    .padding(horizontal = 16.dp)
+            ) {
+                IconButton(
+                    onClick = { navController.navigate("login") },
+                    modifier = Modifier.align(Alignment.CenterStart)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Volver",
+                        tint = Color.White,
                     )
-            )
+                }
+
+                Text(
+                    text = "Registro",
+                    modifier = Modifier.align(Alignment.Center),
+                    textAlign = TextAlign.Center,
+                    style = TextStyle(
+                        fontSize = 40.sp,
+                        fontWeight = FontWeight(500),
+                        color = Color(0xFF3058B6)
+                    )
+                )
+            }
+
 
             Spacer(modifier = Modifier.height(30.dp))
 
             OutlinedTextField( //Campo de texto Curp
-                enabled = false,
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
-                value = curp,
-                onValueChange = {curp = it},
+                    .defaultMinSize(minHeight = 64.dp),
+                value = user,
+                onValueChange = {if (it.length <= 18){ // Limitar a 18 caracteres
+                    user = it.uppercase() // Convierte a mayúsculas
+                } },
                 label = {
                     Text(
                         text = "Curp",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false
+                ),
                 shape = RoundedCornerShape(20.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
@@ -118,15 +159,25 @@ fun RegisterView(navController: NavController) {
             OutlinedTextField( //Campo de texto Correo
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
-                value = user,
-                onValueChange = { user = it },
+                    .defaultMinSize(minHeight = 64.dp),
+                value = email,
+                onValueChange = { email = it },
                 label = {
                     Text(
                         text = "Correo Electrónico",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                    keyboardType = KeyboardType.Email
+                ),
                 shape = RoundedCornerShape(20.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
@@ -140,15 +191,25 @@ fun RegisterView(navController: NavController) {
             OutlinedTextField( //Campo de texto Contraseña
                 modifier = Modifier
                     .width(250.dp)
-                    .height(50.dp),
+                    .defaultMinSize(minHeight = 64.dp),
                 value = password,
                 onValueChange = { password = it },
                 label = {
                     Text(
                         text = "Contraseña",
-                        color = Titulos
+                        color = Titulos,
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                            fontWeight = FontWeight(500)
+                        )
                     )
                 },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                    keyboardType = KeyboardType.Password
+                ),
                 shape = RoundedCornerShape(20.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = Color.White,
@@ -204,16 +265,25 @@ fun RegisterView(navController: NavController) {
                     .width(250.dp)
                     .height(50.dp),
                 onClick = {
-                    if (user.isNotEmpty() && password.isNotEmpty()) {
-                        if(validacionCorreo(user) == true){
-                            loading = true
-                            AuthRepository.createAccount(user, password) { success, error ->
-                                loading = false
-                                if (success) {
-                                    navController.navigate("home")
-                                } else {
-                                    message = error ?: "Error desconocido"
+                    if (email.isNotEmpty() && password.isNotEmpty()) {
+                        if(validacionCorreo(email) == true){
+                            if(validacionCurp(user) == true){
+                                loading = true
+                                CRUDUsers.registerUserWithCurp(user,email, password) { success, error ->
+                                    loading = false
+                                    if (success) {
+                                        navController.navigate("home/${email}")
+                                    } else {
+                                        message = error ?: "Error desconocido"
+                                    }
                                 }
+                            }
+                            else{
+                                Toast.makeText(
+                                    navController.context,
+                                    "Curp no valido",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }else{
                             Toast.makeText(
@@ -257,7 +327,17 @@ fun validacionPassword(password: String): Boolean {
 }
 
 fun validacionCurp(curp: String): Boolean {
-    val curpRegex = Regex("^[A-Z]{4}\\d{6}[HM][A-Z]{2}\\d{2}\$")
+    val curpRegex = Regex(
+        pattern = "^[A-Z][AEIOU][A-Z]{2}" +         // 4 letras: iniciales
+                "\\d{2}" +                         // Año (2 dígitos)
+                "(0[1-9]|1[0-2])" +                // Mes válido
+                "(0[1-9]|[12][0-9]|3[01])" +       // Día válido
+                "[HM]" +                           // Sexo: H o M
+                "(AS|BC|BS|CC|CL|CM|CS|CH|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS)" + // Estados
+                "[B-DF-HJ-NP-TV-Z]{3}" +           // Consonantes internas (sin vocales ni Ñ)
+                "[0-9A-Z]" +                       // Homoclave
+                "\\d$"                             // Dígito verificador final
+    )
     return curpRegex.matches(curp)
 }
 fun subirCurp(curp: String): Boolean {

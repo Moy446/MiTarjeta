@@ -9,7 +9,6 @@ import androidx.navigation.navArgument
 import com.bocchi.mitarjeta.ui.designs.RecargaView
 import com.bocchi.mitarjeta.ui.designs.TarjetasView
 import com.bocchi.mitarjeta.views.LoginView
-import com.bocchi.mitarjeta.views.RegisterView
 
 @Composable
 fun MyAppNavigation() {
@@ -24,6 +23,7 @@ fun MyAppNavigation() {
         startDestination = "login"
     ) {
         composable("login") { LoginView(navController) }
+        composable("register") {  RegisterView(navController) }
 
         composable("home/{curp}",
             arguments = listOf(navArgument("curp") { type = NavType.StringType })){
