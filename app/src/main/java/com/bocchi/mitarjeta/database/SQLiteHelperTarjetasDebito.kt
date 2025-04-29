@@ -15,6 +15,7 @@ class SQLiteHelperTarjetasDebito(context: Context): SQLiteOpenHelper(context,"mi
                 "titularTarjeta VARCHAR(255)," +
                 "expiracionTarjeta VARCHAR(8)," +
                 "cvvTarjeta VARCHAR(5));"
+        
         db!!.execSQL(query)
     }
 
