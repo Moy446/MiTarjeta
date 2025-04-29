@@ -8,13 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.bocchi.mitarjeta.Cita
 import com.bocchi.mitarjeta.TarjetasDebito
 
-class SQLiteHelperTarjetasDebito(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,1)  {
+class SQLiteHelperTarjetasDebito(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,2)  {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE tarjetasDebito(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "numero VARCHAR(255)," +
-                "titular VARCHAR(255)," +
-                "expiracion VARCHAR(8)," +
-                "cvv VARCHAR(5))"
+        val query = "CREATE TABLE tarjetasDebito (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "numeroTarjeta VARCHAR(255)," +
+                "titularTarjeta VARCHAR(255)," +
+                "expiracionTarjeta VARCHAR(8)," +
+                "cvvTarjeta VARCHAR(5));"
         db!!.execSQL(query)
     }
 
@@ -34,7 +34,6 @@ class SQLiteHelperTarjetasDebito(context: Context): SQLiteOpenHelper(context,"mi
         db.close()
     }
 
-    @SuppressLint("Range")
     fun getTarjetas():MutableList<TarjetasDebito>{
         var tarjetas:MutableList<TarjetasDebito> = ArrayList()
         val db = this.readableDatabase
@@ -42,10 +41,10 @@ class SQLiteHelperTarjetasDebito(context: Context): SQLiteOpenHelper(context,"mi
         val resultados  = db.rawQuery(query,null)
         if (resultados.moveToFirst()){
             do{
-                var numero = resultados.getString(resultados.getColumnIndex("numeroTarjeta"))
-                var titular = resultados.getString(resultados.getColumnIndex("titularTarjeta"))
-                var expiracion = resultados.getString(resultados.getColumnIndex("expiracionTarjeta"))
-                var cvv = resultados.getString(resultados.getColumnIndex("cvvTarjeta"))
+                var numero = resultados.getString(resultados.getColumnIndexOrThrow("numeroTarjeta"))
+                var titular = resultados.getString(resultados.getColumnIndexOrThrow("titularTarjeta"))
+                var expiracion = resultados.getString(resultados.getColumnIndexOrThrow("expiracionTarjeta"))
+                var cvv = resultados.getString(resultados.getColumnIndexOrThrow("cvvTarjeta"))
                 tarjetas.add(TarjetasDebito(numero,expiracion,titular,cvv))
             }while (resultados.moveToNext())
         }

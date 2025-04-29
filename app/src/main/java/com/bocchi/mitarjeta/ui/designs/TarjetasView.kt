@@ -50,6 +50,7 @@ import com.bocchi.mitarjeta.navigation.NavItemList
 import com.bocchi.mitarjeta.tarjetas1.Tarjetas1
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.backgroud
+import com.bocchi.mitarjeta.views.getUser
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
@@ -62,15 +63,15 @@ import kotlinx.coroutines.tasks.await
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun TarjetasView (navController: NavController,curp: String?){
-
+fun TarjetasView (navController: NavController){
+    var curp = remember { mutableStateOf(getUser()) }
     var selectedRoute = remember { mutableStateOf("home") }
     //obtener las tarjetas almacenadas
     val tarjetasList = remember { mutableStateListOf<Tarjetas>() }
 
     LaunchedEffect(key1 = curp) {
         if (curp != null) {
-            getTarjetas(curp) { tarjetas ->
+            getTarjetas(curp.value) { tarjetas ->
                 tarjetasList.clear()
                 tarjetasList.addAll(tarjetas)
             }
@@ -99,7 +100,7 @@ fun TarjetasView (navController: NavController,curp: String?){
             Column ( modifier = Modifier.fillMaxSize().padding(bottom = 80.dp)){
                 textTittle(Modifier.width(145.dp).height(52.dp).align(Alignment.CenterHorizontally),"Tarjetas")
                 textDescription(Modifier.width(329.dp).height(26.dp).align(Alignment.CenterHorizontally),"Selecciona una tarjeta para recargar")
-                rcvTarjeta(tarjetasList,curp!!,navController,{ onUpdate->
+                rcvTarjeta(tarjetasList,curp.value,navController,{ onUpdate->
                     tarjetasList.clear()
                     tarjetasList.addAll(onUpdate)
                 })

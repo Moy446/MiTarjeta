@@ -272,7 +272,7 @@ fun RegisterView(navController: NavController) {
                                 CRUDUsers.registerUserWithCurp(user,email, password) { success, error ->
                                     loading = false
                                     if (success) {
-                                        navController.navigate("home/${email}")
+                                        navController.navigate("login")
                                     } else {
                                         message = error ?: "Error desconocido"
                                     }

@@ -5,7 +5,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 object CRUDUsers {
-    fun signInWithCurp(curp: String, password: String, callback: (Boolean, String?) -> Unit) {
+    fun signInWithCurp(curp: String, password: String, callback: (Boolean,String?, String?) -> Unit) {
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()
 
@@ -24,24 +24,24 @@ object CRUDUsers {
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     Log.d("Auth", "signInWithCurp:success")
-                                    callback(true, null)
+                                    callback(true, userDoc.toString(),null)
                                 } else {
                                     Log.w("Auth", "signInWithCurp:failure", task.exception)
-                                    callback(false, "Contraseña incorrecta o cuenta inválida")
+                                    callback(false, null,"Contraseña incorrecta o cuenta inválida",)
                                 }
                             }
                     } else {
-                        callback(false, "No se encontró email para este CURP")
+                        callback(false,null, "No se encontró email para este CURP")
                         Log.d("Auth", "No se encontró email para este CURP")
                     }
                 } else {
-                    callback(false, "CURP no registrado")
+                    callback(false, null,"CURP no registrado")
                     Log.d("Auth", "CURP no registrado")
                 }
             }
             .addOnFailureListener { e ->
                 Log.e("Firestore", "Error buscando CURP", e)
-                callback(false, "Error al buscar CURP: ${e.message}")
+                callback(false, null,"Error al buscar CURP: ${e.message}")
             }
     }
 

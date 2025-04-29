@@ -58,6 +58,8 @@ import com.bocchi.mitarjeta.ui.designs.validacionCurp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+public var currentUser:String = ""
+
 /* ESTO SIRVE PARA MOSTRAR EL PREVIEW*/
 @Preview(showBackground = true)
 @Composable
@@ -190,10 +192,11 @@ fun LoginView(navController: NavController) {
                     if(user.isNotEmpty() && password.isNotEmpty()) {
                         if(validacionCurp(user) == true){
                             loading = true
-                            CRUDUsers.signInWithCurp(user, password) { success, errorMessage ->
+                            CRUDUsers.signInWithCurp(user, password) { success,user, errorMessage ->
                                 loading = false
                                 if (success) {
-                                    navController.navigate("home/${user}")
+                                    setUser(user!!)
+                                    navController.navigate("home")
                                 } else {
                                     Toast.makeText(
                                         navController.context,
@@ -319,5 +322,13 @@ fun recuperarPassword(curp: String) {
                 Toast.LENGTH_SHORT
             ).show()
         }
+}
+
+fun setUser(user:String){
+    currentUser = user
+}
+
+fun getUser():String{
+    return currentUser
 }
 

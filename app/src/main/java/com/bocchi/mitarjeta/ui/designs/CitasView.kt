@@ -10,6 +10,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -105,13 +106,6 @@ fun CitasView(navController: NavController) {
             .background(backgroud)
             .padding(top = 40.dp, bottom = 50.dp)) {
 
-            botonBack(
-                Modifier
-                    .padding(30.dp, 15.dp)
-                    .clickable {
-                        navController.popBackStack()
-                    })
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -119,13 +113,21 @@ fun CitasView(navController: NavController) {
                     .align(Alignment.Center)
                     .verticalScroll(rememberScrollState())
             ) {
-                textTittle(
-                    Modifier
-                        .width(150.dp)
-                        .height(52.dp)
-                        .align(Alignment.CenterHorizontally),
-                    "Citas"
-                )
+                Row{
+                    botonBack(
+                        Modifier
+                            .padding(30.dp, 15.dp)
+                            .clickable {
+                                navController.popBackStack()
+                            })
+
+                    textTittle(
+                        Modifier
+                            .width(150.dp)
+                            .height(52.dp),
+                        "Citas"
+                    )
+                }
 
                 textDescription(
                     Modifier

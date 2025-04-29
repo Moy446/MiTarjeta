@@ -75,13 +75,6 @@ fun VinculacionView(navController: NavController) { //navController: controlador
                     .padding(top = 40.dp, bottom = 50.dp)
             ) {
 
-                botonBack(
-                    Modifier
-                        .padding(30.dp, 15.dp)
-                        .clickable {
-                            navController.popBackStack()
-                        })
-
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -89,13 +82,21 @@ fun VinculacionView(navController: NavController) { //navController: controlador
                         .align(Alignment.Center)
                         .verticalScroll(rememberScrollState())
                 ) {
-                    textTittle(
-                        Modifier
-                            .width(250.dp)
-                            .height(52.dp)
-                            .align(Alignment.CenterHorizontally),
-                        "Vinculacion"
-                    )
+                    Row{
+                        botonBack(
+                            Modifier
+                                .padding(30.dp, 15.dp)
+                                .clickable {
+                                    navController.popBackStack()
+                                })
+
+                        textTittle(
+                            Modifier
+                                .width(250.dp)
+                                .height(52.dp),
+                            "Vinculacion"
+                        )
+                    }
                     textDescription(
                         Modifier
                             .width(329.dp)

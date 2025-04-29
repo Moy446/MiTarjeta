@@ -156,14 +156,10 @@ fun RecargaView(navController: NavController, uid: String?) {
 
                     if (agregarTarjeta.value) {
                         agegarTarjetaRecarga(true) { nuevaTarjeta ->
-                            if (!tarjetasDebitoList.contains(nuevaTarjeta)) {
-                                tarjetasDebitoList.add(nuevaTarjeta)
-                                var numero = nuevaTarjeta.numeroTarjeta
-                                numero = numero.reversed()
-                                numero = "**${numero[3]}${numero[2]}${numero[1]}${numero[0]}"
+                            censurarTarjeta(tarjetasDebitoList ,nuevaTarjeta,{numero->
                                 tarjetas.add(numero)
                                 tarjetaSeleccionada = numero
-                            }
+                            })
                             agregarTarjeta.value = false
                         }
                     }
@@ -696,7 +692,19 @@ fun getNumerosTarjetas(context: Context): MutableList<String> {
     var tarjetas:MutableList<TarjetasDebito> = sqLiteHelperTarjetasDebito.getTarjetas()
     var numeroTarjetas: MutableList<String> = mutableListOf("------")
     tarjetas.forEach { num->
-        numeroTarjetas.add(num.numeroTarjeta)
+        censurarTarjeta(tarjetas,num,{ numero->
+            numeroTarjetas.add(numero)
+        })
     }
     return numeroTarjetas
+}
+
+fun censurarTarjeta(tarjetasDebitoList: MutableList<TarjetasDebito>, nuevaTarjeta:TarjetasDebito,toAddList:(String)-> Unit){
+    if (!tarjetasDebitoList.contains(nuevaTarjeta)) {
+        tarjetasDebitoList.add(nuevaTarjeta)
+        var numero = nuevaTarjeta.numeroTarjeta
+        numero = numero.reversed()
+        numero = "**${numero[3]}${numero[2]}${numero[1]}${numero[0]}"
+        toAddList(numero)
+    }
 }

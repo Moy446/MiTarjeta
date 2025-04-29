@@ -1,6 +1,5 @@
 package com.bocchi.mitarjeta.database
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -9,7 +8,7 @@ import com.bocchi.mitarjeta.Cita
 
 class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE citas(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        val query = "CREATE TABLE citas (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "fecha DATE," +
                 "hora TIME," +
                 "lugar VARCHAR(255)," +
