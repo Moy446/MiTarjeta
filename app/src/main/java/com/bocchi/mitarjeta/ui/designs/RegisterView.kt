@@ -265,39 +265,30 @@ fun RegisterView(navController: NavController) {
                     .width(250.dp)
                     .height(50.dp),
                 onClick = {
-                    if (email.isNotEmpty() && password.isNotEmpty()) {
+                  if (email.isNotEmpty() && password.isNotEmpty()) {
                         if(validacionCorreo(email) == true){
                             if(validacionCurp(user) == true){
-                                loading = true
-                                CRUDUsers.registerUserWithCurp(user,email, password) { success, error ->
-                                    loading = false
-                                    if (success) {
-                                        navController.navigate("login")
-                                    } else {
-                                        message = error ?: "Error desconocido"
-                                    }
+                                if (validacionPassword(password) == true) {
+                                    loading = true
+                                    CRUDUsers.registerUserWithCurp(user,email, password) { success, error ->
+                                        loading = false
+                                        if (success) {
+                                            navController.navigate("login")
+                                        } else {
+                                            message = error ?: "Error desconocido"
+                                        } }
+                                } else {
+                                    Toast.makeText(navController.context, "Contraseña no valida, debe ser de mayor loguitud", Toast.LENGTH_SHORT).show()
                                 }
                             }
                             else{
-                                Toast.makeText(
-                                    navController.context,
-                                    "Curp no valido",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                Toast.makeText(navController.context, "Curp no valido", Toast.LENGTH_SHORT).show()
                             }
                         }else{
-                            Toast.makeText(
-                                navController.context,
-                                "Correo no valido",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(navController.context, "Correo no valido", Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        Toast.makeText(
-                            navController.context,
-                            "Por favor, completa todos los campos",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(navController.context, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
                     }
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = FirstButton)
