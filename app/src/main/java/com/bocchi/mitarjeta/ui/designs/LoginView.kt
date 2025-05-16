@@ -54,6 +54,7 @@ import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.btnqr.BtnQr
 import com.bocchi.mitarjeta.database.CRUDUsers
+import com.bocchi.mitarjeta.ui.designs.botonQR
 import com.bocchi.mitarjeta.ui.designs.validacionCurp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -244,13 +245,8 @@ fun LoginView(navController: NavController) {
                     color = Titulos
                 )
             }
-            Spacer(modifier = Modifier.height(30.dp))
-            BtnQr(
-                modifier = Modifier
-                    .width(250.dp)
-                    .height(50.dp)
-
-            )
+            Spacer(modifier = Modifier.height(15.dp))
+            botonQR()
             Text(
                 text = "¿Olvidaste tu contraseña?",
 
