@@ -41,6 +41,7 @@ import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.database.setTarjeta
 import com.bocchi.mitarjeta.navigation.NavItemList
 import com.bocchi.mitarjeta.navigation.NavItemList.navItemList
+import com.bocchi.mitarjeta.navigation.handleNavigationWithLogout
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.backgroud
 
@@ -55,6 +56,9 @@ fun VinculacionView(navController: NavController) { //navController: controlador
     //menu variables
     var selectedRoute = remember { mutableStateOf("vinculacion") }
 
+    //variable para el dialog
+    var openDialogClose = remember { mutableStateOf (false) }
+
     MiTarjetaTheme {
         Scaffold(bottomBar = {
             //Impresion del Menu
@@ -62,8 +66,7 @@ fun VinculacionView(navController: NavController) { //navController: controlador
                 navItemList = NavItemList.navItemList,
                 selectedView = selectedRoute.value,
                 onItemSelected = { titulo ->
-                    selectedRoute.value = titulo
-                    navController.navigate(titulo)
+                    handleNavigationWithLogout(titulo,navController,selectedRoute,openDialogClose)
                 },
             )
         }
@@ -194,6 +197,25 @@ fun VinculacionView(navController: NavController) { //navController: controlador
             }
         }
     }
+    if (openDialogClose.value) {
+        AlertDialog(
+            icon = R.drawable.menu_close_img,
+            dialogTitle = "Cerrar sesión",
+            dialogText = "¿Está seguro que quiere cerrar sesión?",
+            dialogConfirm = "Cerrar sesión",
+            showDialog = openDialogClose.value,
+            onAccept = {
+                openDialogClose.value = false
+                com.bocchi.mitarjeta.database.AuthRepository.signOut()
+                navController.navigate("login") {
+                    popUpTo(0) { inclusive = true }
+                }
+            },
+            onDismiss = {
+                openDialogClose.value = false
+            }
+        )
+    }   
 }
 
 @Preview

@@ -70,6 +70,7 @@ import com.bocchi.mitarjeta.botonescuadrados.BotonesCuadrados
 import com.bocchi.mitarjeta.botonescuadrados.Seleccionado
 import com.bocchi.mitarjeta.database.SQLiteHelperTarjetasDebito
 import com.bocchi.mitarjeta.navigation.NavItemList
+import com.bocchi.mitarjeta.navigation.handleNavigationWithLogout
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.SecondButton
 import com.bocchi.mitarjeta.ui.theme.Titulos
@@ -93,6 +94,8 @@ fun RecargaView(navController: NavController, uid: String?) {
     //menu variables
     var selectedRoute = remember { mutableStateOf("home") }
 
+    //variable para el dialog
+    var openDialogClose = remember { mutableStateOf (false) }
 
     MiTarjetaTheme {
         Scaffold(bottomBar = {
@@ -101,8 +104,7 @@ fun RecargaView(navController: NavController, uid: String?) {
                 navItemList = NavItemList.navItemList,
                 selectedView = selectedRoute.value,
                 onItemSelected = { titulo ->
-                    selectedRoute.value = titulo
-                    navController.navigate(titulo)
+                    handleNavigationWithLogout(titulo,navController,selectedRoute,openDialogClose)
                 },
             )
         }
@@ -203,6 +205,25 @@ fun RecargaView(navController: NavController, uid: String?) {
                 }
             }
         }
+    }
+    if (openDialogClose.value) {
+        AlertDialog(
+            icon = R.drawable.menu_close_img,
+            dialogTitle = "Cerrar sesión",
+            dialogText = "¿Está seguro que quiere cerrar sesión?",
+            dialogConfirm = "Cerrar sesión",
+            showDialog = openDialogClose.value,
+            onAccept = {
+                openDialogClose.value = false
+                com.bocchi.mitarjeta.database.AuthRepository.signOut()
+                navController.navigate("login") {
+                    popUpTo(0) { inclusive = true }
+                }
+            },
+            onDismiss = {
+                openDialogClose.value = false
+            }
+        )
     }
 }
 

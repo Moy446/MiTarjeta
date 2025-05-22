@@ -25,9 +25,6 @@ fun MyAppNavigation() {
     // y pasar los parámetros necesarios a cada pantalla.
     // Puedes utilizar la biblioteca de navegación de Jetpack Compose para facilitar esto.
 
-    //variable para el dialog
-    var openDialog = remember { mutableStateOf (false) }
-    var closeSession = remember { mutableStateOf(false) }
     val navController = rememberNavController()
 
     NavHost(

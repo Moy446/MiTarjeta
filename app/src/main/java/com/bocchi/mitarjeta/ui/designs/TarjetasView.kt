@@ -41,12 +41,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.Tarjetas
 import com.bocchi.mitarjeta.btnqr.BtnQr
 import com.bocchi.mitarjeta.database.getTarjetas
 import com.bocchi.mitarjeta.menu.Menu
 import com.bocchi.mitarjeta.menu.Property1
 import com.bocchi.mitarjeta.navigation.NavItemList
+import com.bocchi.mitarjeta.navigation.handleNavigationWithLogout
 import com.bocchi.mitarjeta.tarjetas1.Tarjetas1
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.backgroud
@@ -69,6 +71,9 @@ fun TarjetasView (navController: NavController){
     //obtener las tarjetas almacenadas
     val tarjetasList = remember { mutableStateListOf<Tarjetas>() }
 
+    //variable para el dialog
+    var openDialogClose = remember { mutableStateOf (false) }
+
     LaunchedEffect(key1 = curp) {
         if (curp != null) {
             getTarjetas(curp.value) { tarjetas ->
@@ -83,8 +88,8 @@ fun TarjetasView (navController: NavController){
             menuView(
                 navItemList = NavItemList.navItemList,
                 selectedView = selectedRoute.value,
-                onItemSelected = { titulo -> selectedRoute.value = titulo
-                    navController.navigate(titulo)
+                onItemSelected = { titulo ->
+                    handleNavigationWithLogout(titulo,navController,selectedRoute,openDialogClose)
                 },
             )
     },floatingActionButton = {
@@ -105,6 +110,26 @@ fun TarjetasView (navController: NavController){
                 })
             }
         }
+    }
+
+    if (openDialogClose.value) {
+        AlertDialog(
+            icon = R.drawable.menu_close_img,
+            dialogTitle = "Cerrar sesión",
+            dialogText = "¿Está seguro que quiere cerrar sesión?",
+            dialogConfirm = "Cerrar sesión",
+            showDialog = openDialogClose.value,
+            onAccept = {
+                openDialogClose.value = false
+                com.bocchi.mitarjeta.database.AuthRepository.signOut()
+                navController.navigate("login") {
+                    popUpTo(0) { inclusive = true }
+                }
+            },
+            onDismiss = {
+                openDialogClose.value = false
+            }
+        )
     }
 }
 

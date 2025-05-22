@@ -113,7 +113,7 @@ fun CustomCalendar(
                                 if (day == selectedDay.value) backgroud else if (citas.contains(day.toString())) Color(0xFFE9762B) else Color.Transparent,
                                 shape = CircleShape
                             )
-                            .clickable(enabled = day != null && day>today) {
+                            .clickable(enabled = day != null && day>=today) {
                                 day?.let { onDateSelected(it)
                                 selectedDay.value = it}
                             },

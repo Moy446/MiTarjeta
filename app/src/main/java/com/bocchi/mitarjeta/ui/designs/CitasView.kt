@@ -58,6 +58,7 @@ import com.bocchi.mitarjeta.Cita
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.database.SQLiteHelperCitas
 import com.bocchi.mitarjeta.navigation.NavItemList
+import com.bocchi.mitarjeta.navigation.handleNavigationWithLogout
 import com.bocchi.mitarjeta.notification.Notification
 import com.bocchi.mitarjeta.ui.theme.Titulos
 import com.bocchi.mitarjeta.ui.theme.backgroud
@@ -88,14 +89,17 @@ fun CitasView(navController: NavController) {
 
     //var fecha
     val date  = remember { mutableStateOf(LocalDate.now()) }
+
+    //variable para el dialog
+    var openDialogClose = remember { mutableStateOf (false) }
+
     Scaffold(bottomBar = {
         //Impresion del Menu
         menuView(
             navItemList = NavItemList.navItemList,
             selectedView = selectedRoute.value,
             onItemSelected = { titulo ->
-                selectedRoute.value = titulo
-                navController.navigate(titulo)
+                handleNavigationWithLogout(titulo,navController,selectedRoute,openDialogClose)
             },
         )
     }) {
@@ -245,7 +249,6 @@ fun CitasView(navController: NavController) {
                 CustomCalendar(
                     onDateSelected = { selectedDate ->
                         date.value = selectedDate
-                        curp =  date.value.toString()
                     }
                 )
 
@@ -276,6 +279,25 @@ fun CitasView(navController: NavController) {
                 }
             }
         }
+    }
+    if (openDialogClose.value) {
+        AlertDialog(
+            icon = R.drawable.menu_close_img,
+            dialogTitle = "Cerrar sesión",
+            dialogText = "¿Está seguro que quiere cerrar sesión?",
+            dialogConfirm = "Cerrar sesión",
+            showDialog = openDialogClose.value,
+            onAccept = {
+                openDialogClose.value = false
+                com.bocchi.mitarjeta.database.AuthRepository.signOut()
+                navController.navigate("login") {
+                    popUpTo(0) { inclusive = true }
+                }
+            },
+            onDismiss = {
+                openDialogClose.value = false
+            }
+        )
     }
 }
 
