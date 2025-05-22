@@ -83,8 +83,7 @@ fun TarjetasView (navController: NavController){
             menuView(
                 navItemList = NavItemList.navItemList,
                 selectedView = selectedRoute.value,
-                onItemSelected = {
-                        titulo -> selectedRoute.value = titulo
+                onItemSelected = { titulo -> selectedRoute.value = titulo
                     navController.navigate(titulo)
                 },
             )

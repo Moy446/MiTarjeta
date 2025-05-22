@@ -1,17 +1,22 @@
 package com.bocchi.mitarjeta
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.bocchi.mitarjeta.ui.designs.AlertDialog
 import com.bocchi.mitarjeta.ui.designs.CitasView
 import com.bocchi.mitarjeta.ui.designs.RecargaView
 import com.bocchi.mitarjeta.ui.designs.RegisterView
 import com.bocchi.mitarjeta.ui.designs.TarjetasView
 import com.bocchi.mitarjeta.ui.designs.VinculacionView
 import com.bocchi.mitarjeta.views.LoginView
+import com.bocchi.mitarjeta.database.AuthRepository.signOut
 
 @Composable
 fun MyAppNavigation() {
@@ -19,6 +24,10 @@ fun MyAppNavigation() {
     // Por ejemplo, puedes usar un NavHost para gestionar la navegación entre diferentes pantallas
     // y pasar los parámetros necesarios a cada pantalla.
     // Puedes utilizar la biblioteca de navegación de Jetpack Compose para facilitar esto.
+
+    //variable para el dialog
+    var openDialog = remember { mutableStateOf (false) }
+    var closeSession = remember { mutableStateOf(false) }
     val navController = rememberNavController()
 
     NavHost(
@@ -33,6 +42,7 @@ fun MyAppNavigation() {
                 backStackEntry->
             val curp = backStackEntry.arguments?.getString("curp")
             TarjetasView(navController,curp) }*/
+
         composable("home") { TarjetasView(navController) }
 
         composable("recargas/{uid}",

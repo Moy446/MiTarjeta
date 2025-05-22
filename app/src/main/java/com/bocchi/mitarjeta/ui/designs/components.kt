@@ -191,9 +191,11 @@ fun tarjetaView(uid: String, saldo: String,curp:String,navController: NavControl
         }
     }
     if(openAlertDialog.value){
-        AlertDialogDesvincular(
+        AlertDialog(
+            icon = R.drawable.ic_desvincular,
             dialogTitle = "Desvincular",
             dialogText = "¿Seguro que quieres desvincular tu tarjeta de tu cuenta?",
+            dialogConfirm = "Desvincular",
             showDialog = openAlertDialog.value,
             onAccept = {
                 deleteTarjeta(curp,uid,{update->
@@ -257,13 +259,14 @@ fun ReadOnlyTextField(uid: String?) {
 }
 
 
+
 @Composable
-fun AlertDialogDesvincular(dialogTitle: String,dialogText: String, showDialog: Boolean,onAccept:()->Unit, onDismiss: () -> Unit){
+fun AlertDialog(icon: Int, dialogTitle: String, dialogText: String, dialogConfirm:String, showDialog: Boolean, onAccept: ()->Unit, onDismiss: () -> Unit){
 
     if(showDialog){
         AlertDialog(
             icon = {
-                Icon(imageVector = ImageVector.vectorResource(R.drawable.ic_desvincular), contentDescription = "Desvincular")
+                Icon(imageVector = ImageVector.vectorResource(icon), contentDescription = "Icono alert Dialog")
             },
             title = {
                 Text(text = dialogTitle)
@@ -280,7 +283,7 @@ fun AlertDialogDesvincular(dialogTitle: String,dialogText: String, showDialog: B
                         onAccept()
                     }
                 ) {
-                    Text("Desvincular",
+                    Text(dialogConfirm,
                         style = TextStyle(
                             color =  Color(0xFFFF4848)))
                 }
