@@ -17,6 +17,7 @@ import com.bocchi.mitarjeta.ui.designs.TarjetasView
 import com.bocchi.mitarjeta.ui.designs.VinculacionView
 import com.bocchi.mitarjeta.views.LoginView
 import com.bocchi.mitarjeta.database.AuthRepository.signOut
+import com.bocchi.mitarjeta.ui.designs.UnaTarjetaView
 
 @Composable
 fun MyAppNavigation() {
@@ -53,6 +54,12 @@ fun MyAppNavigation() {
         composable("vinculacion") {  VinculacionView(navController) }
 
         composable("citas") {  CitasView(navController) }
+
+        composable("tarjeta/{uid}",
+            arguments = listOf(navArgument("uid") { type = NavType.StringType })){
+                backStackEntry->
+            val uid = backStackEntry.arguments?.getString("uid")
+            UnaTarjetaView(navController,uid!!) }
 
         composable("curp") { /* Aquí puedes agregar la vista para CURP */ }
 

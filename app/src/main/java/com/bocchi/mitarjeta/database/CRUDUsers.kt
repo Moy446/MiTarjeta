@@ -16,6 +16,7 @@ object CRUDUsers {
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
                     val userDoc = documents.first()
+                    val user = documents.first().id
                     val email = userDoc.getString("email")
 
                     if (email != null) {
@@ -24,7 +25,7 @@ object CRUDUsers {
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     Log.d("Auth", "signInWithCurp:success")
-                                    callback(true, userDoc.toString(),null)
+                                    callback(true, user,null)
                                 } else {
                                     Log.w("Auth", "signInWithCurp:failure", task.exception)
                                     callback(false, null,"Contraseña incorrecta o cuenta inválida",)

@@ -93,7 +93,7 @@ fun TarjetasView (navController: NavController){
                 },
             )
     },floatingActionButton = {
-        botonQR()
+        botonQR(navController)
     }) {
         Box(modifier = Modifier.fillMaxSize().background(backgroud).padding(top = 40.dp, bottom = 40.dp)){
             botonBack(Modifier

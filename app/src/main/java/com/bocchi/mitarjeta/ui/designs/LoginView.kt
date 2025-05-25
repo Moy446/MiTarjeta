@@ -246,7 +246,7 @@ fun LoginView(navController: NavController) {
                 )
             }
             Spacer(modifier = Modifier.height(15.dp))
-            botonQR()
+            botonQR(navController)
             Text(
                 text = "¿Olvidaste tu contraseña?",
 

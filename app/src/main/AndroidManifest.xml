@@ -6,7 +6,15 @@
 
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
+        android:hardwareAccelerated="true"
+        android:name="com.chaquo.python.android.PyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,6 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiTarjeta"
         tools:targetApi="31">
+        
+        <activity android:name=".CaptureActivityPortrait"
+            android:stateNotNeeded="false"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
