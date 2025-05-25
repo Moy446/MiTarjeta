@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.bocchi.mitarjeta.Cita
 
-class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,2) {
+class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,3) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query = "CREATE TABLE citas (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "fecha DATE," +
