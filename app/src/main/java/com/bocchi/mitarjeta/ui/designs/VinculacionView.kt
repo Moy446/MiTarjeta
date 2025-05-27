@@ -1,6 +1,7 @@
 package com.bocchi.mitarjeta.ui.designs
 
 import android.annotation.SuppressLint
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -36,7 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.bocchi.mitarjeta.CaptureActivityPortrait
 import com.bocchi.mitarjeta.R
+import com.bocchi.mitarjeta.Tarjetas
 import com.bocchi.mitarjeta.database.AuthRepository
 import com.bocchi.mitarjeta.database.setTarjeta
 import com.bocchi.mitarjeta.navigation.NavItemList
@@ -44,6 +47,10 @@ import com.bocchi.mitarjeta.navigation.NavItemList.navItemList
 import com.bocchi.mitarjeta.navigation.handleNavigationWithLogout
 import com.bocchi.mitarjeta.ui.theme.MiTarjetaTheme
 import com.bocchi.mitarjeta.ui.theme.backgroud
+import com.bocchi.mitarjeta.views.getUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -51,13 +58,31 @@ fun VinculacionView(navController: NavController) { //navController: controlador
 
     //variables para una tarjeta
     var UIDTarjeta by rememberSaveable { mutableStateOf("") }
-    var saldoTarjeta by rememberSaveable { mutableStateOf("") }
+    val tarjetaState = remember { mutableStateOf<Tarjetas?>(null) }
 
     //menu variables
     var selectedRoute = remember { mutableStateOf("vinculacion") }
 
     //variable para el dialog
     var openDialogClose = remember { mutableStateOf (false) }
+
+    //lectura QR
+    val scanLauncher = rememberLauncherForActivityResult(
+        contract = ScanContract(),
+        onResult = { result ->
+            val aux = result.contents ?: "0.00" // respuesta del escaner
+            if (aux.isNotEmpty()){
+                UIDTarjeta = aux
+                val db = FirebaseFirestore.getInstance()
+                db.collection("Tarjetas").document(aux).get().addOnSuccessListener { result ->
+                    val saldo = result.data?.get("saldo")?.toString() ?: "0.00"
+                    setTarjeta(getUser(),UIDTarjeta,saldo)
+                }
+                navController.navigate("home")
+            }
+        }
+    )
+
 
     MiTarjetaTheme {
         Scaffold(bottomBar = {
@@ -147,11 +172,11 @@ fun VinculacionView(navController: NavController) { //navController: controlador
                             ),
                             shape = RoundedCornerShape(40.dp),
                             onClick = {
-                                /*TODO
-                                    activar la camara QR y leer el codigo
-                                 */
-                                setTarjeta(AuthRepository.getCurrentUser().toString(),UIDTarjeta,saldoTarjeta)
-                                navController.navigate("home")
+                                val scanOption = ScanOptions()
+                                scanOption.setBeepEnabled(true)
+                                scanOption.setCaptureActivity(CaptureActivityPortrait::class.java)
+                                scanOption.setOrientationLocked(false)
+                                scanLauncher.launch(scanOption)
                             }) {
                             Text(
                                 text = "QR",

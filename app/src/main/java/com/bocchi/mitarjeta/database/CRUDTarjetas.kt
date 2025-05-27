@@ -52,7 +52,6 @@ fun updateTarjeta(curp: String,uid: String,saldo: String,onResult: (List<Tarjeta
 
 fun setTarjeta(curp: String,uid: String,saldo:String){
     val db = FirebaseFirestore.getInstance()
-    db.collection("Usuarios").document(curp).collection("tarjetas").document(uid).set({
-        hashMapOf("saldo" to saldo.toString())
-    })
+    val tarjeta = hashMapOf("saldo" to saldo)
+    db.collection("Usuarios").document(curp).collection("tarjetas").document(uid).set(tarjeta)
 }

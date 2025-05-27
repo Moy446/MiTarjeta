@@ -1,6 +1,7 @@
 package com.bocchi.mitarjeta.ui.designs
 
 import android.graphics.drawable.Icon
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.appcompat.app.AlertDialog
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -62,6 +63,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.bocchi.mitarjeta.CaptureActivityPortrait
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.Tarjetas
 import com.bocchi.mitarjeta.database.deleteTarjeta
@@ -69,6 +71,8 @@ import com.bocchi.mitarjeta.navigation.NavItem
 import com.bocchi.mitarjeta.ui.theme.Titulos
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.relay.compose.BoxScopeInstanceImpl.align
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 
 @Composable
 fun textTittle(modifier: Modifier, text: String) {
@@ -209,6 +213,62 @@ fun tarjetaView(uid: String, saldo: String,curp:String,navController: NavControl
 }
 
 @Composable
+fun tarjetaView(uid:String, saldo: String){
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(30.dp, 10.dp)
+            .height(136.dp)
+            .background(color = Color(0xFF39C3CB), shape = RoundedCornerShape(size = 20.dp))
+    ) {
+
+        //UID de la tarjeta
+        Text(
+            text = uid,
+            modifier = Modifier
+                .graphicsLayer { rotationZ = -90f }
+                .align(Alignment.CenterStart),
+            style = TextStyle(
+                fontSize = 10.sp,
+                fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
+                color = Color(0xFF262626)
+            )
+        )
+
+        Row(
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .padding(start = 55.dp)
+        ) {
+
+            //Imagen de la tarjeta
+            Image(
+                modifier = Modifier
+                    .padding(end = 20.dp)
+                    .width(132.dp)
+                    .height(84.dp),
+                painter = painterResource(id = R.drawable.tarjetas1_imagen_2025_03_10_195357111),
+                contentDescription = "image description",
+                contentScale = ContentScale.FillBounds
+            )
+
+            Column {
+                textDescription(
+                    Modifier
+                        .width(59.dp)
+                        .height(33.dp), "Saldo"
+                )
+                textDescription(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(26.dp), "$ $saldo"
+                )
+            }
+        }
+    }
+}
+
+@Composable
 fun rcvTarjeta(tarjetas: List<Tarjetas>,curp:String,navController: NavController,onUpdate:(List<Tarjetas>)->Unit) {
     LazyColumn {
         items(tarjetas) { tarjeta ->
@@ -241,21 +301,26 @@ fun menuView(navItemList: List<NavItem>, selectedView:String, onItemSelected:(St
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReadOnlyTextField(uid: String?) {
-    var text by remember { mutableStateOf(uid) }
-    text?.let {
-        TextField(
-            value = it,
-            onValueChange = { },
-            enabled = false,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp, 10.dp),
-            shape = RoundedCornerShape(20.dp)
-
+    TextField(
+        value = uid ?: "",
+        onValueChange = {},
+        readOnly = true,
+        enabled = false,
+        label = { Text("ID de tarjeta") },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp, 10.dp),
+        shape = RoundedCornerShape(20.dp),
+        colors = TextFieldDefaults.textFieldColors(
+            disabledTextColor = Color.Black,
+            disabledLabelColor = Color.Gray,
+            disabledIndicatorColor = Color.Transparent,
+            containerColor = Color(0xFFF2F2F2)
         )
-    }
+    )
 }
 
 
@@ -303,7 +368,17 @@ fun AlertDialog(icon: Int, dialogTitle: String, dialogText: String, dialogConfir
 }
 
 @Composable
-fun botonQR(){
+fun botonQR(navController: NavController){
+    //variables para inicio del escaner
+    val scanLauncher = rememberLauncherForActivityResult(
+        contract = ScanContract(),
+        onResult = { result ->
+            val aux = result.contents ?: "" // respuesta del escaner
+            if (aux.isNotEmpty()){
+                navController.navigate("tarjeta/${aux}")
+            }
+        })
+
     Box(
         modifier = Modifier
             .size(60.dp)
@@ -311,8 +386,11 @@ fun botonQR(){
             .align(Alignment.Center)
             .background(color = Color(0xFFE9762B))
             .clickable {
-                /*TODO
-                *  que abra la camara*/
+                val scanOption = ScanOptions()
+                scanOption.setBeepEnabled(true)
+                scanOption.setCaptureActivity(CaptureActivityPortrait::class.java)
+                scanOption.setOrientationLocked(false)
+                scanLauncher.launch(scanOption)
             },
     ) {
         Image(

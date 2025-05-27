@@ -6,11 +6,11 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.bocchi.mitarjeta.Cita
 
-class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,2) {
+class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.db",null,4) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query = "CREATE TABLE citas (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "fecha DATE," +
-                "hora TIME," +
+                "fecha TEXT," +
+                "hora TEXT," +
                 "lugar VARCHAR(255)," +
                 "curp VARCHAR(16))"
         db!!.execSQL(query)
@@ -24,7 +24,7 @@ class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.d
     fun insertCita(cita: Cita){
         val db = this.writableDatabase
         var valores = ContentValues()
-        valores.put("fecha",cita.fecha.toString())
+        valores.put("fecha",cita.fecha)
         valores.put("hora",cita.horario)
         valores.put("lugar",cita.lugar)
         valores.put("curp",cita.curp)
@@ -41,7 +41,6 @@ class SQLiteHelperCitas(context: Context): SQLiteOpenHelper(context,"miTarjeta.d
         if (resultados.moveToFirst()){
             do{
                 val fecha = resultados.getString(resultados.getColumnIndexOrThrow("fecha"))
-
                 citas.add(fecha)
             }while (resultados.moveToNext())
         }

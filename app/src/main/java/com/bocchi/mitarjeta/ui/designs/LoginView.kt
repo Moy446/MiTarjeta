@@ -162,7 +162,7 @@ fun LoginView(navController: NavController) {
             Spacer(modifier = Modifier.height(15.dp)) //Espacio entre los campos de texto
 
 
-            Row ( //Checkbox de recordar usuario
+            /*Row ( //Checkbox de recordar usuario
                 modifier = Modifier
                     .width(190.dp)
                     .height(50.dp),
@@ -183,7 +183,7 @@ fun LoginView(navController: NavController) {
                 )
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(15.dp))*/
 
             Button( //Boton Ingresar
                 modifier = Modifier
@@ -246,7 +246,7 @@ fun LoginView(navController: NavController) {
                 )
             }
             Spacer(modifier = Modifier.height(15.dp))
-            botonQR()
+            botonQR(navController)
             Text(
                 text = "¿Olvidaste tu contraseña?",
 

@@ -3,7 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id ("com.google.relay") version ("0.3.12")
-    id("com.google.gms.google-services")}
+    id("com.google.gms.google-services")
+    id("com.chaquo.python")
+}
 
 android {
     namespace = "com.bocchi.mitarjeta"
@@ -17,6 +19,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        //python libraries
+        ndk {
+            // On Apple silicon, you can omit x86_64.
+            abiFilters += listOf("arm64-v8a", "x86_64")
+        }
     }
 
     buildTypes {
@@ -68,4 +76,10 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.auth.ktx)
+
+    //zxing escaner
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+
+    //permisos
+    implementation ("com.google.accompanist:accompanist-permissions:0.37.3")
 }

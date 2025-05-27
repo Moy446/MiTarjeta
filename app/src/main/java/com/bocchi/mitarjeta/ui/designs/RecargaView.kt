@@ -64,6 +64,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.bocchi.mitarjeta.DateTransform
 import com.bocchi.mitarjeta.R
 import com.bocchi.mitarjeta.TarjetasDebito
 import com.bocchi.mitarjeta.botonescuadrados.BotonesCuadrados
@@ -387,7 +388,10 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                             fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
                             fontWeight = FontWeight(500),
                         ),
-                        onValueChange = { numeroTarjeta = it },
+                        onValueChange = {
+                            if(it.length <=16){
+                                numeroTarjeta = it
+                            } },
                         placeholder = {
                             Text(
                                 modifier = Modifier
@@ -447,7 +451,10 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                         fontWeight = FontWeight(500),
                     ),
                     value = titular,
-                    onValueChange = { titular = it },
+                    onValueChange = {
+                        if(it.length <50)
+                            titular = it
+                                    },
                     placeholder = {
                         Text(
                             modifier = Modifier
@@ -483,7 +490,12 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                             fontWeight = FontWeight(500),
                         ),
                         value = expiracion,
-                        onValueChange = { expiracion = it },
+                        onValueChange = {
+                            if (it.length < 5) {
+                                expiracion = it
+                            }
+                        },
+                        visualTransformation = DateTransform(),
                         placeholder = {
                             Text(
                                 modifier = Modifier
@@ -522,7 +534,10 @@ fun agegarTarjetaRecarga(expand: Boolean, onTarjetaAgregada: (TarjetasDebito) ->
                             fontWeight = FontWeight(500),
                         ),
                         value = cvv,
-                        onValueChange = { cvv = it },
+                        onValueChange = {
+                            if(it.length<5)
+                                cvv = it
+                        },
                         placeholder = {
                             Text(
                                 modifier = Modifier
