@@ -11,6 +11,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -148,12 +149,14 @@ fun CitasView(navController: NavController) {
                         .fillMaxWidth()
                         .height(45.dp),
                     value = curp,
+                    onValueChange = {if (it.length <= 18){ // Limitar a 18 caracteres
+                        curp = it.uppercase() // Convierte a mayúsculas
+                    } },
                     textStyle = TextStyle(
-                        fontSize = 12.sp,
+                        fontSize = 11.sp,
                         fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
                         fontWeight = FontWeight(500),
                     ),
-                    onValueChange = { curp = it },
                     placeholder = {
                         Text(
                             modifier = Modifier
@@ -162,7 +165,7 @@ fun CitasView(navController: NavController) {
                             text = "CURP",
                             color = Titulos,
                             style = TextStyle(
-                                fontSize = 12.sp,
+                                fontSize = 11.sp,
                                 fontFamily = FontFamily(Font(R.font.relay_niramit_medium)),
                             ),
                         )
@@ -176,7 +179,6 @@ fun CitasView(navController: NavController) {
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(
                         autoCorrect = false,
-                        keyboardType = KeyboardType.Number,
                     )
                 )
 
@@ -199,7 +201,7 @@ fun CitasView(navController: NavController) {
                     )
                     ExposedDropdownMenu(
                         expanded = isExpandedLugar.value,
-                        onDismissRequest = { isExpandedHora.value = false }) {
+                        onDismissRequest = { isExpandedLugar.value = false }) {
                         lugaresList.forEach { lugar ->
                             DropdownMenuItem(
                                 text = { Text(lugar) },
@@ -264,8 +266,8 @@ fun CitasView(navController: NavController) {
                         containerColor = Color(0xFFE9762B)
                     ),
                     onClick = {
-                        sqLiteHelperCitas.insertCita(Cita(date.toString(), horarioSelected,lugarSelected,curp))
-                        agendarCita(Cita(date.toString(), horarioSelected,lugarSelected,curp),context)
+                        sqLiteHelperCitas.insertCita(Cita(date.value.toString(), horarioSelected,lugarSelected,curp))
+                        agendarCita(Cita(date.value.toString(), horarioSelected,lugarSelected,curp),context)
                     }) {
                     Text(
                         text = "Agendar cita",
@@ -307,9 +309,9 @@ fun agendarCita(cita: Cita, context: Context){
     var horaCita = cita.horario.split(":")
     var calendar = Calendar.getInstance().apply {
         set(Calendar.YEAR,fechaCita[0].toInt())
-        set(Calendar.MONTH, fechaCita[1].toInt())
+        set(Calendar.MONTH, fechaCita[1].toInt()-1)
         set(Calendar.DAY_OF_MONTH,fechaCita[2].toInt())
-        set(Calendar.HOUR,horaCita[0].toInt())
+        set(Calendar.HOUR_OF_DAY,horaCita[0].toInt())
         set(Calendar.MINUTE,horaCita[1].toInt())
     }
 

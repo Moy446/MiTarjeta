@@ -301,21 +301,26 @@ fun menuView(navItemList: List<NavItem>, selectedView:String, onItemSelected:(St
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReadOnlyTextField(uid: String?) {
-    var text by remember { mutableStateOf(uid) }
-    text?.let {
-        TextField(
-            value = it,
-            onValueChange = { },
-            enabled = false,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp, 10.dp),
-            shape = RoundedCornerShape(20.dp)
-
+    TextField(
+        value = uid ?: "",
+        onValueChange = {},
+        readOnly = true,
+        enabled = false,
+        label = { Text("ID de tarjeta") },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp, 10.dp),
+        shape = RoundedCornerShape(20.dp),
+        colors = TextFieldDefaults.textFieldColors(
+            disabledTextColor = Color.Black,
+            disabledLabelColor = Color.Gray,
+            disabledIndicatorColor = Color.Transparent,
+            containerColor = Color(0xFFF2F2F2)
         )
-    }
+    )
 }
 
 

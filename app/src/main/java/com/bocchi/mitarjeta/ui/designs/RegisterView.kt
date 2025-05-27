@@ -221,7 +221,7 @@ fun RegisterView(navController: NavController) {
 
             Spacer(modifier = Modifier.height(30.dp))
 
-            Button( //Boton Validacion
+            /*Button( //Boton Validacion
                 modifier = Modifier
                     .width(250.dp)
                     .height(50.dp),
@@ -258,7 +258,7 @@ fun RegisterView(navController: NavController) {
 
             }
 
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(30.dp))*/
 
             Button( //Boton Registrarse
                 modifier = Modifier

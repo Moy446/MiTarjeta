@@ -49,8 +49,6 @@ fun MyAppNavigation() {
             val uid = backStackEntry.arguments?.getString("uid")
             RecargaView(navController,uid) }
 
-        composable("register") {  RegisterView(navController)}
-
         composable("vinculacion") {  VinculacionView(navController) }
 
         composable("citas") {  CitasView(navController) }
