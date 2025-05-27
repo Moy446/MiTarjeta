@@ -2,12 +2,15 @@ package com.bocchi.mitarjeta.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.bocchi.mitarjeta.R
+import com.bocchi.mitarjeta.ui.designs.getHorario
+import com.bocchi.mitarjeta.ui.designs.getLugares
 
 class Notification:BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -15,6 +18,7 @@ class Notification:BroadcastReceiver() {
 
         val channelId = "canal_id"
         val channelName = "Recordatorio"
+        val mensaje = "Tienes tu cita en\nHora: ${getHorario()}\nLugar: ${getLugares()}"
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
@@ -25,6 +29,7 @@ class Notification:BroadcastReceiver() {
             .setSmallIcon(R.drawable.mi_tarjeta_logo)
             .setContentTitle("¡Recordatorio!")
             .setContentText("Tenés una cita pendiente.")
+            .setContentText(mensaje)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
 
